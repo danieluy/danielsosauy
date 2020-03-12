@@ -8,9 +8,11 @@ import Home from './Home/Home';
 function App(props) {
 	// Necessary to update app theme color
 	const classes = useStyles();
-
+	const baseName = location.hostname === 'localhost'
+		? ''
+		: 'www.danielsosa.uy-v3';
 	return (
-		<Router>
+		<Router basename={baseName}>
 			<Route exact path="/" component={Home} />
 		</Router>
 	);

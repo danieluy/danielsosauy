@@ -7,6 +7,7 @@ export default makeStyles(theme => {
       ...card,
       backgroundColor: '#FFFFFF',
       overflow: 'hidden',
+      flexShrink: 0,
     },
     banner: {
       width: '100%',

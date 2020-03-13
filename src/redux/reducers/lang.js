@@ -18,7 +18,7 @@ const initialState = {
     },
   },
   styleToggle: {
-    label: 'Toogle Styles',
+    label: 'Toggle Styles',
   },
 };
 

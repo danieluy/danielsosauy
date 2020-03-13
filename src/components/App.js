@@ -6,6 +6,10 @@ import useStyles from './styles';
 import AppBar from './AppBar/AppBar';
 // Views
 import Home from './Home/Home';
+import Work from './Work/Work';
+import Stuff from './Stuff/Stuff';
+import Academic from './Academic/Academic';
+import Contact from './Contact/Contact';
 
 function App(props) {
 	// Necessary to update app theme color
@@ -17,6 +21,10 @@ function App(props) {
 		<Router basename={baseName}>
 			<AppBar />
 			<Route exact path="/" component={Home} />
+			<Route exact path="/work" component={Work} />
+			<Route exact path="/stuff" component={Stuff} />
+			<Route exact path="/academic" component={Academic} />
+			<Route exact path="/contact" component={Contact} />
 		</Router>
 	);
 }

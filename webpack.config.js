@@ -6,6 +6,7 @@ module.exports = env => {
 	const config = {
 		devServer: {
 			port: 3000,
+			historyApiFallback: true,
 		},
 		entry: {
 			index: path.join(__dirname, 'src', 'index.js'),

@@ -11,8 +11,9 @@ export default makeStyles(theme => {
       alignItems: 'center',
       flexGrow: 1,
       padding: theme.spacing(5),
+      overflowY: 'auto',
     },
-    aside:{
+    aside: {
       display: 'flex',
       flexDirection: 'column',
       width: theme.spacing(35),

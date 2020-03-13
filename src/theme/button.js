@@ -9,7 +9,6 @@ const hover = {
 
 const active = {
   boxShadow: 'none',
-  backgroundColor: 'transparent',
 };
 
 const pressed = {
@@ -24,7 +23,7 @@ export default {
   cursor: 'pointer',
   display: 'inline-block',
   borderRadius: misc.innerBorderRadius,
-  transition: 'box-shadow 300ms cubic-bezier(0.79, 0.01, 0.51, 0.51)',
+  transition: 'box-shadow 300ms ease-in-out, background-color 300ms ease-in-out',
   '&:hover': hover,
   '&:focus': hover,
   '&:active': active,

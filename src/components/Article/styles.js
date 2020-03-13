@@ -16,9 +16,15 @@ export default makeStyles(theme => {
       padding: theme.spacing(4),
     },
     paragraph: {
-      columnCount: 4,
+      columnCount: 3,
       padding: theme.spacing(4),
       paddingTop: 0,
+      [theme.breakpoints.down('md')]: {
+        columnCount: 2,
+      },
+      [theme.breakpoints.down('sm')]: {
+        columnCount: 1,
+      },
     },
   };
 });

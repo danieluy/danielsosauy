@@ -22,6 +22,9 @@ export default makeStyles(theme => {
       borderLeftColor: theme.palette.grey[400],
       borderLeftWidth: 1,
       borderLeftStyle: 'solid',
+      [theme.breakpoints.down('md')]: {
+        display: 'none',
+      },
     },
   };
 });

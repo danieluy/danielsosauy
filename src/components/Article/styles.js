@@ -19,10 +19,10 @@ export default makeStyles(theme => {
       columnCount: 3,
       padding: theme.spacing(4),
       paddingTop: 0,
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down('sm')]: {
         columnCount: 2,
       },
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('xs')]: {
         columnCount: 1,
       },
     },

@@ -5,22 +5,22 @@ import useStyles from './styles';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
-function Work(props) {
+function Contact(props) {
   const { lang } = props;
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Typography variant="h1">Work</Typography>
+      <Typography variant="h1">Contact</Typography>
     </div>
   );
 }
 
-Work.proptypes = {
+Contact.proptypes = {
   lang: PropTypes.object.isRequired,
 };
 
-const ConnectedWork = connect(mapStateToProps)(Work);
+const ConnectedWork = connect(mapStateToProps)(Contact);
 export default ConnectedWork;
 
 function mapStateToProps(state) {

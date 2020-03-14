@@ -16,8 +16,8 @@ function Home(props) {
   return (
     <div className={classes.root}>
       <main className={classes.main} style={{ height: height - 112 }}>
-        <Article title={whatWhy.title} banner={whatWhy.banner} paragraphs={whatWhy.paragraphs} />
-        <Article title={accessibility.title} banner={accessibility.banner} paragraphs={accessibility.paragraphs} />
+        <Article articleId="what-why" title={whatWhy.title} banner={whatWhy.banner} paragraphs={whatWhy.paragraphs} />
+        <Article articleId="accessibility" title={accessibility.title} banner={accessibility.banner} paragraphs={accessibility.paragraphs} />
       </main>
       <aside className={classes.aside}>
         <StyleToggle />

@@ -10,7 +10,7 @@ function StyleToggle(props) {
   const classes = useStyles();
   const [stylesheets, setStylesheets] = React.useState([]);
 
-  function toggleStyles() {
+  function styleToggle() {
     if (!stylesheets.length) {
       const list = Array.from(document.querySelectorAll('head > style'));
       list.forEach(stylesheet => removeElement(stylesheet));
@@ -28,7 +28,7 @@ function StyleToggle(props) {
   }
 
   return (
-    <button onClick={toggleStyles} className={classes.button}>
+    <button onClick={styleToggle} className={classes.button}>
       <Typography variant="button" component="span">{lang.label}</Typography>
     </button>
   );

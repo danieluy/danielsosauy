@@ -16,12 +16,14 @@ function Home(props) {
   return (
     <div className={classes.root}>
       <main className={classes.main} style={{ height: height - 112 }}>
-        <Article articleId="what-why" title={whatWhy.title} banner={whatWhy.banner} paragraphs={whatWhy.paragraphs} />
-        <Article articleId="accessibility" title={accessibility.title} banner={accessibility.banner} paragraphs={accessibility.paragraphs} />
+        <section className={classes.section}>
+          <Article articleId="what-why" title={whatWhy.title} banner={whatWhy.banner} paragraphs={whatWhy.paragraphs} />
+          <Article articleId="accessibility" title={accessibility.title} banner={accessibility.banner} paragraphs={accessibility.paragraphs} />
+        </section>
+        <aside className={classes.aside}>
+          <StyleToggle />
+        </aside>
       </main>
-      <aside className={classes.aside}>
-        <StyleToggle />
-      </aside>
     </div>
   );
 }

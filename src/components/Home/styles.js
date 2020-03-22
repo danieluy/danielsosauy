@@ -7,21 +7,21 @@ export default makeStyles(theme => {
     },
     main: {
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
       flexGrow: 1,
       padding: theme.spacing(5),
       overflowY: 'auto',
+    },
+    section:{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
     },
     aside: {
       display: 'flex',
       flexDirection: 'column',
       width: theme.spacing(35),
       flexShrink: 0,
-      padding: theme.spacing(5),
-      borderLeftColor: theme.palette.grey[400],
-      borderLeftWidth: 1,
-      borderLeftStyle: 'solid',
+      marginLeft: theme.spacing(5),
       [theme.breakpoints.down('md')]: {
         display: 'none',
       },

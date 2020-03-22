@@ -21,6 +21,7 @@ function StyleToggle(props) {
       stylesheets.forEach(stylesheet => head.appendChild(stylesheet));
       setStylesheets([]);
     }
+    document.querySelector('header a[href="/"]').focus();
   }
 
   function removeElement(el) {

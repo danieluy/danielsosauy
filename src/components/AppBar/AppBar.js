@@ -5,6 +5,7 @@ import useStyles from './styles';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
+
 function App(props) {
   const classes = useStyles();
   return (
@@ -13,7 +14,7 @@ function App(props) {
         <ul className={classes.ul}>
           <li className={classes.li} style={{ flexGrow: 1, margin: 0 }}>
             <NavLink exact to="/" aria-label="Home" className={classes.button} activeClassName="pressed">
-              <Typography variant="h5" component="h1">www.danielsosa.uy</Typography>
+              <Typography variant="h5" component="span">www.danielsosa.uy</Typography>
             </NavLink>
           </li>
           <CustomLink href="/work">Work</CustomLink>

@@ -3,35 +3,39 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 export default makeStyles(theme => {
   return {
     header: {
-      height: theme.spacing(14),
+      height: theme.spacing(8),
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: theme.spacing(5),
-      borderBottomColor: theme.palette.grey[400],
-      borderBottomWidth: 1,
-      borderBottomStyle: 'solid',
+      color: theme.palette.text.primary,
+      paddingLeft: theme.spacing(4),
+      paddingRight: theme.spacing(4),
+      backgroundColor: theme.elevationColor[1],
     },
     nav: {
       width: '100%',
+      color: 'inherit',
     },
     ul: {
       width: '100%',
       display: 'flex',
-      alignItems: 'flex-end',
+      alignItems: 'center',
       listStyleType: 'none',
+      color: 'inherit',
     },
     li: {
       all: 'unset',
       display: 'flex',
       alignItems: 'center',
-      height: theme.spacing(4),
-      marginLeft: theme.spacing(1),
+      color: 'inherit',
     },
-    a: {
-      ...theme.button,
-      fontSize: theme.spacing(3),
+    mainLi: {
+      all: 'unset',
+      display: 'flex',
+      alignItems: 'center',
+      color: 'inherit',
+      flexGrow: 1,
+      margin: 0,
     },
-    button: theme.button,
   };
 });

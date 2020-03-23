@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import useStyles from './styles';
+// Components
+import Button from '../Button/Button';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
@@ -29,9 +31,7 @@ function StyleToggle(props) {
   }
 
   return (
-    <button onClick={styleToggle} className={classes.button}>
-      <Typography variant="button" component="span">{lang.label}</Typography>
-    </button>
+    <Button onClick={styleToggle}>{lang.label}</Button>
   );
 }
 

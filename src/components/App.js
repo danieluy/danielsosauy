@@ -19,7 +19,7 @@ function App(props) {
 		: 'www.danielsosa.uy-v3';
 	return (
 		<Router basename={baseName}>
-			<AppBar />
+			<Route component={AppBar}/>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/work" component={Work} />
 			<Route exact path="/stuff" component={Stuff} />

@@ -1,10 +1,8 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import card from '../../theme/card';
 
 export default makeStyles(theme => {
   return {
     root: {
-      ...card,
       backgroundColor: '#FFFFFF',
       overflow: 'hidden',
       flexShrink: 0,

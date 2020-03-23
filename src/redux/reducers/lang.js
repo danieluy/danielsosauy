@@ -1,8 +1,18 @@
 import lang from '../../lang';
 
+/**
+ * #####       ####
+ *   #    ###  #   #  ###
+ *   #   #   # #   # #   #
+ *   #   #   # #   # #   #
+ *   #    ###  ####   ###
+ *
+ * ToDo: Handle initial state according to browser config
+ * ToDo: Handle lang change
+ */
+
 const initialState = {
-  home: lang.en.home,
-  styleToggle: lang.en.styleToggle,
+  ...lang.en,
 };
 
 export default (state = initialState, action) => {

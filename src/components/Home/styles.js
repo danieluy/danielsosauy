@@ -7,24 +7,30 @@ export default makeStyles(theme => {
     },
     main: {
       display: 'flex',
-      flexGrow: 1,
-      padding: theme.spacing(5),
       overflowY: 'auto',
+      overflowX: 'hidden',
     },
-    section:{
+    section: {
+      padding: theme.spacing(4),
+      flexShrink: 0,
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
+      willChange: 'transform',
+      transform: 'translateX(0)',
+      transition: 'transform 300ms ease-in-out',
     },
     aside: {
+      paddingTop: theme.spacing(4),
+      paddingRight: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
       display: 'flex',
       flexDirection: 'column',
-      width: theme.spacing(35),
       flexShrink: 0,
-      marginLeft: theme.spacing(5),
-      [theme.breakpoints.down('md')]: {
-        display: 'none',
-      },
+      width: theme.spacing(25),
+      willChange: 'transform',
+      transform: 'translateX(0)',
+      transition: 'transform 300ms ease-in-out',
     },
   };
 });

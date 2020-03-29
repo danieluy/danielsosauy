@@ -62,7 +62,7 @@ function MainContent(props) {
         {content}
       </div>
       {!!aside && (
-        <aside className={classes.aside} ref={asideRef}>
+        <aside className={classes.aside} ref={asideRef} role="menu">
           <Button
             className={`${classes.asideButton} ${asideOpen ? 'asideOpen' : ''}`}
             role="button"
@@ -73,7 +73,7 @@ function MainContent(props) {
           >
             <ArrowBackIcon />
           </Button>
-          <ul role="menu" className={classes.ul}>
+          <ul className={classes.ul}>
             {aside.map((el, i) => (
               <li>
                 <el.type

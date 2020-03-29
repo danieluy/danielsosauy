@@ -9,18 +9,7 @@ function Button(props) {
   const theme = useTheme();
   const { children, color, active, span, ...rest } = props;
 
-  const rootStyle = React.useMemo(() => {
-    const backgroundColor = active
-      ? theme.activeBackgroundColor
-      : theme.defaultBackgroundColor;
-
-    return {
-      height: theme.spacing(6),
-      paddingRight: theme.spacing(2),
-      paddingLeft: theme.spacing(2),
-      backgroundColor,
-    };
-  }, [active]);
+  const rootStyle = React.useMemo(getRootStyle, [active]);
 
   return (
     <ButtonBase
@@ -38,6 +27,19 @@ function Button(props) {
       return <Typography variant="button" component="span">{children}</Typography>;
     }
     return children;
+  }
+
+  function getRootStyle() {
+    const backgroundColor = active
+      ? theme.activeBackgroundColor
+      : theme.defaultBackgroundColor;
+
+    return {
+      height: theme.spacing(6),
+      paddingRight: theme.spacing(2),
+      paddingLeft: theme.spacing(2),
+      backgroundColor,
+    };
   }
 }
 

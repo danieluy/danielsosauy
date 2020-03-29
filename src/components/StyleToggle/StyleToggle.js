@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import useStyles from './styles';
 // Components
 import Button from '../Button/Button';
-// Material UI
-import Typography from '@material-ui/core/Typography';
 
 function StyleToggle(props) {
-  const { lang } = props;
-  const classes = useStyles();
+  const { lang, ...rest } = props;
   const [stylesheets, setStylesheets] = React.useState([]);
 
   function styleToggle() {
@@ -31,7 +27,7 @@ function StyleToggle(props) {
   }
 
   return (
-    <Button onClick={styleToggle}>{lang.label}</Button>
+    <Button onClick={styleToggle} {...rest}>{lang.label}</Button>
   );
 }
 

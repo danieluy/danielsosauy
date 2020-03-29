@@ -32,12 +32,12 @@ export default makeStyles(theme => {
     },
     asideButton: {
       position: 'absolute',
+      top: theme.spacing(6),
       display: 'none',
       justifyContent: 'center',
-
       transition: 'border-radius 750ms linear',
       borderStyle: 'none',
-      backgroundColor: `${theme.elevationColor[1]} !important`,
+      backgroundColor: `${theme.elevationColor[2]} !important`,
       width: theme.spacing(6),
       height: theme.spacing(6),
       borderTopLeftRadius: theme.spacing(3),
@@ -48,17 +48,20 @@ export default makeStyles(theme => {
       animationIterationCount: 1,
       animationTimingFunction: 'ease-out',
       zIndex: 1,
+      '&>svg': {
+        fill: '#FFFFFF',
+      },
       '&.asideOpen': {
         borderTopRightRadius: theme.spacing(3),
         borderBottomRightRadius: theme.spacing(3),
-      },
-      '&>svg': {
-        fill: '#FFFFFF',
       },
       [theme.breakpoints.down('md')]: {
         display: 'flex',
         right: theme.spacing(25),
       },
+    },
+    ul: {
+      listStyleType: 'none',
     },
   };
 });

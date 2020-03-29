@@ -16,6 +16,7 @@ function Button(props) {
       focusRipple
       style={rootStyle}
       component={span ? 'span' : 'button'}
+      color={color}
       {...rest}
     >
       {renderChildren()}
@@ -24,7 +25,7 @@ function Button(props) {
 
   function renderChildren() {
     if (typeof children === 'string') {
-      return <Typography variant="button" component="span">{children}</Typography>;
+      return <Typography variant="button" component="span" color={color}>{children}</Typography>;
     }
     return children;
   }

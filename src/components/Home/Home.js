@@ -18,7 +18,7 @@ function Home() {
           <Article articleId="accessibility" title={accessibility.title} banner={accessibility.banner} paragraphs={accessibility.paragraphs} />
         </section>
       )}
-      aside={[<StyleToggle />]}
+      aside={[<StyleToggle color="textPrimary" />]}
     />
   );
 }

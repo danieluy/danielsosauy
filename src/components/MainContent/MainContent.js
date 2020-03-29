@@ -8,19 +8,27 @@ import { selectMainLang } from '../../redux/selectors';
 import Button from '../Button/Button';
 // Material UI
 import useTheme from '@material-ui/core/styles/useTheme';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 function MainContent(props) {
-  const { content, aside } = props;
+  const { content, aside, color } = props;
   const lang = useSelector(selectMainLang);
-  console.log('lang', lang);
+  const [width, height] = useWindowSize();
+  const classes = useStyles();
+  const theme = useTheme();
+  const isUnderMd = useMediaQuery(theme.breakpoints.down('md'));
   const [asideOpen, setAsideOpen] = React.useState(false);
   const mainRef = React.useRef(null);
   const contentRef = React.useRef(null);
   const asideRef = React.useRef(null);
-  const theme = useTheme();
-  const [width, height] = useWindowSize();
-  const classes = useStyles();
+
+  const menuItemTabIndex = React.useMemo(() => {
+    if (!isUnderMd) {
+      return '0';
+    }
+    return asideOpen ? '0' : '-1';
+  }, [isUnderMd, asideOpen]);
 
   const style = {
     main: {
@@ -28,8 +36,8 @@ function MainContent(props) {
     },
   };
 
-  function toggleAsideOpen() {
-    if (asideRef.current) {
+  const toggleAsideOpen = () => {
+    if (isUnderMd && asideRef.current) {
       if (asideOpen) {
         contentRef.current.style.transform = 'translateX(0)';
         asideRef.current.style.transform = 'translateX(0)';
@@ -42,7 +50,7 @@ function MainContent(props) {
       }
       setAsideOpen(!asideOpen);
     }
-  }
+  };
 
   window.toggleAsideOpen = toggleAsideOpen;
 
@@ -54,7 +62,7 @@ function MainContent(props) {
         {content}
       </div>
       {!!aside && (
-        <aside className={classes.aside} ref={asideRef} role="menu">
+        <aside className={classes.aside} ref={asideRef}>
           <Button
             className={`${classes.asideButton} ${asideOpen ? 'asideOpen' : ''}`}
             role="button"
@@ -65,16 +73,18 @@ function MainContent(props) {
           >
             <ArrowBackIcon />
           </Button>
-          {/**
-           * #####       ####
-           *   #    ###  #   #  ###
-           *   #   #   # #   # #   #
-           *   #   #   # #   # #   #
-           *   #    ###  ####   ###
-           *
-           * ToDo: handle tabindexes
-           */}
-          {aside.map((el, i) => <el.type {...el.props} tabIndex="0" key={`aside- item - ${i}`} />)}
+          <ul role="menu" className={classes.ul}>
+            {aside.map((el, i) => (
+              <li>
+                <el.type
+                  {...el.props}
+                  tabIndex={menuItemTabIndex}
+                  key={`aside- item - ${i}`}
+                  role="menuitem"
+                />
+              </li>
+            ))}
+          </ul>
         </aside>
       )}
     </main>

@@ -12,6 +12,7 @@ const theme = createMuiTheme({
   elevationColor: {
     '0': '#555555',
     '1': '#666666',
+    '2': '#777777',
   }
 });
 

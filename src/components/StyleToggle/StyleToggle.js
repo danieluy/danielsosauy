@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Button from '../Button/Button';
 
 function StyleToggle(props) {
-  const { lang, ...rest } = props;
+  const { lang, color, ...rest } = props;
   const [stylesheets, setStylesheets] = React.useState([]);
 
   function styleToggle() {
@@ -27,12 +27,16 @@ function StyleToggle(props) {
   }
 
   return (
-    <Button onClick={styleToggle} {...rest}>{lang.label}</Button>
+    <Button onClick={styleToggle} color={color} {...rest}>{lang.label}</Button>
   );
 }
 
 StyleToggle.propTypes = {
   lang: PropTypes.object.isRequired,
+};
+
+StyleToggle.defaultProps = {
+  color: 'inherit',
 };
 
 const ConnectedStyleToggle = connect(mapStateToProps)(StyleToggle);

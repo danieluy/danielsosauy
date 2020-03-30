@@ -3,7 +3,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 export default makeStyles(theme => {
   return {
     root: {
-      backgroundColor: '#FFFFFF',
+      backgroundColor: theme.elevationColor[1],
       overflow: 'hidden',
       flexShrink: 0,
       marginBottom: theme.spacing(4),

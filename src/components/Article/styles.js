@@ -6,6 +6,7 @@ export default makeStyles(theme => {
       backgroundColor: '#FFFFFF',
       overflow: 'hidden',
       flexShrink: 0,
+      marginBottom: theme.spacing(4),
     },
     banner: {
       width: '100%',

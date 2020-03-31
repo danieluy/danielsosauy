@@ -19,13 +19,24 @@ export default makeStyles(theme => {
     },
     paragraph: {
       paddingLeft: theme.spacing(4),
-      columnCount: 3,
+      // columnCount: 3,
       paddingTop: 0,
       [theme.breakpoints.down('sm')]: {
-        columnCount: 2,
+        // columnCount: 2,
       },
       [theme.breakpoints.down('xs')]: {
-        columnCount: 1,
+        // columnCount: 1,
+      },
+    },
+    link: {
+      color: theme.palette.text.primary,
+      fontWeight: '700',
+      textDecoration: 'none',
+      '&:focus':{
+        outlineOffset: 4,
+        outlineStyle: 'dashed',
+        outlineWidth: theme.spacing() / 4,
+        outlineColor: theme.palette.text.primary,
       },
     },
   };

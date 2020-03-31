@@ -75,11 +75,10 @@ function MainContent(props) {
           </Button>
           <ul className={classes.ul}>
             {aside.map((el, i) => (
-              <li>
+              <li key={`aside-item-li-${i}`}>
                 <el.type
                   {...el.props}
                   tabIndex={menuItemTabIndex}
-                  key={`aside- item - ${i}`}
                   role="menuitem"
                 />
               </li>

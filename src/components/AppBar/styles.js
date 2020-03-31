@@ -10,7 +10,7 @@ export default makeStyles(theme => {
       color: theme.palette.text.primary,
       paddingLeft: theme.spacing(4),
       paddingRight: theme.spacing(4),
-      backgroundColor: theme.elevationColor[1],
+      backgroundColor: theme.elevationColor[2],
     },
     nav: {
       width: '100%',

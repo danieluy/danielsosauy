@@ -4,9 +4,10 @@ export default makeStyles(theme => {
   return {
     root: {
       display: 'flex',
+      alignItems: 'flex-start',
+      flexShrink: 0,
       backgroundColor: theme.elevationColor[1],
       overflow: 'hidden',
-      flexShrink: 0,
       marginBottom: theme.spacing(4),
       padding: theme.spacing(4),
     },
@@ -19,20 +20,14 @@ export default makeStyles(theme => {
     },
     paragraph: {
       paddingLeft: theme.spacing(4),
-      // columnCount: 3,
       paddingTop: 0,
-      [theme.breakpoints.down('sm')]: {
-        // columnCount: 2,
-      },
-      [theme.breakpoints.down('xs')]: {
-        // columnCount: 1,
-      },
+      fontSize: theme.spacing(2.5),
     },
     link: {
       color: theme.palette.text.primary,
       fontWeight: '700',
       textDecoration: 'none',
-      '&:focus':{
+      '&:focus, &:hover':{
         outlineOffset: 4,
         outlineStyle: 'dashed',
         outlineWidth: theme.spacing() / 4,

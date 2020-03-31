@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import Button from '../Button/Button';
 
 function StyleToggle(props) {
-  const { lang, color, ...rest } = props;
+  const { lang, color, dispatch, ...rest } = props;
+  // dispatch is destructured here so it wont be passed to the Button component
   const [stylesheets, setStylesheets] = React.useState([]);
 
   function styleToggle() {

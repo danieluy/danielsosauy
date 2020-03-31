@@ -3,9 +3,9 @@
     "whatWhy": {
       "title": "What and Why?",
       "paragraphs": [
-        "The purpose of this site is to present what I like to do, and it was created out of the necessity of showing off my work and my aptitudes since they fall out of what my academic formation demonstrates. It's a compendium of activities and projects solely related to software development. Everything was made (or is going to be made), following these principles: accessibility, performance and aesthetics. The source code of this site is open source and its freely available on Github under the MIT license. You can get it through my [GitHub profile](https://github.com/danieluy)."
+        "The purpose of this site is to present what I like to do, and it was created out of the necessity of showing off my work and my aptitudes since they fall out of what my academic formation demonstrates. It's a compendium of activities and projects solely related to software development. Everything was made (or is going to be made), following these principles: accessibility, design, performance, tech. The source code of this site is open source and it's freely available on Github under the MIT license. You can get it through my [GitHub profile](https://github.com/danieluy)."
       ],
-      "banner": "assets/img/article-banners/undraw_welcome_3gvl.svg"
+      "banner": "assets/img/article-banners/undraw_design_notes_8dmv.svg"
     },
     "accessibility": {
       "title": "Accessibility",
@@ -17,21 +17,23 @@
     "performance": {
       "title": "Performance",
       "paragraphs": [
-        "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam luctus justo risus, vel malesuada est sollicitudin ut. Suspendisse facilisis risus non gravida porta. Aliquam lobortis massa nunc, a bibendum lacus pretium a. Nam ipsum lorem, maximus in ornare in, placerat eu enim. In aliquet, nibh vel tempor pharetra, nunc justo laoreet nisl, in tempor turpis sapien sed nibh. Maecenas pulvinar lacus eget leo vulputate faucibus. Morbi pellentesque rutrum ipsum sed commodo. Fusce sit amet sapien sit amet risus tempus ullamcorper. In hac habitasse platea dictumst. Nulla facilisi. Etiam feugiat ultrices felis, at congue magna faucibus nec. Sed facilisis maximus arcu, ac fringilla tellus eleifend eget. Sed consectetur nulla quis metus varius convallis. Curabitur ut leo lectus. Proin id nisi ut ipsum pellentesque finibus id non libero. Fusce at lorem et nisi accumsan condimentum nec ac nulla. Cras venenatis nulla sit amet aliquet aliquam. Nulla at ultrices ex. Nullam ut risus sed elit sagittis varius. Vestibulum non hendrerit sem, dignissim eleifend erat. Integer in justo purus."
+        "Sed facilisis maximus arcu, ac fringilla tellus eleifend eget. Sed consectetur nulla quis metus varius convallis. Curabitur ut leo lectus. Proin id nisi ut ipsum pellentesque finibus id non libero. Fusce at lorem et nisi accumsan condimentum nec ac nulla. Cras venenatis nulla sit amet aliquet aliquam. Nulla at ultrices ex. Nullam ut risus sed elit sagittis varius. Vestibulum non hendrerit sem, dignissim eleifend erat. Integer in justo purus."
       ],
       "banner": "assets/img/article-banners/undraw_working_out_6psf.svg"
     },
-    "aesthetics": {
-      "title": "Aesthetics",
+    "design": {
+      "title": "Design",
       "paragraphs": [
-        "Perhabs it is beest to clarify why I'am not talking about design here. Firstly, I'm not in any way saying that design is aesthetics, or confusing one with another."
+        "I'm a software developer but I love design, and I do not adhere to the separation of these two concepts. I believe that no product should be without proper design. I cannot call myself a designer, I have too much respect for design to do so, but I love to make my attempts on designing stuff, or at least implement design guidelines that I'm fond of.",
+        "I would like to expose the intention of my design for this website, and it's actually a simple one: achieve an aesthetically pleasing design putting accessibility first. The way I attempted to achieve that goal is more complicated, but is not something I want to discuss here.",
+        "A big part of the pleasing sight of this site are the amazing illustrations used to accompany these words, and I would like to thank [unDraw](https://undraw.co/) for making all that open source content available to us."
       ],
       "banner": "assets/img/article-banners/undraw_art_museum_8or4.svg"
     },
     "tech": {
       "title": "Tech",
       "paragraphs": [
-        "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam luctus justo risus, vel malesuada est sollicitudin ut. Suspendisse facilisis risus non gravida porta. Aliquam lobortis massa nunc, a bibendum lacus pretium a. Nam ipsum lorem, maximus in ornare in, placerat eu enim. In aliquet, nibh vel tempor pharetra, nunc justo laoreet nisl, in tempor turpis sapien sed nibh. Maecenas pulvinar lacus eget leo vulputate faucibus. Morbi pellentesque rutrum ipsum sed commodo. Fusce sit amet sapien sit amet risus tempus ullamcorper. In hac habitasse platea dictumst. Nulla facilisi. Etiam feugiat ultrices felis, at congue magna faucibus nec. Sed facilisis maximus arcu, ac fringilla tellus eleifend eget. Sed consectetur nulla quis metus varius convallis. Curabitur ut leo lectus. Proin id nisi ut ipsum pellentesque finibus id non libero. Fusce at lorem et nisi accumsan condimentum nec ac nulla. Cras venenatis nulla sit amet aliquet aliquam. Nulla at ultrices ex. Nullam ut risus sed elit sagittis varius. Vestibulum non hendrerit sem, dignissim eleifend erat. Integer in justo purus."
+        "Although tech was not the last thing I thought about, it is the last one to be mentioned because it should be out of the way."
       ],
       "banner": "assets/img/article-banners/undraw_static_assets_rpm6.svg"
     }

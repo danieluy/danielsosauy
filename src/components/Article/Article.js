@@ -55,7 +55,7 @@ function Article(props) {
 
   function parseLink(link) {
     const [_, label, url] = link.match(/\[(.*)\]\((.+)\)/);
-    return <a href={url} target="_bank" className={classes.link}>{label || url}</a>;
+    return <a href={url} target="_bank" className={classes.link} key={label}>{label || url}</a>;
   }
 }
 

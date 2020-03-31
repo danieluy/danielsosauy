@@ -5,28 +5,35 @@
       "paragraphs": [
         "The purpose of this site is to present what I like to do, and it was created out of the necessity of showing off my work and my aptitudes since they fall out of what my academic formation demonstrates. It's a compendium of activities and projects solely related to software development. Everything was made (or is going to be made), following these principles: accessibility, performance and aesthetics. The source code of this site is open source and its freely available on Github under the MIT license. You can get it through my GitHub profile (on top), or you can go directly clicking here."
       ],
-      "banner": "assets/img/article-banners/what-why.png"
+      "banner": "assets/img/article-banners/undraw_welcome_3gvl.svg"
     },
     "accessibility": {
       "title": "Accessibility",
       "paragraphs": [
         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam luctus justo risus, vel malesuada est sollicitudin ut. Suspendisse facilisis risus non gravida porta. Aliquam lobortis massa nunc, a bibendum lacus pretium a. Nam ipsum lorem, maximus in ornare in, placerat eu enim. In aliquet, nibh vel tempor pharetra, nunc justo laoreet nisl, in tempor turpis sapien sed nibh. Maecenas pulvinar lacus eget leo vulputate faucibus. Morbi pellentesque rutrum ipsum sed commodo. Fusce sit amet sapien sit amet risus tempus ullamcorper. In hac habitasse platea dictumst. Nulla facilisi. Etiam feugiat ultrices felis, at congue magna faucibus nec. Sed facilisis maximus arcu, ac fringilla tellus eleifend eget. Sed consectetur nulla quis metus varius convallis. Curabitur ut leo lectus. Proin id nisi ut ipsum pellentesque finibus id non libero. Fusce at lorem et nisi accumsan condimentum nec ac nulla. Cras venenatis nulla sit amet aliquet aliquam. Nulla at ultrices ex. Nullam ut risus sed elit sagittis varius. Vestibulum non hendrerit sem, dignissim eleifend erat. Integer in justo purus."
       ],
-      "banner": "assets/img/article-banners/accessibility.png"
+      "banner": "assets/img/article-banners/undraw_web_browsing_p77h.svg"
     },
     "performance": {
       "title": "Performance",
       "paragraphs": [
         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam luctus justo risus, vel malesuada est sollicitudin ut. Suspendisse facilisis risus non gravida porta. Aliquam lobortis massa nunc, a bibendum lacus pretium a. Nam ipsum lorem, maximus in ornare in, placerat eu enim. In aliquet, nibh vel tempor pharetra, nunc justo laoreet nisl, in tempor turpis sapien sed nibh. Maecenas pulvinar lacus eget leo vulputate faucibus. Morbi pellentesque rutrum ipsum sed commodo. Fusce sit amet sapien sit amet risus tempus ullamcorper. In hac habitasse platea dictumst. Nulla facilisi. Etiam feugiat ultrices felis, at congue magna faucibus nec. Sed facilisis maximus arcu, ac fringilla tellus eleifend eget. Sed consectetur nulla quis metus varius convallis. Curabitur ut leo lectus. Proin id nisi ut ipsum pellentesque finibus id non libero. Fusce at lorem et nisi accumsan condimentum nec ac nulla. Cras venenatis nulla sit amet aliquet aliquam. Nulla at ultrices ex. Nullam ut risus sed elit sagittis varius. Vestibulum non hendrerit sem, dignissim eleifend erat. Integer in justo purus."
       ],
-      "banner": "assets/img/article-banners/accessibility.png"
+      "banner": "assets/img/article-banners/undraw_working_out_6psf.svg"
     },
     "aesthetics": {
       "title": "Aesthetics",
       "paragraphs": [
+        "Perhabs it is beest to clarify why I'am not talking about design here. Firstly, I'm not in any way saying that design is aesthetics, or confusing one with another."
+      ],
+      "banner": "assets/img/article-banners/undraw_art_museum_8or4.svg"
+    },
+    "tech": {
+      "title": "Tech",
+      "paragraphs": [
         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam luctus justo risus, vel malesuada est sollicitudin ut. Suspendisse facilisis risus non gravida porta. Aliquam lobortis massa nunc, a bibendum lacus pretium a. Nam ipsum lorem, maximus in ornare in, placerat eu enim. In aliquet, nibh vel tempor pharetra, nunc justo laoreet nisl, in tempor turpis sapien sed nibh. Maecenas pulvinar lacus eget leo vulputate faucibus. Morbi pellentesque rutrum ipsum sed commodo. Fusce sit amet sapien sit amet risus tempus ullamcorper. In hac habitasse platea dictumst. Nulla facilisi. Etiam feugiat ultrices felis, at congue magna faucibus nec. Sed facilisis maximus arcu, ac fringilla tellus eleifend eget. Sed consectetur nulla quis metus varius convallis. Curabitur ut leo lectus. Proin id nisi ut ipsum pellentesque finibus id non libero. Fusce at lorem et nisi accumsan condimentum nec ac nulla. Cras venenatis nulla sit amet aliquet aliquam. Nulla at ultrices ex. Nullam ut risus sed elit sagittis varius. Vestibulum non hendrerit sem, dignissim eleifend erat. Integer in justo purus."
       ],
-      "banner": "assets/img/article-banners/accessibility.png"
+      "banner": "assets/img/article-banners/undraw_static_assets_rpm6.svg"
     }
   }
 }

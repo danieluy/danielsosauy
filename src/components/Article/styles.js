@@ -3,20 +3,23 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 export default makeStyles(theme => {
   return {
     root: {
+      display: 'flex',
       backgroundColor: theme.elevationColor[1],
       overflow: 'hidden',
       flexShrink: 0,
       marginBottom: theme.spacing(4),
+      padding: theme.spacing(4),
     },
     banner: {
-      width: '100%',
+      width: '40%',
     },
     title: {
-      padding: theme.spacing(4),
+      paddingLeft: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
     },
     paragraph: {
+      paddingLeft: theme.spacing(4),
       columnCount: 3,
-      padding: theme.spacing(4),
       paddingTop: 0,
       [theme.breakpoints.down('sm')]: {
         columnCount: 2,

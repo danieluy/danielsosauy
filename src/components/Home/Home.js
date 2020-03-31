@@ -8,7 +8,7 @@ import StyleToggle from '../StyleToggle/StyleToggle';
 
 function Home() {
   const lang = useSelector(state => state.lang.home);
-  const { whatWhy, accessibility, aesthetics, performance } = lang.articles;
+  const { whatWhy, accessibility, aesthetics, performance, tech } = lang.articles;
 
   return (
     <MainContent
@@ -16,8 +16,9 @@ function Home() {
         <section>
           <Article articleId="what-why" title={whatWhy.title} banner={whatWhy.banner} paragraphs={whatWhy.paragraphs} />
           <Article articleId="accessibility" title={accessibility.title} banner={accessibility.banner} paragraphs={accessibility.paragraphs} />
-          <Article articleId="aesthetics" title={aesthetics.title} banner={aesthetics.banner} paragraphs={aesthetics.paragraphs} />
           <Article articleId="performance" title={performance.title} banner={performance.banner} paragraphs={performance.paragraphs} />
+          <Article articleId="aesthetics" title={aesthetics.title} banner={aesthetics.banner} paragraphs={aesthetics.paragraphs} />
+          <Article articleId="tech" title={tech.title} banner={tech.banner} paragraphs={tech.paragraphs} />
         </section>
       )}
       aside={[<StyleToggle color="textPrimary" />]}

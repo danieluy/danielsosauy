@@ -15,16 +15,19 @@ function Article(props) {
         alt={`${title} #ilustration`}
         className={classes.banner}
       />
-      <Typography component="h2" variant="h3" color="textPrimary" className={classes.title}>{title}</Typography>
-      {paragraphs.map((paragraph, i) => (
-        <Typography
-          key={i}
-          component="p"
-          className={classes.paragraph}
-          aria-label="#article body"
-          color="textPrimary"
-        >{paragraph}</Typography>
-      ))}
+      <div className={classes.body}>
+        <Typography component="h2" variant="h3" color="textPrimary" className={classes.title}>{title}</Typography>
+
+        {paragraphs.map((paragraph, i) => (
+          <Typography
+            key={i}
+            component="p"
+            className={classes.paragraph}
+            aria-label="#article body"
+            color="textPrimary"
+          >{paragraph}</Typography>
+        ))}
+      </div>
     </article>
   );
 }

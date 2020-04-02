@@ -10,10 +10,10 @@ const theme = createMuiTheme({
   defaultBackgroundColor: 'rgba(0,0,0,0)',
   activeBackgroundColor: 'rgba(0,0,0,0.25)',
   elevationColor: {
-    '0': '#555555',
-    '1': '#666666',
-    '2': '#777777',
-    '3': '#888888',
+    '0': '#333333',
+    '1': '#444444',
+    '2': '#555555',
+    '3': '#666666',
   }
 });
 

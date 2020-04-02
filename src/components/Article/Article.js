@@ -17,7 +17,15 @@ function Article(props) {
         className={classes.banner}
       />
       <div className={classes.body}>
-        <Typography component="h2" variant="h3" color="textPrimary" className={classes.title}>{title}</Typography>
+        <Typography
+          component="h2"
+          variant="h3"
+          color="textPrimary"
+          tabindex="0"
+          className={classes.title}
+        >
+          {title}
+        </Typography>
         {paragraphs.map((paragraph, i) => renderParagraph(paragraph, i))}
       </div>
     </article>

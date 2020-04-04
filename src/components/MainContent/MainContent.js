@@ -54,8 +54,6 @@ function MainContent(props) {
 
   window.toggleAsideOpen = toggleAsideOpen;
 
-  console.log('aside', aside);
-
   return (
     <main className={classes.main} style={style.main} ref={mainRef}>
       <div className={classes.content} ref={contentRef}>

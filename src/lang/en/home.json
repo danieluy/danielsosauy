@@ -5,7 +5,10 @@
       "paragraphs": [
         "The purpose of this site is to present what I like to do, and it was created out of the necessity of showing off my work and my aptitudes since they fall out of what my academic formation demonstrates. It's a compendium of activities and projects solely related to software development. Everything was made (or is going to be made), following these principles: accessibility, design, performance, tech. The source code of this site is open source and it's freely available on Github under the MIT license. You can get it through my [GitHub profile](https://github.com/danieluy)."
       ],
-      "banner": "assets/img/article-banners/undraw_design_notes_8dmv.svg"
+      "banner": {
+        "src": "assets/img/article-banners/undraw_design_notes_8dmv.svg",
+        "alt": "what and why? decorative ilustration"
+      }
     },
     "accessibility": {
       "title": "Accessibility",
@@ -14,7 +17,10 @@
         "As recommended in [Document and website structure - Learn web developmen](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure), I adopted a simple yet effective layout as a starting point for designing my website. It has the advantage of being familiar to people that rely on assistive technologies, and even though I thought it would limit my options, it ended up being a nice frame for the elements I finally chose for my design.",
         "I used semantically meaningful HTML tags when possible, and made all other elements compliant with [Accessible Rich Internet Applications (WAI-ARIA) 1.1](https://www.w3.org/TR/wai-aria-1.1/) following the [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices-1.1/). Of course being this my first attempt at a fully accessible design, I’m not expecting it to be perfect, but I will iterate on it over and over until my experience and knowledge becomes sufficient to make it as close to perfect as I possibly can."
       ],
-      "banner": "assets/img/article-banners/undraw_web_browsing_p77h.svg"
+      "banner": {
+        "src": "assets/img/article-banners/undraw_web_browsing_p77h.svg",
+        "alt": "accessibility decorative ilustration"
+      }
     },
     "performance": {
       "title": "Performance",
@@ -22,7 +28,10 @@
         "To improve performance I’m using code splitting by routes with a twist, once you load the first route, the other routes will automatically start downloading so they will most likely be ready when they get requested.",
         "Using a service worker I’m caching all assets so they will be requested as little as possible. Other superpowers enabled by service workers, like making an installable app or receiving notifications, have no use case in this site so they are not used."
       ],
-      "banner": "assets/img/article-banners/undraw_working_out_6psf.svg"
+      "banner": {
+        "src": "assets/img/article-banners/undraw_working_out_6psf.svg",
+        "alt": "performance decorative ilustration"
+      }
     },
     "design": {
       "title": "Design",
@@ -31,7 +40,10 @@
         "I would like to expose the intention of my design for this website, and it's actually a simple one: achieve an aesthetically pleasing design putting accessibility first. The way I attempted to achieve that goal is more complicated, but is not something I want to discuss here.",
         "A big part of the pleasing sight of this site are the amazing illustrations used to accompany these words, and I would like to thank [unDraw](https://undraw.co/) for making all that open source content available to us."
       ],
-      "banner": "assets/img/article-banners/undraw_art_museum_8or4.svg"
+      "banner": {
+        "src": "assets/img/article-banners/undraw_art_museum_8or4.svg",
+        "alt": "design decorative ilustration"
+      }
     },
     "tech": {
       "title": "Tech",
@@ -41,10 +53,14 @@
         "[HTML5](https://en.wikipedia.org/wiki/HTML5), page structuring and articulation of the other technologies involved.",
         "[JavaScript](https://en.wikipedia.org/wiki/JavaScript), primarily used to build the user interface in the client side, also makes possible the interaction of the users with the page.",
         "[CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), defines and applies the styles and animations that enrich the interaction of users with the site.",
-        "[React](https://facebook.github.io/react/), JavaScript library for building user interfaces.",
+        "[React](https://facebook.github.io/react/), its a JavaScript library for building user interfaces. Through this library is that JavaScript build the user interface.",
+        "[Redux](https://redux.js.org/), its a predictable state container for JavaScript applications. Used to handle language state and general app info.",
         "[Webpack](https://webpack.js.org/), bundling and minification of JavaScript and CSS files as well as other resources, to optimize the resource loading. In the case of this page it is used from the React scripts."
       ],
-      "banner": "assets/img/article-banners/undraw_static_assets_rpm6.svg"
+      "banner": {
+        "src": "assets/img/article-banners/undraw_static_assets_rpm6.svg",
+        "alt": "tech decorative ilustration"
+      }
     }
   }
 }

@@ -10,18 +10,18 @@ function Article(props) {
 
   return (
     <article className={classes.root} aria-label={title} id={articleId}>
-      <img
-        aria-hidden="true"
-        src={banner}
-        alt={`${title} #ilustration`}
-        className={classes.banner}
-      />
+
+      <figure className={classes.banner}>
+        <img aria-hidden="true" src={banner.src} alt={banner.alt} className={classes.bannerImage} />
+      </figure>
+
+
       <div className={classes.body}>
         <Typography
           component="h2"
           variant="h3"
           color="textPrimary"
-          tabindex="0"
+          tabIndex="0"
           className={classes.title}
         >
           {title}
@@ -32,8 +32,8 @@ function Article(props) {
   );
 
   function renderParagraph(paragraph, key) {
-    const markdownLinks = paragraph.match(/\[([^\]]*)\]\(([^\)]+)\)/g);
-    const simpleTextSegments = splitByLink(paragraph, markdownLinks, 0);
+    const markdownLinks = paragraph.match(/\[([^\]]*)\]\(([^)]+)\)/g);
+    const textWithLinks = splitByLink(paragraph, markdownLinks, 0);
     return (
       <Typography
         key={key}
@@ -42,7 +42,7 @@ function Article(props) {
         aria-label="#article body"
         color="textPrimary"
       >
-        {simpleTextSegments}
+        {textWithLinks}
       </Typography>
     );
   }

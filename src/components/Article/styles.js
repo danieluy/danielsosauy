@@ -10,9 +10,28 @@ export default makeStyles(theme => {
       overflow: 'hidden',
       marginBottom: theme.spacing(4),
       padding: theme.spacing(4),
+      [theme.breakpoints.down('md')]: {
+        flexDirection: 'column',
+      },
     },
     banner: {
-      width: '40%',
+      display: 'flex',
+      justifyContent: 'center',
+      backgroundColor: theme.elevationColor[4],
+      [theme.breakpoints.down('md')]: {
+        width: '100%',
+      },
+    },
+    bannerImage: {
+      padding: theme.spacing(2),
+      width: theme.spacing(60),
+      [theme.breakpoints.down('md')]: {
+        padding: theme.spacing(4),
+        width: theme.spacing(80),
+      },
+      [theme.breakpoints.down('sm')]: {
+        width: '100%',
+      },
     },
     title: {
       position: 'relative',
@@ -36,11 +55,18 @@ export default makeStyles(theme => {
           borderRight: `${theme.spacing(2)}px solid transparent`,
         },
       },
+      [theme.breakpoints.down('md')]: {
+        paddingTop: theme.spacing(4),
+        paddingLeft: 0,
+      },
     },
     paragraph: {
       paddingLeft: theme.spacing(4),
       paddingTop: theme.spacing(4),
       fontSize: theme.spacing(2.5),
+      [theme.breakpoints.down('md')]: {
+        paddingLeft: 0,
+      },
     },
     link: {
       color: theme.palette.text.primary,

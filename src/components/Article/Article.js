@@ -32,7 +32,7 @@ function Article(props) {
   );
 
   function renderParagraph(paragraph, key) {
-    const markdownLinks = paragraph.match(/\[([\w\s\d]*)\]\(((?:\/|https?:\/\/)[\w\d./?=#]+)\)/g);
+    const markdownLinks = paragraph.match(/\[([^\]]*)\]\(([^\)]+)\)/g);
     const simpleTextSegments = splitByLink(paragraph, markdownLinks, 0);
     return (
       <Typography

@@ -6,12 +6,18 @@ import { useSelector } from 'react-redux';
 import NavLink from '../NavLink/NavLink';
 // Material UI
 import Typography from '@material-ui/core/Typography';
+import HomeIcon from '@material-ui/icons/HomeOutlined';
+import WorkIcon from '@material-ui/icons/WorkOutline';
+import WidgetsIcon from '@material-ui/icons/WidgetsOutlined';
+import SchoolIcon from '@material-ui/icons/SchoolOutlined';
+import EmailIcon from '@material-ui/icons/EmailOutlined';
+
 
 const routes = [
-  { name: 'Work', pathname: '/work' },
-  { name: 'Stuff', pathname: '/stuff' },
-  { name: 'Academic', pathname: '/academic' },
-  { name: 'Contact', pathname: '/contact' },
+  { name: 'Work', pathname: '/work', icon: WorkIcon },
+  { name: 'Stuff', pathname: '/stuff', icon: WidgetsIcon },
+  { name: 'Academic', pathname: '/academic', icon: SchoolIcon },
+  { name: 'Contact', pathname: '/contact', icon: EmailIcon },
 ];
 
 function AppBar(props) {
@@ -30,17 +36,19 @@ function AppBar(props) {
             aria-label={lang.home}
             active={isActive('/')}
             liClassName={classes.mainLi}
+            icon={HomeIcon}
           >
             <Typography variant="h6" component="span">www.danielsosa.uy</Typography>
           </NavLink>
 
-          {routes.map(({ name, pathname }) => (
+          {routes.map(({ name, pathname, icon }) => (
             <NavLink
               key={pathname}
               to={pathname}
               className={classes.a}
               active={isActive(pathname)}
               liClassName={classes.li}
+              icon={icon}
             >
               {name}
             </NavLink >

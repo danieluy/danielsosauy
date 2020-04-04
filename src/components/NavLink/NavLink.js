@@ -8,7 +8,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
 function NavLink(props) {
-  const { to, children, active, color, span, liClassName, ...rest } = props;
+  const { to, children, active, color, span, liClassName, icon: Icon, ...rest } = props;
   const ariaLabel = props['aria-label'];
   const theme = useTheme();
 
@@ -37,6 +37,7 @@ function NavLink(props) {
         role="none"
         {...rest}
       >
+        {!!Icon && <Icon className={classes.icon}/>}
         <Link to={to} className={classes.a} aria-label={ariaLabel}>
           {renderChildren()}
         </Link>
@@ -69,6 +70,7 @@ NavLink.propTypes = {
     'error',
   ]),
   active: PropTypes.bool,
+  icon: PropTypes.object,
 };
 
 NavLink.defaultProps = {

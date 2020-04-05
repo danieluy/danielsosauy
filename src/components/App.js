@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import useStyles from './styles';
 // Components
-import AppBar from './AppBar/AppBar';
+import TopAppBar from './AppBar/TopAppBar';
+import DownAppBar from './AppBar/DownAppBar';
 // Views
 import Home from './Home/Home';
 import Work from './Work/Work';
@@ -19,12 +20,13 @@ function App(props) {
 		: 'www.danielsosa.uy-v3';
 	return (
 		<Router basename={baseName}>
-			<Route component={AppBar}/>
+			<Route component={TopAppBar} />
 			<Route exact path="/" component={Home} />
 			<Route exact path="/work" component={Work} />
 			<Route exact path="/stuff" component={Stuff} />
 			<Route exact path="/academic" component={Academic} />
 			<Route exact path="/contact" component={Contact} />
+			<Route component={DownAppBar} />
 		</Router>
 	);
 }

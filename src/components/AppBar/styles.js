@@ -1,6 +1,23 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
+
 export default makeStyles(theme => {
+  const ul = {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    listStyleType: 'none',
+    color: 'inherit',
+  };
+
+  const mainLi = {
+    all: 'unset',
+    display: 'flex',
+    alignItems: 'center',
+    color: 'inherit',
+    margin: 0,
+  };
+
   return {
     header: {
       height: theme.spacing(8),
@@ -16,12 +33,12 @@ export default makeStyles(theme => {
       width: '100%',
       color: 'inherit',
     },
-    ul: {
-      width: '100%',
-      display: 'flex',
-      alignItems: 'center',
-      listStyleType: 'none',
-      color: 'inherit',
+    ulTop: {
+      ...ul,
+    },
+    ulDown: {
+      ...ul,
+      justifyContent: 'space-between',
     },
     li: {
       all: 'unset',
@@ -29,13 +46,13 @@ export default makeStyles(theme => {
       alignItems: 'center',
       color: 'inherit',
     },
-    mainLi: {
-      all: 'unset',
-      display: 'flex',
-      alignItems: 'center',
-      color: 'inherit',
+    mainLiTop: {
+      ...mainLi,
       flexGrow: 1,
-      margin: 0,
+    },
+    mainLiDown: {
+      ...mainLi,
+      flexGrow: 0,
     },
   };
 });

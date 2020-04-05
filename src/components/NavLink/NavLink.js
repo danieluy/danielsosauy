@@ -8,7 +8,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
 function NavLink(props) {
-  const { to, children, active, color, span, liClassName, icon: Icon, ...rest } = props;
+  const { to, children, active, color, span, liClassName, icon: Icon, vertical, ...rest } = props;
   const ariaLabel = props['aria-label'];
   const theme = useTheme();
 
@@ -17,12 +17,18 @@ function NavLink(props) {
       ? theme.activeBackgroundColor
       : theme.defaultBackgroundColor;
 
+    const flex = {
+      flexDirection: vertical ? 'column' : 'row',
+      alignItems: 'center',
+    };
+
     return {
       height: theme.spacing(6),
       paddingRight: theme.spacing(2),
       paddingLeft: theme.spacing(2),
       borderRadius: theme.spacing(),
       backgroundColor,
+      ...flex,
     };
   }, [active]);
 
@@ -37,8 +43,8 @@ function NavLink(props) {
         role="none"
         {...rest}
       >
-        {!!Icon && <Icon className={classes.icon}/>}
         <Link to={to} className={classes.a} aria-label={ariaLabel}>
+          {!!Icon && <Icon className={classes.icon} />}
           {renderChildren()}
         </Link>
       </ButtonBase>
@@ -47,7 +53,7 @@ function NavLink(props) {
 
   function renderChildren() {
     if (typeof children === 'string') {
-      return <Typography variant="button" component="span">{children}</Typography>;
+      return <Typography variant="button" component="span" className={classes.linkText}>{children}</Typography>;
     }
     return children;
   }
@@ -71,11 +77,13 @@ NavLink.propTypes = {
   ]),
   active: PropTypes.bool,
   icon: PropTypes.object,
+  vertical: PropTypes.bool,
 };
 
 NavLink.defaultProps = {
   color: 'inherit',
   active: false,
+  vertical: false,
 };
 
 export default NavLink;

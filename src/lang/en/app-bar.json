@@ -1,3 +1,7 @@
 {
-  "home": "Home"
+  "home": "Home",
+  "work": "Work",
+  "stuff": "Stuff",
+  "academic": "Academic",
+  "contact": "Contact"
 }

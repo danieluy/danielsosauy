@@ -14,7 +14,8 @@ import Contact from './Contact/Contact';
 
 function App(props) {
 	// Necessary to update app theme color
-	const classes = useStyles();
+	useStyles();
+
 	const [baseName] = React.useState(getBaseName());
 
 	return (

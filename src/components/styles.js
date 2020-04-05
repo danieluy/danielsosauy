@@ -4,7 +4,7 @@ const themeColorTag = document.querySelector('meta[name="theme-color"]');
 
 export default makeStyles(theme => {
   console.log('theme', theme);
-  setThemeColor(theme.palette.primary.main);
+  setThemeColor('#000000');
   return {};
 });
 

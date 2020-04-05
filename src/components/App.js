@@ -15,9 +15,8 @@ import Contact from './Contact/Contact';
 function App(props) {
 	// Necessary to update app theme color
 	const classes = useStyles();
-	const baseName = location.hostname === 'localhost'
-		? ''
-		: 'www.danielsosa.uy-v3';
+	const [baseName] = React.useState(getBaseName());
+
 	return (
 		<Router basename={baseName}>
 			<Route component={TopAppBar} />
@@ -34,3 +33,10 @@ function App(props) {
 export default App;
 
 App.propTypes = {};
+
+function getBaseName(hostname) {
+	if (hostname === 'danieluy.github.io') {
+		return 'www.danielsosa.uy-v3';
+	}
+	return '';
+}

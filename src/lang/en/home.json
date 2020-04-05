@@ -3,7 +3,8 @@
     "whatWhy": {
       "title": "What and Why?",
       "paragraphs": [
-        "The purpose of this site is to present what I like to do, and it was created out of the necessity of showing off my work and my aptitudes since they fall out of what my academic formation demonstrates. It's a compendium of activities and projects solely related to software development. Everything was made (or is going to be made), following these principles: accessibility, design, performance, tech. The source code of this site is open source and it's freely available on Github under the MIT license. You can get it through my [GitHub profile](https://github.com/danieluy)."
+        "The purpose of this site is to present what I like to do. It was created out of the necessity of displaying my work and my aptitudes, since they fall out of what my academic formation demonstrates. It's a compendium of activities and projects solely related to software development.",
+        "Everything was made (or is going to be made), following these principles: accessibility, design, performance, tech. The source code of this site is open source and it's freely available on Github under the MIT license. You can get it through my [GitHub profile](https://github.com/danieluy)."
       ],
       "banner": {
         "src": "assets/img/article-banners/undraw_design_notes_8dmv.svg",

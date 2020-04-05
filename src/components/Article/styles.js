@@ -57,6 +57,17 @@ export default makeStyles(theme => {
           borderBottom: `${theme.spacing(2)}px solid transparent`,
           borderLeft: `${theme.spacing(2)}px solid #9CACFF`,
           borderRight: `${theme.spacing(2)}px solid transparent`,
+          [theme.breakpoints.down('md')]: {
+            top: theme.spacing(6),
+            left: -1 * theme.spacing(3),
+          },
+          [theme.breakpoints.down('xs')]: {
+            top: theme.spacing(5),
+            borderTopWidth: theme.spacing(1.5),
+            borderBottomWidth: theme.spacing(1.5),
+            borderLeftWidth: theme.spacing(1.5),
+            borderRightWidth: theme.spacing(1.5),
+          },
         },
       },
       [theme.breakpoints.down('md')]: {

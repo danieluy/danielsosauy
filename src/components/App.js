@@ -35,8 +35,8 @@ export default App;
 
 App.propTypes = {};
 
-function getBaseName(hostname) {
-	if (hostname === 'danieluy.github.io') {
+function getBaseName() {
+	if (window.location.hostname === 'danieluy.github.io') {
 		return 'www.danielsosa.uy-v3';
 	}
 	return '';

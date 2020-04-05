@@ -2,12 +2,14 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 export default makeStyles(theme => {
   return {
-    rootStyleVertical: {
-    },
     icon: {
       marginRight: theme.spacing(2),
       [theme.breakpoints.down('sm')]: {
         margin: 0,
+      },
+      [theme.breakpoints.down('xs')]: {
+        fontSize: `${theme.spacing(2)}px !important`,
+        marginBottom: theme.spacing(.5),
       },
     },
     a: {
@@ -23,7 +25,7 @@ export default makeStyles(theme => {
     },
     linkText: {
       [theme.breakpoints.down('xs')]: {
-        display: 'none',
+        fontSize: `${theme.spacing(1.3)}px !important`,
       },
     },
   };

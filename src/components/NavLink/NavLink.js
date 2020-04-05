@@ -4,35 +4,33 @@ import useStyles from './styles';
 import { Link } from 'react-router-dom';
 // Material UI
 import useTheme from '@material-ui/core/styles/useTheme';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
 function NavLink(props) {
   const { to, children, active, color, span, liClassName, icon: Icon, vertical, ...rest } = props;
   const ariaLabel = props['aria-label'];
+  const classes = useStyles();
   const theme = useTheme();
+  const downSm = useMediaQuery(theme.breakpoints.down('sm'));
 
   const rootStyle = React.useMemo(() => {
     const backgroundColor = active
       ? theme.activeBackgroundColor
       : theme.defaultBackgroundColor;
 
-    const flex = {
-      flexDirection: vertical ? 'column' : 'row',
-      alignItems: 'center',
-    };
-
     return {
-      height: theme.spacing(6),
+      height: theme.spacing(8),
       paddingRight: theme.spacing(2),
       paddingLeft: theme.spacing(2),
-      borderRadius: theme.spacing(),
       backgroundColor,
-      ...flex,
+      flexDirection: vertical ? 'column' : 'row',
+      alignItems: 'center',
+      width: downSm ? '100%' : 'auto',
     };
-  }, [active]);
+  }, [active, downSm]);
 
-  const classes = useStyles();
   return (
     <li className={liClassName}>
       <ButtonBase

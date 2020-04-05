@@ -54,6 +54,9 @@ export default makeStyles(theme => {
       display: 'flex',
       alignItems: 'center',
       color: 'inherit',
+      [theme.breakpoints.down('sm')]: {
+        flex: 1,
+      },
     },
     mainLiTop: {
       ...mainLi,
@@ -62,6 +65,9 @@ export default makeStyles(theme => {
     mainLiDown: {
       ...mainLi,
       flexGrow: 0,
+      [theme.breakpoints.down('sm')]: {
+        flex: 1,
+      },
     },
   };
 });

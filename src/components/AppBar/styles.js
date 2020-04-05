@@ -2,6 +2,15 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 
 export default makeStyles(theme => {
+  const header = {
+    height: theme.spacing(8),
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    color: theme.palette.text.primary,
+    backgroundColor: theme.elevationColor[2],
+  };
+
   const ul = {
     width: '100%',
     display: 'flex',
@@ -19,15 +28,15 @@ export default makeStyles(theme => {
   };
 
   return {
-    header: {
-      height: theme.spacing(8),
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      color: theme.palette.text.primary,
+    headerTop: {
+      ...header,
       paddingLeft: theme.spacing(4),
       paddingRight: theme.spacing(4),
-      backgroundColor: theme.elevationColor[2],
+    },
+    headerDown: {
+      ...header,
+      paddingLeft: 0,
+      paddingRight: 0,
     },
     nav: {
       width: '100%',
@@ -38,7 +47,7 @@ export default makeStyles(theme => {
     },
     ulDown: {
       ...ul,
-      justifyContent: 'space-between',
+      justifyContent: 'space-around',
     },
     li: {
       all: 'unset',

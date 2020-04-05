@@ -13,6 +13,12 @@ export default makeStyles(theme => {
       willChange: 'transform',
       transform: 'translateX(0)',
       transition: 'transform 300ms ease-in-out',
+      [theme.breakpoints.down('sm')]: {
+        padding: theme.spacing(2),
+      },
+      [theme.breakpoints.down('xs')]: {
+        padding: 0,
+      },
     },
     aside: {
       paddingTop: theme.spacing(4),

@@ -13,6 +13,10 @@ export default makeStyles(theme => {
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
       },
+      [theme.breakpoints.down('sm')]: {
+        padding: theme.spacing(2),
+        marginBottom: theme.spacing(2),
+      },
     },
     banner: {
       display: 'flex',
@@ -59,6 +63,9 @@ export default makeStyles(theme => {
         paddingTop: theme.spacing(4),
         paddingLeft: 0,
       },
+      [theme.breakpoints.down('xs')]: {
+        fontSize: theme.spacing(4),
+      },
     },
     paragraph: {
       paddingLeft: theme.spacing(4),
@@ -66,6 +73,9 @@ export default makeStyles(theme => {
       fontSize: theme.spacing(2.5),
       [theme.breakpoints.down('md')]: {
         paddingLeft: 0,
+      },
+      [theme.breakpoints.down('xs')]: {
+        fontSize: theme.spacing(2),
       },
     },
     link: {

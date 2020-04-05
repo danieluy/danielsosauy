@@ -23,7 +23,7 @@ function AppBar(props) {
   if (!downSm) return null;
 
   return (
-    <header aria-label="#Header" className={classes.header}>
+    <header aria-label="#Header" className={classes.headerDown}>
       <nav className={classes.nav}>
         <ul className={classes.ulDown}>
           <NavLink

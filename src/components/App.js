@@ -2,19 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import useStyles from './styles';
+import Loadable from 'react-loadable';
 // Components
 import TopAppBar from './AppBar/TopAppBar';
 import DownAppBar from './AppBar/DownAppBar';
-// Views
-import Home from './Home/Home';
-import Work from './Work/Work';
-import Stuff from './Stuff/Stuff';
-import Academic from './Academic/Academic';
-import Contact from './Contact/Contact';
+import Loading from './Loading/Loading';
 
 function App(props) {
 	// Necessary to update app theme color
 	useStyles();
+
+	// Loadable views
+	const Home = getLoadable('./Home/Home');
+	const Work = getLoadable('./Work/Work');
+	const Stuff = getLoadable('./Stuff/Stuff');
+	const Academic = getLoadable('./Academic/Academic');
+	const Contact = getLoadable('./Contact/Contact');
 
 	const [baseName] = React.useState(getBaseName());
 
@@ -34,6 +37,13 @@ function App(props) {
 export default App;
 
 App.propTypes = {};
+
+function getLoadable(path) {
+	return Loadable({
+		loader: () => import(`./${path.slice(2)}`),
+		loading: Loading,
+	});
+}
 
 function getBaseName() {
 	if (window.location.hostname === 'danieluy.github.io') {

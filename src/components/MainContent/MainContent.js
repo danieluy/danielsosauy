@@ -12,7 +12,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 function MainContent(props) {
-  const { content, aside, color } = props;
+  const { content, aside } = props;
   const lang = useSelector(selectMainLang);
   const [width, height] = useWindowSize();
   const classes = useStyles();
@@ -51,9 +51,7 @@ function MainContent(props) {
       setAsideOpen(!asideOpen);
     }
   };
-
-  window.toggleAsideOpen = toggleAsideOpen;
-
+  
   return (
     <main className={classes.main} style={style.main} ref={mainRef}>
       <div className={classes.content} ref={contentRef}>

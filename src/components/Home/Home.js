@@ -8,7 +8,12 @@ import StyleToggle from '../StyleToggle/StyleToggle';
 
 function Home() {
   const lang = useSelector(state => state.lang.home);
-  const { whatWhy, accessibility, design, performance, tech } = lang.articles;
+  const {
+    title,
+    articles: { whatWhy, accessibility, design, performance, tech }
+  } = lang;
+
+  document.title = `Daniel Sosa | ${title}`;
 
   return (
     <MainContent

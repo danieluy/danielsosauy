@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import useStyles from './styles';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
 function Contact(props) {
-  const { lang } = props;
   const classes = useStyles();
+
+  document.title = 'Daniel Sosa | #Contact';
 
   return (
     <div className={classes.root}>
@@ -20,11 +20,4 @@ Contact.proptypes = {
   lang: PropTypes.object.isRequired,
 };
 
-const ConnectedWork = connect(mapStateToProps)(Contact);
-export default ConnectedWork;
-
-function mapStateToProps(state) {
-  return {
-    lang: state.lang.contact,
-  };
-}
+export default Contact;

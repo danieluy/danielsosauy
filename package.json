@@ -1,11 +1,14 @@
 {
   "name": "www.danielsosa.uy",
+  "homepage": "https://danieluy.github.io/danielsosauy",
   "version": "3.0.0",
   "description": "Accessible and open source personal website",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --watch-poll --open --env.development",
-    "build": "webpack --env.production"
+    "build": "webpack --env.production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "Daniel Sosa <daneilsosa.dev@gmail.com>",
@@ -29,6 +32,7 @@
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
     "eslint-plugin-react": "^7.16.0",
+    "gh-pages": "^2.2.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-loadable": "^5.5.0",

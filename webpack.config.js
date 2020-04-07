@@ -14,7 +14,7 @@ module.exports = env => {
 		},
 		output: {
 			filename: '[name].js',
-			path: path.join(__dirname, 'docs'),
+			path: path.join(__dirname, 'dist'),
 		},
 		mode: env.development ? 'development' : 'production',
 		module: {
@@ -54,7 +54,7 @@ module.exports = env => {
 		},
 		plugins: [
 			new CopyPlugin([
-				{ from: 'src/index.html', to: '' },
+				{ from: 'src/index.html', to: '404.html' },
 				{ from: 'src/assets/', to: 'assets/' },
 			]),
 		],

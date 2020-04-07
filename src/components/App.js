@@ -47,7 +47,7 @@ function getLoadable(path) {
 
 function getBaseName() {
 	if (window.location.hostname === 'danieluy.github.io') {
-		return 'www.danielsosa.uy-v3';
+		return 'danielsosauy';
 	}
 	return '';
 }

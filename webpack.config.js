@@ -54,7 +54,7 @@ module.exports = env => {
 		},
 		plugins: [
 			new CopyPlugin([
-				{ from: 'src/index.html', to: '404.html' },
+				{ from: 'src/index.html', to: '' },
 				{ from: 'src/assets/', to: 'assets/' },
 			]),
 		],

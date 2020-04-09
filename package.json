@@ -1,13 +1,12 @@
 {
   "name": "www.danielsosa.uy",
-  "homepage": "https://danieluy.github.io/danielsosauy",
+  "homepage": "https://danieluy.github.io",
   "version": "3.0.0",
   "description": "Accessible and open source personal website",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --watch-poll --open --env.development",
     "build": "webpack --env.production",
-    "postbuild": "mv dist/index.html dist/404.html",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

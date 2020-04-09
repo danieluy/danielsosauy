@@ -14,7 +14,7 @@ module.exports = env => {
 		},
 		output: {
 			filename: '[name].js',
-			path: path.join(__dirname, 'dist'),
+			path: path.join(__dirname, 'docs'),
 		},
 		mode: env.development ? 'development' : 'production',
 		module: {

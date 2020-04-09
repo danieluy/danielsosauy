@@ -12,4 +12,4 @@ $ npm start
 # run
 $ npm run deploy
 ```
-> Note: the index.html file get renamed as 404.html so GitHub pages fallsback to it on subroutes. This of course means the whole site is a awfull 404 Not found error.
+> Note: the index.html file gets renamed as 404.html so GitHub pages fallback to it on subroutes. This of course means the whole site is a awfull 404 Not found error.

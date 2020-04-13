@@ -1,6 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const pkg = require('./package.json');
 
 module.exports = env => {
 	const config = {
@@ -14,7 +16,7 @@ module.exports = env => {
 		},
 		output: {
 			filename: '[name].js',
-			path: path.join(__dirname, 'docs'),
+			path: path.join(__dirname, 'dist'),
 		},
 		mode: env.development ? 'development' : 'production',
 		module: {
@@ -48,7 +50,7 @@ module.exports = env => {
 				},
 				{
 					test: /\.css$/,
-					use: ['style-loader', 'css-loader']
+					use: ['style-loader', 'css-loader'],
 				},
 			],
 		},
@@ -60,8 +62,15 @@ module.exports = env => {
 		],
 	};
 
+	const toDefine = {
+		'process.env.APP_NAME': JSON.stringify(pkg.name),
+		'process.env.APP_DESCRIPTION': JSON.stringify(pkg.description),
+		'process.env.APP_VERSION': JSON.stringify(pkg.version),
+	};
+
 	if (env.development) {
 		config.devtool = 'inline-source-map';
+		toDefine['process.env.NODE_ENV'] = JSON.stringify('development');
 	}
 
 	if (env.production) {
@@ -72,7 +81,10 @@ module.exports = env => {
 				},
 			})],
 		};
+		toDefine['process.env.NODE_ENV'] = JSON.stringify('production');
 	}
+
+	config.plugins.push(new webpack.DefinePlugin(toDefine));
 
 	return config;
 };

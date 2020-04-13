@@ -1,10 +1,9 @@
 import { SET_APP_INFO } from '../actions';
-import pck from '../../../package.json';
 
 const initialState = {
-  name: pck.name,
-  description: pck.description,
-  version: pck.version,
+  name: process.env.APP_NAME,
+  description: process.env.APP_DESCRIPTION,
+  version: process.env.APP_VERSION,
 };
 
 export default (state = initialState, action) => {

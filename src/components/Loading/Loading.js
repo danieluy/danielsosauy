@@ -53,7 +53,7 @@ function Loading(props) {
 }
 
 Loading.propTypes = {
-  error: PropTypes.object.isRequired,
+  error: PropTypes.object,
   timedOut: PropTypes.bool.isRequired,
   retry: PropTypes.func.isRequired,
   pastDelay: PropTypes.bool.isRequired,

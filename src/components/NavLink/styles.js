@@ -14,6 +14,7 @@ export default makeStyles(theme => {
     },
     a: {
       display: 'flex',
+      height: '100%',
       alignItems: 'center',
       textDecoration: 'none',
       color: 'inherit',

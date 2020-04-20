@@ -16,6 +16,7 @@ export default makeStyles(theme => {
       display: 'flex',
       height: '100%',
       alignItems: 'center',
+      justifyContent: 'center',
       textDecoration: 'none',
       color: 'inherit',
       outline: 'none',

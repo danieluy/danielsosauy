@@ -7,7 +7,7 @@ const pkg = require('./package.json');
 module.exports = env => {
 	const config = {
 		devServer: {
-			port: 3000,
+			port: process.env.PORT || 3000,
 			historyApiFallback: true,
 			host: '0.0.0.0',
 		},

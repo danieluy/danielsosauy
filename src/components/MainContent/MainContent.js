@@ -49,12 +49,6 @@ function MainContent(props) {
     return 27.5;
   }, [isUnderSm, isUnderXs]);
 
-  const style = {
-    main: {
-      height: height - theme.spacing(8),
-    },
-  };
-
   const toggleAsideOpen = React.useCallback(() => {
     if (isUnderMd && asideRef.current) {
       if (asideOpen) {
@@ -109,7 +103,7 @@ function MainContent(props) {
   };
 
   return (
-    <main className={classes.main} style={style.main} ref={mainRef}>
+    <main className={classes.main} style={{ height: height - theme.spacing(8) }} ref={mainRef}>
       <div className={classes.content} ref={contentRef}>
         {content}
       </div>

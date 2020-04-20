@@ -35,13 +35,13 @@ function AppBar(props) {
           >
             <Typography variant="h6" component="span">www.danielsosa.uy</Typography>
           </NavLink>
-          {renderNavLinks()}
+          <NavLinks />
         </ul>
       </nav>
     </header>
   );
 
-  function renderNavLinks() {
+  function NavLinks() {
     return routes.map(({ name, pathname, icon }) => (
       <NavLink
         key={pathname}

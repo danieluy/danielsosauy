@@ -23,7 +23,7 @@ function AppBar(props) {
   if (!downSm) return null;
 
   return (
-    <header aria-label="#Header" className={classes.headerDown}>
+    <footer aria-label="#Header" className={classes.headerDown}>
       <nav className={classes.nav}>
         <ul className={classes.ulDown}>
           <NavLink
@@ -36,13 +36,13 @@ function AppBar(props) {
           >
             {lang.home}
           </NavLink>
-          {renderTopNavLinks()}
+          <NavLinks />
         </ul>
       </nav>
-    </header>
+    </footer>
   );
 
-  function renderTopNavLinks() {
+  function NavLinks() {
     return routes.map(({ name, pathname, icon }) => (
       <NavLink
         key={pathname}

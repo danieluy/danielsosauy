@@ -5,7 +5,7 @@ import useTheme from '@material-ui/core/styles/useTheme';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
-function Button(props) {
+const Button = React.forwardRef((props, ref) => {
   const theme = useTheme();
   const { children, color, active, span, ...rest } = props;
 
@@ -18,6 +18,7 @@ function Button(props) {
       component={span ? 'span' : 'button'}
       color={color}
       {...rest}
+      ref={ref}
     >
       {renderChildren()}
     </ButtonBase>
@@ -30,6 +31,10 @@ function Button(props) {
     return children;
   }
 
+  /**
+   * Inline styles are neccessary here.
+   * ButtonBase will override styles applyed by className.
+   */
   function getRootStyle() {
     const backgroundColor = active
       ? theme.activeBackgroundColor
@@ -42,7 +47,7 @@ function Button(props) {
       backgroundColor,
     };
   }
-}
+});
 
 Button.proptypes = {
   children: PropTypes.oneOfType([

@@ -58,7 +58,6 @@ function Aside(props) {
         meuButtonRef.current.children[0].style.animationName = 'rotate180Clockwise';
         window.setTimeout(() => {
           asideItems[0].focus();
-          setFocusIdx(0);
         }, 300);
       }
       setAsideOpen(!asideOpen);
@@ -66,19 +65,27 @@ function Aside(props) {
     }
   }, [isUnderMd, asideRef.current, asideOpen]);
 
-  const focusForward = React.useCallback(() => {
+  const focusForward = () => {
+    const nextIdx = focusIdx + 1;
+    if (asideItems[nextIdx]) {
+      asideItems[nextIdx].focus();
+    }
+    else {
+      asideItems[0].focus();
+    }
+  };
 
-  }, []);
-
-  const focusBackward = React.useCallback(() => {
-
-  }, []);
+  const focusBackward = () => {
+    const nextIdx = focusIdx - 1;
+    if (asideItems[nextIdx]) {
+      asideItems[nextIdx].focus();
+    }
+    else {
+      asideItems[asideItems.length - 1].focus();
+    }
+  };
 
   const handleKeyDown = React.useCallback(evt => {
-    if (evt.which !== KEY_CODE.TAB) {
-      evt.preventDefault();
-    }
-
     switch (evt.which) {
       case KEY_CODE.ENTER:
       case KEY_CODE.SPACEBAR:
@@ -86,15 +93,25 @@ function Aside(props) {
         break;
       case KEY_CODE.ARROW_UP:
       case KEY_CODE.ARROW_LEFT:
+        evt.preventDefault();
         focusBackward();
         break;
       case KEY_CODE.ARROW_DOWN:
       case KEY_CODE.ARROW_RIGHT:
+        evt.preventDefault();
         focusForward();
         break;
       default:
         break;
     }
+  }, [focusIdx, asideItems]);
+
+  function preventDefault() {
+
+  }
+
+  const handleFocus = React.useCallback(idx => evt => {
+    setFocusIdx(idx);
   }, []);
 
   if (!elements) {
@@ -132,15 +149,10 @@ function Aside(props) {
               <El.type
                 {...El.props}
                 tabIndex={menuItemTabIndex}
+                onFocus={handleFocus(i)}
               />
             </li>
           ))}
-          <li
-            onClick={toggleAsideOpen}
-            onKeyDown={handleKeyDown}
-          >
-            <p tabIndex={menuItemTabIndex}>Test</p>
-          </li>
         </ul>
       </aside>
     </React.Fragment>

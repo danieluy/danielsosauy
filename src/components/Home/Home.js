@@ -26,7 +26,9 @@ function Home() {
           <Article articleId="tech" title={tech.title} banner={tech.banner} paragraphs={tech.paragraphs} />
         </section>
       )}
-      aside={[<StyleToggle color="textPrimary" />]}
+      aside={[
+        <StyleToggle color="textPrimary" />,
+      ]}
     />
   );
 }

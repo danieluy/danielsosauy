@@ -5,18 +5,18 @@ import { connect } from 'react-redux';
 import Button from '../Button/Button';
 
 function StyleToggle(props) {
-  const { lang, color, dispatch, ...rest } = props;
   // dispatch is destructured here so it wont be passed to the Button component
+  const { lang, color, dispatch, ...rest } = props;
+  const head = React.useMemo(() => document.querySelector('head'), []);
   const [stylesheets, setStylesheets] = React.useState([]);
 
-  function styleToggle() {
+  function toggleStyles() {
     if (!stylesheets.length) {
-      const list = Array.from(document.querySelectorAll('head > style'));
+      const list = Array.from(head.querySelectorAll('style'));
       list.forEach(stylesheet => removeElement(stylesheet));
       setStylesheets(list);
     }
     else {
-      const head = document.querySelector('head');
       stylesheets.forEach(stylesheet => head.appendChild(stylesheet));
       setStylesheets([]);
     }
@@ -28,7 +28,7 @@ function StyleToggle(props) {
   }
 
   return (
-    <Button onClick={styleToggle} color={color} {...rest}>{lang.label}</Button>
+    <Button onClick={toggleStyles} color={color} {...rest}>{lang.label}</Button>
   );
 }
 

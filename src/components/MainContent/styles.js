@@ -71,6 +71,10 @@ export default makeStyles(theme => {
       [theme.breakpoints.down('md')]: {
         display: 'flex',
       },
+      [theme.breakpoints.down('sm')]: {
+        top: 'unset',
+        bottom: theme.spacing(10),
+      },
     },
     ul: {
       listStyleType: 'none',

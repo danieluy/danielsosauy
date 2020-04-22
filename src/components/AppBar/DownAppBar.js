@@ -24,15 +24,16 @@ function AppBar(props) {
     <footer aria-label="#Header" className={classes.headerDown}>
       <nav className={classes.nav}>
         <ul className={classes.ulDown}>
-          <NavLink
-            to="/"
-            aria-label={lang.home}
-            liClassName={classes.mainLiDown}
-            icon={HomeIcon}
-            vertical
-          >
-            {lang.home}
-          </NavLink>
+          <li className={classes.mainLiDown}>
+            <NavLink
+              to="/"
+              aria-label={lang.home}
+              icon={HomeIcon}
+              vertical
+            >
+              {lang.home}
+            </NavLink>
+          </li>
           <NavLinks />
         </ul>
       </nav>
@@ -41,16 +42,17 @@ function AppBar(props) {
 
   function NavLinks() {
     return routes.map(({ name, pathname, icon }) => (
-      <NavLink
-        key={pathname}
-        to={pathname}
-        className={classes.a}
-        liClassName={classes.li}
-        icon={icon}
-        vertical
-      >
-        {name}
-      </NavLink >
+      <li className={classes.li}>
+        <NavLink
+          key={pathname}
+          to={pathname}
+          className={classes.a}
+          icon={icon}
+          vertical
+        >
+          {name}
+        </NavLink >
+      </li>
     ));
   }
 }

@@ -10,7 +10,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
 function NavLink(props) {
-  const { to, children, color, span, liClassName, icon: Icon, vertical, ...rest } = props;
+  const { to, children, color, span, icon: Icon, vertical, ...rest } = props;
   const ariaLabel = props['aria-label'];
   const classes = useStyles();
   const theme = useTheme();
@@ -36,21 +36,19 @@ function NavLink(props) {
   }, [active, downSm]);
 
   return (
-    <li className={liClassName}>
-      <ButtonBase
-        focusRipple
-        style={rootStyle}
-        component="span"
-        tabIndex="-1"
-        role="none"
-        {...rest}
-      >
-        <Link to={to} className={classes.a} aria-label={ariaLabel}>
-          {!!Icon && <Icon className={classes.icon} />}
-          {renderChildren()}
-        </Link>
-      </ButtonBase>
-    </li>
+    <ButtonBase
+      focusRipple
+      style={rootStyle}
+      component="span"
+      tabIndex="-1"
+      role="none"
+      {...rest}
+    >
+      <Link to={to} className={classes.a} aria-label={ariaLabel}>
+        {!!Icon && <Icon className={classes.icon} />}
+        {renderChildren()}
+      </Link>
+    </ButtonBase>
   );
 
   function renderChildren() {
@@ -67,7 +65,6 @@ NavLink.propTypes = {
     PropTypes.string,
     PropTypes.element,
   ]).isRequired,
-  liClassName: PropTypes.string,
   color: PropTypes.oneOf([
     'initial',
     'inherit',

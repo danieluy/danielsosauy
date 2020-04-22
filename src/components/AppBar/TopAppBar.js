@@ -23,14 +23,15 @@ function AppBar(props) {
     <header aria-label="#Header" className={classes.headerTop}>
       <nav className={classes.nav}>
         <ul className={classes.ulTop}>
-          <NavLink
-            to="/"
-            aria-label={lang.home}
-            liClassName={classes.mainLiTop}
-            icon={HomeIcon}
-          >
-            <Typography variant="h6" component="span">www.danielsosa.uy</Typography>
-          </NavLink>
+          <li className={classes.mainLiTop}>
+            <NavLink
+              to="/"
+              aria-label={lang.home}
+              icon={HomeIcon}
+            >
+              <Typography variant="h6" component="span">www.danielsosa.uy</Typography>
+            </NavLink>
+          </li>
           <NavLinks />
         </ul>
       </nav>
@@ -39,15 +40,16 @@ function AppBar(props) {
 
   function NavLinks() {
     return routes.map(({ name, pathname, icon }) => (
-      <NavLink
-        key={pathname}
-        to={pathname}
-        className={classes.a}
-        liClassName={classes.li}
-        icon={icon}
-      >
-        {name}
-      </NavLink >
+      <li className={classes.li}>
+        <NavLink
+          key={pathname}
+          to={pathname}
+          className={classes.a}
+          icon={icon}
+        >
+          {name}
+        </NavLink >
+      </li>
     ));
   }
 }

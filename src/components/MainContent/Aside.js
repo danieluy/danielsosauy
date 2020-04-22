@@ -13,7 +13,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 function Aside(props) {
   const { elements, onToggleOpen } = props;
-  const [asideOpen, setAsideOpen] = React.useState(open);
+  const [asideOpen, setAsideOpen] = React.useState(false);
   const lang = useSelector(selectMainLang);
   const classes = useStyles();
   const theme = useTheme();
@@ -89,26 +89,22 @@ function Aside(props) {
     switch (evt.which) {
       case KEY_CODE.ENTER:
       case KEY_CODE.SPACEBAR:
-        toggleAsideOpen();
+        // toggleAsideOpen();
         break;
       case KEY_CODE.ARROW_UP:
       case KEY_CODE.ARROW_LEFT:
         evt.preventDefault();
-        focusBackward();
+        // focusBackward();
         break;
       case KEY_CODE.ARROW_DOWN:
       case KEY_CODE.ARROW_RIGHT:
         evt.preventDefault();
-        focusForward();
+        // focusForward();
         break;
       default:
         break;
     }
   }, [focusIdx, asideItems]);
-
-  function preventDefault() {
-
-  }
 
   const handleFocus = React.useCallback(idx => evt => {
     setFocusIdx(idx);

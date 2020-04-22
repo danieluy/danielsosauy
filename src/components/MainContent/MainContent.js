@@ -19,7 +19,7 @@ function MainContent(props) {
     contentRef.current.style.transform = open
       ? 'translateX(0)'
       : `translateX(-${theme.spacing(25)}px)`;
-  }, []);
+  }, [contentRef.current]);
 
   return (
     <main className={classes.main} style={{ height: height - theme.spacing(8) }} ref={mainRef}>

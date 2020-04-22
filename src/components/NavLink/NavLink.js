@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router';
 // Material UI
 import useTheme from '@material-ui/core/styles/useTheme';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -9,11 +10,14 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
 function NavLink(props) {
-  const { to, children, active, color, span, liClassName, icon: Icon, vertical, ...rest } = props;
+  const { to, children, color, span, liClassName, icon: Icon, vertical, ...rest } = props;
   const ariaLabel = props['aria-label'];
   const classes = useStyles();
   const theme = useTheme();
   const downSm = useMediaQuery(theme.breakpoints.down('sm'));
+  const location = useLocation();
+
+  const active = React.useMemo(() => (to === location.pathname), [to, location]);
 
   const rootStyle = React.useMemo(() => {
     const backgroundColor = active
@@ -73,14 +77,12 @@ NavLink.propTypes = {
     'textSecondary',
     'error',
   ]),
-  active: PropTypes.bool,
   icon: PropTypes.object,
   vertical: PropTypes.bool,
 };
 
 NavLink.defaultProps = {
   color: 'inherit',
-  active: false,
   vertical: false,
 };
 

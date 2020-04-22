@@ -18,8 +18,6 @@ function AppBar(props) {
   const theme = useTheme();
   const downSm = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const isActive = React.useCallback(href => (href === location.pathname), [location.pathname]);
-
   if (!downSm) return null;
 
   return (
@@ -29,7 +27,6 @@ function AppBar(props) {
           <NavLink
             to="/"
             aria-label={lang.home}
-            active={isActive('/')}
             liClassName={classes.mainLiDown}
             icon={HomeIcon}
             vertical
@@ -48,7 +45,6 @@ function AppBar(props) {
         key={pathname}
         to={pathname}
         className={classes.a}
-        active={isActive(pathname)}
         liClassName={classes.li}
         icon={icon}
         vertical

@@ -12,13 +12,10 @@ import Typography from '@material-ui/core/Typography';
 import HomeIcon from '@material-ui/icons/HomeOutlined';
 
 function AppBar(props) {
-  const { location } = props;
   const classes = useStyles();
   const lang = useSelector(state => state.lang.appBar);
   const theme = useTheme();
   const downSm = useMediaQuery(theme.breakpoints.down('sm'));
-
-  const isActive = React.useCallback(href => (href === location.pathname), [location.pathname]);
 
   if (downSm) return null;
 
@@ -29,7 +26,6 @@ function AppBar(props) {
           <NavLink
             to="/"
             aria-label={lang.home}
-            active={isActive('/')}
             liClassName={classes.mainLiTop}
             icon={HomeIcon}
           >
@@ -47,7 +43,6 @@ function AppBar(props) {
         key={pathname}
         to={pathname}
         className={classes.a}
-        active={isActive(pathname)}
         liClassName={classes.li}
         icon={icon}
       >

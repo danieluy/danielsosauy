@@ -4,10 +4,9 @@ import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectMainLang } from '../../redux/selectors';
 import { KEY_CODE } from '../../utils';
-// Components
-import Button from '../Button/Button';
 // Material UI
 import useTheme from '@material-ui/core/styles/useTheme';
+import ButtonBase from '@material-ui/core/ButtonBase';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
@@ -32,6 +31,11 @@ function Aside(props) {
     }
   }, [asideRef.current]);
 
+  React.useEffect(() => {
+    onToggleOpen(!asideOpen);
+  }, [asideOpen]);
+
+  // Defines whether or not items are focusable
   const menuItemTabIndex = React.useMemo(() => {
     if (!isUnderMd) {
       return '0';
@@ -45,23 +49,31 @@ function Aside(props) {
     return 27.5;
   }, [isUnderSm, isUnderXs]);
 
+  const closeAside = React.useCallback(() => {
+    asideRef.current.style.transform = 'translateX(0)';
+    meuButtonRef.current.style.transform = 'translateX(0)';
+    meuButtonRef.current.children[0].style.animationName = 'rotate180Counterclockwise';
+    setAsideOpen(false);
+  });
+
+  const openAside = React.useCallback(() => {
+    asideRef.current.style.transform = `translateX(-${theme.spacing(25)}px)`;
+    meuButtonRef.current.style.transform = `translateX(-${theme.spacing(deltaTranslateButton)}px)`;
+    meuButtonRef.current.children[0].style.animationName = 'rotate180Clockwise';
+    window.setTimeout(() => {
+      asideItems[0].focus();
+    }, 300);
+    setAsideOpen(true);
+  });
+
   const toggleAsideOpen = React.useCallback(() => {
     if (isUnderMd && asideRef.current) {
       if (asideOpen) {
-        asideRef.current.style.transform = 'translateX(0)';
-        meuButtonRef.current.style.transform = 'translateX(0)';
-        meuButtonRef.current.children[0].style.animationName = 'rotate180Counterclockwise';
+        closeAside();
       }
       else {
-        asideRef.current.style.transform = `translateX(-${theme.spacing(25)}px)`;
-        meuButtonRef.current.style.transform = `translateX(-${theme.spacing(deltaTranslateButton)}px)`;
-        meuButtonRef.current.children[0].style.animationName = 'rotate180Clockwise';
-        window.setTimeout(() => {
-          asideItems[0].focus();
-        }, 300);
+        openAside();
       }
-      setAsideOpen(!asideOpen);
-      onToggleOpen(asideOpen);
     }
   }, [isUnderMd, asideRef.current, asideOpen]);
 
@@ -89,25 +101,27 @@ function Aside(props) {
     switch (evt.which) {
       case KEY_CODE.ENTER:
       case KEY_CODE.SPACEBAR:
-        // toggleAsideOpen();
+        toggleAsideOpen();
         break;
       case KEY_CODE.ARROW_UP:
       case KEY_CODE.ARROW_LEFT:
         evt.preventDefault();
-        // focusBackward();
+        focusBackward();
         break;
       case KEY_CODE.ARROW_DOWN:
       case KEY_CODE.ARROW_RIGHT:
         evt.preventDefault();
-        // focusForward();
+        focusForward();
         break;
       default:
         break;
     }
   }, [focusIdx, asideItems]);
 
-  const handleFocus = React.useCallback(idx => evt => {
-    setFocusIdx(idx);
+  const handleFocus = React.useCallback(idx => () => setFocusIdx(idx), []);
+
+  const handleBlur = React.useCallback(() => {
+    // closeAside();
   }, []);
 
   if (!elements) {
@@ -116,11 +130,13 @@ function Aside(props) {
 
   return (
     <React.Fragment>
-      <Button
+      <ButtonBase
+        focusRipple
         className={`${classes.asideButton} ${asideOpen ? 'asideOpen' : ''}`}
         role="button"
         aria-label={lang.menuButton.ariaLabel}
         title={lang.menuButton.ariaLabel}
+        component="button"
         id="aside-menu-button"
         aria-haspopup="true"
         aria-controls="aside-menu"
@@ -128,8 +144,12 @@ function Aside(props) {
         ref={meuButtonRef}
       >
         <ArrowBackIcon aria-hidden role="none" />
-      </Button>
-      <aside className={classes.aside} ref={asideRef}>
+      </ButtonBase>
+      <aside
+        className={classes.aside}
+        ref={asideRef}
+        onBlur={handleBlur}
+      >
         <ul
           className={classes.ul}
           id="aside-menu"
@@ -139,7 +159,7 @@ function Aside(props) {
           {elements.map((El, i) => (
             <li
               key={`aside-item-li-${i}`}
-              onClick={toggleAsideOpen}
+              onClick={closeAside}
               onKeyDown={handleKeyDown}
             >
               <El.type

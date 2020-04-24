@@ -1,6 +1,7 @@
 {
   "title": "Home",
   "articlesNavigation": "Articles",
+  "misc": "Misc",
   "articles": {
     "whatWhy": {
       "title": "What and Why?",

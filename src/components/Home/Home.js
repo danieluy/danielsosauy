@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 // Components
-import MainContent from '../MainContent/MainContent';
+import MainContent, { Subtitle } from '../MainContent/MainContent';
 import Article from '../Article/Article';
 import StyleToggle from '../StyleToggle/StyleToggle';
 // Material UI
@@ -31,11 +31,13 @@ function Home() {
         </section>
       )}
       aside={[
+        <Subtitle>{lang.articlesNavigation}</Subtitle>,
         <HashLink articleId="what-why" title={whatWhy.title} />,
         <HashLink articleId="accessibility" title={accessibility.title} />,
         <HashLink articleId="design" title={design.title} />,
         <HashLink articleId="performance" title={performance.title} />,
         <HashLink articleId="tech" title={tech.title} />,
+        <Subtitle>{lang.misc}</Subtitle>,
         <StyleToggle color="textPrimary" />,
       ]}
     />
@@ -45,6 +47,7 @@ function Home() {
     return (
       <ButtonBase
         focusRipple
+        size="small"
         component={'a'}
         color="inherit"
         href={`#${articleId}`}

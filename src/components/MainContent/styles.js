@@ -10,7 +10,7 @@ export default makeStyles(theme => {
     },
     content: {
       padding: theme.spacing(4),
-      paddingRight: theme.spacing(25),
+      paddingRight: theme.spacing(27),
       willChange: 'transform',
       transform: 'translateX(0)',
       transition: 'transform 300ms ease-in-out',

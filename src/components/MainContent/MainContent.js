@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
 import useWindowSize from '../../react-hooks/useWindowSize';
+import { useLocation } from 'react-router-dom';
 // Components
 import Aside from './Aside';
 // Material UI
 import useTheme from '@material-ui/core/styles/useTheme';
+import Typography from '@material-ui/core/Typography';
 
 function MainContent(props) {
   const { content, aside } = props;
@@ -14,6 +16,16 @@ function MainContent(props) {
   const theme = useTheme();
   const mainRef = React.useRef(null);
   const contentRef = React.useRef(null);
+  const { hash } = useLocation();
+
+  React.useEffect(() => {
+    if (hash && mainRef.current) {
+      const article = document.querySelector(hash);
+      if (article) {
+        article.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [hash, mainRef.current]);
 
   const handleAsideToggle = React.useCallback(open => {
     contentRef.current.style.transform = open
@@ -40,3 +52,9 @@ MainContent.propTypes = {
 };
 
 export default MainContent;
+
+export function Subtitle({ children }) {
+  return (
+    <Typography variant="subtitle2" color="textSecondary">{children}</Typography>
+  );
+}

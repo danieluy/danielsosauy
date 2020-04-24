@@ -1,26 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectStyleToggleLang } from '../../redux/selectors';
+import { enableStyles, disableStyles } from '../../redux/actions';
 // Material UI
 import useTheme from '@material-ui/core/styles/useTheme';
 import ButtonBase from '@material-ui/core/ButtonBase';
 
 function StyleToggle(props) {
-  // dispatch is destructured here so it wont be passed to the ButtonBase component
-  const { lang, color, dispatch, ...rest } = props;
+  const { color, ...rest } = props;
   const head = React.useMemo(() => document.querySelector('head'), []);
   const [stylesheets, setStylesheets] = React.useState([]);
   const theme = useTheme();
+  const dispatch = useDispatch();
+  const lang = useSelector(selectStyleToggleLang);
 
   function toggleStyles() {
     if (!stylesheets.length) {
       const list = Array.from(head.querySelectorAll('style'));
       list.forEach(stylesheet => removeElement(stylesheet));
       setStylesheets(list);
+      dispatch(disableStyles());
     }
     else {
       stylesheets.forEach(stylesheet => head.appendChild(stylesheet));
       setStylesheets([]);
+      dispatch(enableStyles());
     }
     document.querySelector('header a[href="/"]').focus();
   }
@@ -56,11 +61,4 @@ StyleToggle.defaultProps = {
   color: 'inherit',
 };
 
-const ConnectedStyleToggle = connect(mapStateToProps)(StyleToggle);
-export default ConnectedStyleToggle;
-
-function mapStateToProps(state) {
-  return {
-    lang: state.lang.styleToggle,
-  };
-}
+export default StyleToggle;

@@ -45,7 +45,7 @@ function NavLink(props) {
       {...rest}
     >
       <Link to={to} className={classes.a} aria-label={ariaLabel}>
-        {!!Icon && <Icon className={classes.icon} />}
+        {!!Icon && <Icon className={classes.icon} style={{ display: 'none' }} />}
         {renderChildren()}
       </Link>
     </ButtonBase>

@@ -10,9 +10,13 @@ export default makeStyles(theme => {
     },
     content: {
       padding: theme.spacing(4),
+      paddingRight: theme.spacing(25),
       willChange: 'transform',
       transform: 'translateX(0)',
       transition: 'transform 300ms ease-in-out',
+      [theme.breakpoints.down('md')]: {
+        padding: theme.spacing(4),
+      },
       [theme.breakpoints.down('sm')]: {
         padding: theme.spacing(2),
       },
@@ -21,6 +25,8 @@ export default makeStyles(theme => {
       },
     },
     aside: {
+      position: 'fixed',
+      right: 0,
       paddingTop: theme.spacing(4),
       paddingRight: theme.spacing(4),
       paddingBottom: theme.spacing(4),
@@ -33,7 +39,6 @@ export default makeStyles(theme => {
       transition: 'transform 300ms ease-out',
       color: theme.palette.text.primary,
       [theme.breakpoints.down('md')]: {
-        position: 'absolute',
         right: -1 * theme.spacing(25),
         paddingTop: theme.spacing(2),
         paddingRight: theme.spacing(2),

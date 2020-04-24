@@ -31,6 +31,7 @@ function StyleToggle(props) {
 
   return (
     <ButtonBase
+      focusRipple
       onClick={toggleStyles}
       color={color}
       style={{

@@ -40,9 +40,8 @@ function AppBar(props) {
 
   function NavLinks() {
     return routes.map(({ name, pathname, icon }) => (
-      <li className={classes.li}>
+      <li className={classes.li} key={pathname}>
         <NavLink
-          key={pathname}
           to={pathname}
           className={classes.a}
           icon={icon}

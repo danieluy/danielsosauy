@@ -12,7 +12,6 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import HomeIcon from '@material-ui/icons/HomeOutlined';
 
 function AppBar(props) {
-  const { location } = props;
   const classes = useStyles();
   const lang = useSelector(selectAppBarLang);
   const theme = useTheme();
@@ -42,9 +41,8 @@ function AppBar(props) {
 
   function NavLinks() {
     return routes.map(({ name, pathname, icon }) => (
-      <li className={classes.li}>
+      <li className={classes.li} key={pathname}>
         <NavLink
-          key={pathname}
           to={pathname}
           className={classes.a}
           icon={icon}

@@ -3,7 +3,6 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 export default makeStyles(theme => {
   return {
     icon: {
-      display: 'block !important',
       marginRight: theme.spacing(2),
       [theme.breakpoints.down('sm')]: {
         margin: 0,

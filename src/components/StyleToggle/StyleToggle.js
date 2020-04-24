@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectStyleToggleLang } from '../../redux/selectors';
+import { selectStyleToggleLang, selectStatus } from '../../redux/selectors';
 import { enableStyles, disableStyles } from '../../redux/actions';
 // Material UI
 import useTheme from '@material-ui/core/styles/useTheme';
@@ -14,6 +14,7 @@ function StyleToggle(props) {
   const theme = useTheme();
   const dispatch = useDispatch();
   const lang = useSelector(selectStyleToggleLang);
+  const status = useSelector(selectStatus);
 
   function toggleStyles() {
     if (!stylesheets.length) {
@@ -34,22 +35,28 @@ function StyleToggle(props) {
     el.parentNode.removeChild(el);
   }
 
+  if (status.styles) {
+    return (
+      <ButtonBase
+        focusRipple
+        onClick={toggleStyles}
+        color={color}
+        style={{
+          height: theme.spacing(6),
+          paddingRight: theme.spacing(2),
+          paddingLeft: theme.spacing(2),
+          backgroundColor: theme.defaultBackgroundColor,
+          ...theme.typography.button,
+        }}
+        {...rest}
+      >
+        {lang.label}
+      </ButtonBase>
+    );
+  }
+
   return (
-    <ButtonBase
-      focusRipple
-      onClick={toggleStyles}
-      color={color}
-      style={{
-        height: theme.spacing(6),
-        paddingRight: theme.spacing(2),
-        paddingLeft: theme.spacing(2),
-        backgroundColor: theme.defaultBackgroundColor,
-        ...theme.typography.button,
-      }}
-      {...rest}
-    >
-      {lang.label}
-    </ButtonBase>
+    <button onClick={toggleStyles}>{lang.label}</button>
   );
 }
 

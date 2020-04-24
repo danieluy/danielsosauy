@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import routes from './navigation-config';
-import { selectAppBarLang } from '../../redux/selectors';
+import { selectAppBarLang, selectStatus } from '../../redux/selectors';
 // Components
 import NavLink from '../NavLink/NavLink';
 // Material UI
@@ -14,10 +14,11 @@ import HomeIcon from '@material-ui/icons/HomeOutlined';
 function AppBar(props) {
   const classes = useStyles();
   const lang = useSelector(selectAppBarLang);
+  const status = useSelector(selectStatus);
   const theme = useTheme();
   const downSm = useMediaQuery(theme.breakpoints.down('sm'));
 
-  if (!downSm) return null;
+  if (!downSm || !status.styles) return null;
 
   return (
     <footer aria-label="#Header" className={classes.headerDown}>

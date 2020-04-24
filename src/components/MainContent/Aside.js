@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
-import { selectMainLang } from '../../redux/selectors';
+import { selectMainLang, selectStatus } from '../../redux/selectors';
 import { KEY_CODE } from '../../utils';
 // Material UI
 import useTheme from '@material-ui/core/styles/useTheme';
@@ -14,6 +14,7 @@ function Aside(props) {
   const { elements, onToggleOpen } = props;
   const [asideOpen, setAsideOpen] = React.useState(false);
   const lang = useSelector(selectMainLang);
+  const status = useSelector(selectStatus);
   const classes = useStyles();
   const theme = useTheme();
   const isUnderMd = useMediaQuery(theme.breakpoints.down('md'));
@@ -130,21 +131,23 @@ function Aside(props) {
 
   return (
     <React.Fragment>
-      <ButtonBase
-        focusRipple
-        className={`${classes.asideButton} ${asideOpen ? 'asideOpen' : ''}`}
-        role="button"
-        aria-label={lang.menuButton.ariaLabel}
-        title={lang.menuButton.ariaLabel}
-        component="button"
-        id="aside-menu-button"
-        aria-haspopup="true"
-        aria-controls="aside-menu"
-        onClick={toggleAsideOpen}
-        ref={meuButtonRef}
-      >
-        <ArrowBackIcon aria-hidden role="none" />
-      </ButtonBase>
+      {status.styles && (
+        <ButtonBase
+          focusRipple
+          className={`${classes.asideButton} ${asideOpen ? 'asideOpen' : ''}`}
+          role="button"
+          aria-label={lang.menuButton.ariaLabel}
+          title={lang.menuButton.ariaLabel}
+          component="button"
+          id="aside-menu-button"
+          aria-haspopup="true"
+          aria-controls="aside-menu"
+          onClick={toggleAsideOpen}
+          ref={meuButtonRef}
+        >
+          <ArrowBackIcon aria-hidden role="none" />
+        </ButtonBase>
+      )}
       <aside
         className={classes.aside}
         ref={asideRef}

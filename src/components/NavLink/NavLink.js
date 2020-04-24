@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import useStyles from './styles';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
+import { useSelector } from 'react-redux';
+import { selectStatus } from '../../redux/selectors';
 // Material UI
 import useTheme from '@material-ui/core/styles/useTheme';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -16,6 +18,7 @@ function NavLink(props) {
   const theme = useTheme();
   const downSm = useMediaQuery(theme.breakpoints.down('sm'));
   const location = useLocation();
+  const status = useSelector(selectStatus);
 
   const active = React.useMemo(() => (to === location.pathname), [to, location]);
 
@@ -35,23 +38,29 @@ function NavLink(props) {
     };
   }, [active, downSm]);
 
+  if (status.styles) {
+    return (
+      <ButtonBase
+        focusRipple
+        style={rootStyle}
+        component="span"
+        tabIndex="-1"
+        role="none"
+        {...rest}
+      >
+        <Link to={to} className={classes.a} aria-label={ariaLabel}>
+          {!!Icon && <Icon className={classes.icon} />}
+          <Children />
+        </Link>
+      </ButtonBase>
+    );
+  }
   return (
-    <ButtonBase
-      focusRipple
-      style={rootStyle}
-      component="span"
-      tabIndex="-1"
-      role="none"
-      {...rest}
-    >
-      <Link to={to} className={classes.a} aria-label={ariaLabel}>
-        {!!Icon && <Icon className={classes.icon} style={{ display: 'none' }} />}
-        {renderChildren()}
-      </Link>
-    </ButtonBase>
+    <a href={to} aria-label={ariaLabel}><Children /></a>
   );
 
-  function renderChildren() {
+
+  function Children() {
     if (typeof children === 'string') {
       return <Typography variant="button" component="span" className={classes.linkText}>{children}</Typography>;
     }

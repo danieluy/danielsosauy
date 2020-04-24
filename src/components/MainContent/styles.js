@@ -31,6 +31,7 @@ export default makeStyles(theme => {
       willChange: 'transform',
       transform: 'translateX(0)',
       transition: 'transform 300ms ease-out',
+      color: theme.palette.text.primary,
       [theme.breakpoints.down('md')]: {
         position: 'absolute',
         right: -1 * theme.spacing(25),

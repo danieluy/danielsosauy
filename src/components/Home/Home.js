@@ -1,15 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import useStyles from './styles';
 // Components
 import MainContent from '../MainContent/MainContent';
 import Article from '../Article/Article';
 import StyleToggle from '../StyleToggle/StyleToggle';
-import Button from '../Button/Button';
+// Material UI
+import useTheme from '@material-ui/core/styles/useTheme';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
 
 function Home() {
-  const classes = useStyles();
+  const theme = useTheme();
   const lang = useSelector(state => state.lang.home);
   const {
     title,
@@ -30,25 +31,35 @@ function Home() {
         </section>
       )}
       aside={[
-        <nav className={classes.secNav} aria-label={lang.articlesNavigation}>
-          <CustomNavLink articleId="what-why" title={whatWhy.title} />
-          <CustomNavLink articleId="accessibility" title={accessibility.title} />
-          <CustomNavLink articleId="design" title={design.title} />
-          <CustomNavLink articleId="performance" title={performance.title} />
-          <CustomNavLink articleId="tech" title={tech.title} />
-        </nav>,
+        <HashLink articleId="what-why" title={whatWhy.title} />,
+        <HashLink articleId="accessibility" title={accessibility.title} />,
+        <HashLink articleId="design" title={design.title} />,
+        <HashLink articleId="performance" title={performance.title} />,
+        <HashLink articleId="tech" title={tech.title} />,
         <StyleToggle color="textPrimary" />,
       ]}
     />
   );
 
-  function CustomNavLink({ articleId, title }) {
+  function HashLink({ articleId, title, ...rest }) {
     return (
-      <li>
-        <Button tabIndex="-1">
-          <a href={`#${articleId}`} className={classes.link}>{title}</a>
-        </Button>
-      </li>
+      <ButtonBase
+        focusRipple
+        component={'a'}
+        color="inherit"
+        href={`#${articleId}`}
+        style={{
+          height: theme.spacing(6),
+          paddingRight: theme.spacing(2),
+          paddingLeft: theme.spacing(2),
+          backgroundColor: theme.defaultBackgroundColor,
+          textDecoration: 'none',
+          ...theme.typography.button,
+        }}
+        {...rest}
+      >
+        {title}
+      </ButtonBase>
     );
   }
 }

@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// Components
-import Button from '../Button/Button';
+// Material UI
+import useTheme from '@material-ui/core/styles/useTheme';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
 function StyleToggle(props) {
-  // dispatch is destructured here so it wont be passed to the Button component
+  // dispatch is destructured here so it wont be passed to the ButtonBase component
   const { lang, color, dispatch, ...rest } = props;
   const head = React.useMemo(() => document.querySelector('head'), []);
   const [stylesheets, setStylesheets] = React.useState([]);
+  const theme = useTheme();
 
   function toggleStyles() {
     if (!stylesheets.length) {
@@ -28,7 +30,20 @@ function StyleToggle(props) {
   }
 
   return (
-    <Button onClick={toggleStyles} color={color} {...rest}>{lang.label}</Button>
+    <ButtonBase
+      onClick={toggleStyles}
+      color={color}
+      style={{
+        height: theme.spacing(6),
+        paddingRight: theme.spacing(2),
+        paddingLeft: theme.spacing(2),
+        backgroundColor: theme.defaultBackgroundColor,
+        ...theme.typography.button,
+      }}
+      {...rest}
+    >
+      {lang.label}
+    </ButtonBase>
   );
 }
 

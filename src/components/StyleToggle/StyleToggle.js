@@ -61,7 +61,7 @@ function StyleToggle(props) {
 }
 
 StyleToggle.propTypes = {
-  lang: PropTypes.object.isRequired,
+  color: PropTypes.string,
 };
 
 StyleToggle.defaultProps = {

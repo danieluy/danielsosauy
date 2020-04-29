@@ -37,6 +37,7 @@ function StyleToggle(props) {
 
   function enable() {
     stylesheets.forEach(stylesheet => head.appendChild(stylesheet));
+    document.body.style.backgroundColor = theme.elevationColor[0];
     setStylesheets([]);
     dispatch(enableStyles());
     console.log('Styles enabled');

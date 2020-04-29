@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import useStyles from './styles';
 import useWindowSize from '../../react-hooks/useWindowSize';
 import { useLocation } from 'react-router-dom';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 // Components
 import Aside from './Aside';
 // Material UI
@@ -34,12 +36,12 @@ function MainContent(props) {
   }, [contentRef.current]);
 
   return (
-    <main className={classes.main} style={{ height: height - theme.spacing(8) }} ref={mainRef}>
+    <PerfectScrollbar component="main" className={classes.main} style={{ height: height - theme.spacing(8) }} ref={mainRef}>
       <div className={classes.content} ref={contentRef}>
         {content}
       </div>
       <Aside elements={aside} onToggleOpen={handleAsideToggle} />
-    </main>
+    </PerfectScrollbar>
   );
 }
 

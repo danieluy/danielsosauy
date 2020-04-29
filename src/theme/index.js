@@ -15,12 +15,12 @@ const themeConfigs = {
     activeBackgroundColor: 'rgba(0,0,0,0.0625)',
     browserNavBar: '#FFF',
     elevationColor: {
-      '5': '#AAA',
-      '4': '#BBB',
-      '3': '#CCC',
-      '2': '#DDD',
-      '1': '#EEE',
       '0': '#FFF', // Top is reserved for Chrome's nav bar
+      '1': '#EEE',
+      '2': '#DDD',
+      '3': '#CCC',
+      '4': '#BBB',
+      '5': '#AAA',
     },
   },
   dark: {

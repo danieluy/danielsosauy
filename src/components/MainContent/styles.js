@@ -40,9 +40,11 @@ export default makeStyles(theme => {
       color: theme.palette.text.primary,
       [theme.breakpoints.down('md')]: {
         right: -1 * theme.spacing(25),
-        paddingTop: theme.spacing(2),
         paddingRight: theme.spacing(2),
         paddingBottom: theme.spacing(2),
+      },
+      [theme.breakpoints.down('sm')]: {
+        paddingTop: theme.spacing(2),
       },
       [theme.breakpoints.down('xs')]: {
         paddingLeft: theme.spacing(2),

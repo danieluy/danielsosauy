@@ -63,7 +63,7 @@ export default makeStyles(theme => {
       borderBottomLeftRadius: theme.spacing(3),
       zIndex: 1,
       '&>svg': {
-        fill: '#FFFFFF',
+        fill: theme.palette.text.primary,
         animationDirection: 'normal',
         animationDuration: '500ms',
         animationFillMode: 'forwards',

@@ -9,6 +9,7 @@ import useTheme from '@material-ui/core/styles/useTheme';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Tooltip from '@material-ui/core/Tooltip';
 
 function Aside(props) {
   const { elements, onToggleOpen } = props;
@@ -132,21 +133,22 @@ function Aside(props) {
   return (
     <React.Fragment>
       {status.styles && (
-        <ButtonBase
-          focusRipple
-          className={`${classes.asideButton} ${asideOpen ? 'asideOpen' : ''}`}
-          role="button"
-          aria-label={lang.menuButton.ariaLabel}
-          title={lang.menuButton.ariaLabel}
-          component="button"
-          id="aside-menu-button"
-          aria-haspopup="true"
-          aria-controls="aside-menu"
-          onClick={toggleAsideOpen}
-          ref={meuButtonRef}
-        >
-          <ArrowBackIcon aria-hidden role="none" />
-        </ButtonBase>
+        <Tooltip arrow title={lang.menuButton.ariaLabel} placement="left">
+          <ButtonBase
+            focusRipple
+            className={`${classes.asideButton} ${asideOpen ? 'asideOpen' : ''}`}
+            role="button"
+            aria-label={lang.menuButton.ariaLabel}
+            component="button"
+            id="aside-menu-button"
+            aria-haspopup="true"
+            aria-controls="aside-menu"
+            onClick={toggleAsideOpen}
+            ref={meuButtonRef}
+          >
+            <ArrowBackIcon aria-hidden role="none" color="inherit" />
+          </ButtonBase>
+        </Tooltip>
       )}
       <aside
         className={classes.aside}

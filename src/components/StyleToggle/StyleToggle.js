@@ -18,17 +18,28 @@ function StyleToggle(props) {
 
   function toggleStyles() {
     if (!stylesheets.length) {
-      const list = Array.from(head.querySelectorAll('style'));
-      list.forEach(stylesheet => removeElement(stylesheet));
-      setStylesheets(list);
-      dispatch(disableStyles());
+      disable();
     }
     else {
-      stylesheets.forEach(stylesheet => head.appendChild(stylesheet));
-      setStylesheets([]);
-      dispatch(enableStyles());
+      enable();
     }
     document.querySelector('header a[href="/"]').focus();
+  }
+
+  function disable() {
+    const list = Array.from(head.querySelectorAll('style'));
+    list.forEach(stylesheet => removeElement(stylesheet));
+    document.body.style.backgroundColor = '#FFF';
+    setStylesheets(list);
+    dispatch(disableStyles());
+    console.log('Styles disabled');
+  }
+
+  function enable() {
+    stylesheets.forEach(stylesheet => head.appendChild(stylesheet));
+    setStylesheets([]);
+    dispatch(enableStyles());
+    console.log('Styles enabled');
   }
 
   function removeElement(el) {

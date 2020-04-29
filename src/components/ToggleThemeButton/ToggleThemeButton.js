@@ -42,7 +42,7 @@ function ToggleThemeButton(props) {
   }
 
   return (
-    <button disabled>{lang.label}</button>
+    <button disabled>{`${themeName} ${lang.theme}`}</button>
   );
 }
 

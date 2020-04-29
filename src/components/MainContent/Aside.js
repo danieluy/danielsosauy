@@ -166,6 +166,7 @@ function Aside(props) {
               key={`aside-item-li-${i}`}
               onClick={closeAside}
               onKeyDown={handleKeyDown}
+              role="menuitem"
             >
               <El.type
                 {...El.props}

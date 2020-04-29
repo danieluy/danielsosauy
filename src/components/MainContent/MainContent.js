@@ -57,6 +57,6 @@ export default MainContent;
 
 export function Subtitle({ children }) {
   return (
-    <Typography variant="subtitle2" color="textSecondary">{children}</Typography>
+    <Typography component="span" variant="subtitle2" color="textSecondary">{children}</Typography>
   );
 }

@@ -163,7 +163,7 @@ function Aside(props) {
         >
           {elements.map((El, i) => (
             <li
-              key={`aside-item-li-${i}`}
+              key={`aside-menuitem-${i}`}
               onClick={closeAside}
               onKeyDown={handleKeyDown}
               role="menuitem"

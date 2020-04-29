@@ -40,7 +40,7 @@ export default makeStyles(theme => {
     title: {
       position: 'relative',
       paddingLeft: theme.spacing(4),
-      color: '#9CACFF',
+      color: theme.palette.primary.main,
       outline: 'none',
       transition: 'transform 300ms ease-in-out',
       '&:focus': {
@@ -55,7 +55,7 @@ export default makeStyles(theme => {
           display: 'inline-block',
           borderTop: `${theme.spacing(2)}px solid transparent`,
           borderBottom: `${theme.spacing(2)}px solid transparent`,
-          borderLeft: `${theme.spacing(2)}px solid #9CACFF`,
+          borderLeft: `${theme.spacing(2)}px solid ${theme.palette.primary.main}`,
           borderRight: `${theme.spacing(2)}px solid transparent`,
           [theme.breakpoints.down('md')]: {
             top: theme.spacing(6),

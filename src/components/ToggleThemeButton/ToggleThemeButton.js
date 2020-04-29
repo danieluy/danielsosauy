@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectToggleThemeButtonLang, selectTheme, selectStatus } from '../../redux/selectors';
 import { toggleAppTheme } from '../../redux/actions';
 // Material UI
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import useTheme from '@material-ui/core/styles/useTheme';
 import ButtonBase from '@material-ui/core/ButtonBase';
 
@@ -12,9 +13,11 @@ function ToggleThemeButton(props) {
   const dispatch = useDispatch();
   const theme = useTheme();
   const lang = useSelector(selectToggleThemeButtonLang);
-  const themeMode = useSelector(selectTheme);
   const status = useSelector(selectStatus);
-
+  const selectedThemeMode = useSelector(selectTheme);
+  const prefersLightMode = useMediaQuery('@media (prefers-color-scheme: light)');
+  const preferedMode = prefersLightMode ? 'light' : 'dark';
+  const themeMode = selectedThemeMode || preferedMode;
   const themeName = themeMode === 'dark' ? lang.light : lang.dark;
 
   const shwitchTheme = React.useCallback(() => {

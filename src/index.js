@@ -5,8 +5,9 @@ import App from './components/App';
 import store from './redux/store';
 import getTheme from './theme';
 import './index.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectTheme } from './redux/selectors';
+import { setAppTheme } from './redux/actions';
 // Material UI
 import { ThemeProvider } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -25,20 +26,25 @@ ReactDOM.render(
 );
 
 function AppWithTheme() {
+	const [theme, setTheme] = React.useState();
+	const dispatch = useDispatch();
 	const prefersLightMode = useMediaQuery('@media (prefers-color-scheme: light)');
 	const preferedMode = prefersLightMode ? 'light' : 'dark';
 	const userSelectedMode = useSelector(selectTheme);
-	const initialTheme = getTheme(userSelectedMode || preferedMode);
-	const [theme, setTheme] = React.useState(initialTheme);
 
 	React.useEffect(() => {
-		const selectedTheme = getTheme(userSelectedMode);
+		const themeMode = userSelectedMode || preferedMode;
+		const selectedTheme = getTheme(themeMode);
+		dispatch(setAppTheme(themeMode));
 		setTheme(selectedTheme);
-	}, [userSelectedMode]);
+	}, [userSelectedMode, preferedMode]);
 
-	return (
-		<ThemeProvider theme={theme}>
-			<App />
-		</ThemeProvider>
-	);
+	if (theme) {
+		return (
+			<ThemeProvider theme={theme}>
+				<App />
+			</ThemeProvider>
+		);
+	}
+	return null;
 }

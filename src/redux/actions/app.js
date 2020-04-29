@@ -11,4 +11,7 @@ export const DISABLE_STYLES = 'DISABLE_STYLES';
 export const disableStyles = () => ({ type: DISABLE_STYLES });
 
 export const TOGGLE_APP_THEME = 'TOGGLE_APP_THEME';
-export const toggleAppTheme = theme => ({ type: TOGGLE_APP_THEME });
+export const toggleAppTheme = () => ({ type: TOGGLE_APP_THEME });
+
+export const SET_APP_THEME = 'SET_APP_THEME';
+export const setAppTheme = mode => ({ type: SET_APP_THEME, payload: mode });

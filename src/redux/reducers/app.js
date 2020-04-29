@@ -1,4 +1,4 @@
-import { SET_APP_INFO, TOGGLE_APP_THEME, ENABLE_STYLES, DISABLE_STYLES } from '../actions';
+import { SET_APP_INFO, TOGGLE_APP_THEME, SET_APP_THEME, ENABLE_STYLES, DISABLE_STYLES } from '../actions';
 
 const initialState = {
   name: process.env.APP_NAME,
@@ -24,6 +24,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         theme,
+      };
+    }
+    case SET_APP_THEME: {
+      window.localStorage.setItem('THEME_NAME', action.payload);
+      return {
+        ...state,
+        theme: action.payload,
       };
     }
     case ENABLE_STYLES: {

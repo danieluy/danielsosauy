@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import MainContent, { Subtitle } from '../MainContent/MainContent';
 import Article from '../Article/Article';
 import StyleToggle from '../StyleToggle/StyleToggle';
+import ToggleThemeButton from '../ToggleThemeButton/ToggleThemeButton';
 // Material UI
 import useTheme from '@material-ui/core/styles/useTheme';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -39,6 +40,7 @@ function Home() {
         <HashLink articleId="tech" title={tech.title} />,
         <Subtitle>{lang.misc}</Subtitle>,
         <StyleToggle color="textPrimary" />,
+        <ToggleThemeButton color="textPrimary" />,
       ]}
     />
   );

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleAppTheme } from '../../redux/actions';
+import { useSelector } from 'react-redux';
 import { selectAppBarLang, selectStatus } from '../../redux/selectors';
 import routes from './navigation-config';
 // Components
@@ -12,7 +11,6 @@ import useTheme from '@material-ui/styles/useTheme';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Typography from '@material-ui/core/Typography';
 import HomeIcon from '@material-ui/icons/HomeOutlined';
-import Button from '@material-ui/core/Button';
 
 function AppBar(props) {
   const classes = useStyles();
@@ -20,11 +18,6 @@ function AppBar(props) {
   const status = useSelector(selectStatus);
   const theme = useTheme();
   const downSm = useMediaQuery(theme.breakpoints.down('sm'));
-  const dispatch = useDispatch();
-
-  const shwitchTheme = React.useCallback(() => {
-    dispatch(toggleAppTheme('light'));
-  });
 
   if (downSm && status.styles) return null;
 
@@ -42,7 +35,6 @@ function AppBar(props) {
             </NavLink>
           </li>
           <NavLinks />
-          <Button onClick={shwitchTheme}>Theme</Button>
         </ul>
       </nav>
     </header>

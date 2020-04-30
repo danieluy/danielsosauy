@@ -23,7 +23,6 @@ function StyleToggle(props) {
     else {
       enable();
     }
-    document.querySelector('header a[href="/"]').focus();
   }
 
   function disable() {

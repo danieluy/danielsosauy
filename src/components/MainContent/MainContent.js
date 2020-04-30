@@ -37,7 +37,7 @@ function MainContent(props) {
 
   return (
     <PerfectScrollbar component="main" className={classes.main} style={{ height: height - theme.spacing(8) }} ref={mainRef}>
-      <div className={classes.content} ref={contentRef}>
+      <div className={aside ? classes.contentWithAside : classes.contentWithoutAside} ref={contentRef}>
         {content}
       </div>
       <Aside elements={aside} onToggleOpen={handleAsideToggle} />

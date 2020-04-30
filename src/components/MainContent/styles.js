@@ -1,6 +1,24 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
+
 export default makeStyles(theme => {
+  const contextBase = {
+    padding: theme.spacing(4),
+    width: '100%',
+    willChange: 'transform',
+    transform: 'translateX(0)',
+    transition: 'transform 300ms ease-in-out',
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(4),
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(2),
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: 0,
+    },
+  }
+
   return {
     main: {
       position: 'relative',
@@ -8,21 +26,12 @@ export default makeStyles(theme => {
       overflowY: 'auto',
       overflowX: 'hidden',
     },
-    content: {
-      padding: theme.spacing(4),
+    contentWithoutAside: {
+      ...contextBase,
+    },
+    contentWithAside: {
+      ...contextBase,
       paddingRight: theme.spacing(27),
-      willChange: 'transform',
-      transform: 'translateX(0)',
-      transition: 'transform 300ms ease-in-out',
-      [theme.breakpoints.down('md')]: {
-        padding: theme.spacing(4),
-      },
-      [theme.breakpoints.down('sm')]: {
-        padding: theme.spacing(2),
-      },
-      [theme.breakpoints.down('xs')]: {
-        padding: 0,
-      },
     },
     aside: {
       position: 'fixed',

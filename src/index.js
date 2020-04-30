@@ -15,7 +15,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 console.groupCollapsed('App info');
 console.log(process.env.APP_NAME);
 console.log(process.env.APP_DESCRIPTION);
-console.log(`v${process.env.APP_VERSION}`);
+console.log(`v${process.env.APP_VERSION} (${process.env.NODE_ENV})`);
 console.groupEnd();
 
 ReactDOM.render(

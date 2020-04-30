@@ -52,13 +52,15 @@ function Aside(props) {
   }, [isUnderSm, isUnderXs]);
 
   const closeAside = React.useCallback(() => {
+    if (!status.styles) return;
     asideRef.current.style.transform = 'translateX(0)';
     meuButtonRef.current.style.transform = 'translateX(0)';
     meuButtonRef.current.children[0].style.animationName = 'rotate180Counterclockwise';
     setAsideOpen(false);
-  });
+  }, [asideRef.current, meuButtonRef.current, status.styles]);
 
   const openAside = React.useCallback(() => {
+    if (!status.styles) return;
     asideRef.current.style.transform = `translateX(-${theme.spacing(25)}px)`;
     meuButtonRef.current.style.transform = `translateX(-${theme.spacing(deltaTranslateButton)}px)`;
     meuButtonRef.current.children[0].style.animationName = 'rotate180Clockwise';
@@ -66,7 +68,7 @@ function Aside(props) {
       asideItems[0].focus();
     }, 300);
     setAsideOpen(true);
-  });
+  }, [asideRef.current, meuButtonRef.current, status.styles]);
 
   const toggleAsideOpen = React.useCallback(() => {
     if (isUnderMd && asideRef.current) {
@@ -122,10 +124,6 @@ function Aside(props) {
 
   const handleFocus = React.useCallback(idx => () => setFocusIdx(idx), []);
 
-  const handleBlur = React.useCallback(() => {
-    // closeAside();
-  }, []);
-
   if (!elements) {
     return null;
   }
@@ -153,7 +151,6 @@ function Aside(props) {
       <aside
         className={classes.aside}
         ref={asideRef}
-        onBlur={handleBlur}
       >
         <ul
           className={classes.ul}

@@ -39,7 +39,7 @@ function Home() {
         <HashLink articleId="performance" title={performance.title} />,
         <HashLink articleId="tech" title={tech.title} />,
         <Subtitle>{lang.misc}</Subtitle>,
-        <StyleToggle color="textPrimary" />,
+        // <StyleToggle color="textPrimary" />,
         <ToggleThemeButton color="textPrimary" />,
       ]}
     />

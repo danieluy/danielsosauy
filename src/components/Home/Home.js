@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { selectHomeLang } from '../../redux/selectors';
+import useStyles from './styles';
 // Components
 import MainContent, { Subtitle } from '../MainContent/MainContent';
 import Article from '../Article/Article';
-import StyleToggle from '../StyleToggle/StyleToggle';
 import ToggleThemeButton from '../ToggleThemeButton/ToggleThemeButton';
 // Material UI
 import useTheme from '@material-ui/core/styles/useTheme';
@@ -12,7 +13,8 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 
 function Home() {
   const theme = useTheme();
-  const lang = useSelector(state => state.lang.home);
+  const classes = useStyles();
+  const lang = useSelector(selectHomeLang);
   const {
     title,
     articles: { whatWhy, accessibility, design, performance, tech },
@@ -23,7 +25,7 @@ function Home() {
   return (
     <MainContent
       content={(
-        <section>
+        <section className={classes.section}>
           <Article articleId="what-why" title={whatWhy.title} banner={whatWhy.banner} paragraphs={whatWhy.paragraphs} />
           <Article articleId="accessibility" title={accessibility.title} banner={accessibility.banner} paragraphs={accessibility.paragraphs} />
           <Article articleId="design" title={design.title} banner={design.banner} paragraphs={design.paragraphs} />
@@ -39,7 +41,6 @@ function Home() {
         <HashLink articleId="performance" title={performance.title} />,
         <HashLink articleId="tech" title={tech.title} />,
         <Subtitle>{lang.misc}</Subtitle>,
-        // <StyleToggle color="textPrimary" />,
         <ToggleThemeButton color="textPrimary" />,
       ]}
     />

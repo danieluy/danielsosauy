@@ -21,10 +21,10 @@ function MainContent(props) {
   const { hash } = useLocation();
 
   React.useEffect(() => {
-    if (hash && mainRef.current) {
+    if (hash) {
       const article = document.querySelector(hash);
       if (article) {
-        article.scrollIntoView({ behavior: 'smooth' });
+        article.scrollIntoView();
       }
     }
   }, [hash, mainRef.current]);

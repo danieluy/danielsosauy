@@ -15,8 +15,8 @@ function Article(props) {
     <article className={classes.root} aria-label={title} id={articleId}>
 
       {status.styles && (
-        <figure className={classes.banner}>
-          <img aria-hidden="true" src={banner.src} alt={banner.alt} className={classes.bannerImage} />
+        <figure className={classes.banner} aria-hidden="true">
+          <img src={banner.src} alt={banner.alt} className={classes.bannerImage} />
         </figure>
       )}
 

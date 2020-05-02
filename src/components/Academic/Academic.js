@@ -1,23 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment as section } from 'react';
 import useStyles from './styles';
-// Material UI
-import Typography from '@material-ui/core/Typography';
+import { useSelector } from 'react-redux';
+import { selectAcademicLang } from '../../redux/selectors';
+// Components
+import MainContent from '../MainContent/MainContent';
+import Course from './Course';
 
 function Academic(props) {
   const classes = useStyles();
-
-  document.title = 'Daniel Sosa | #Academic';
+  const lang = useSelector(selectAcademicLang);
+  console.log('lang', lang);
+  const {
+    title,
+    courses,
+  } = lang;
+  const [softwareAnalist, webDeveloper] = courses;
+  document.title = `Daniel Sosa | ${title}`;
 
   return (
-    <div className={classes.root}>
-      <Typography variant="h1">Academic</Typography>
-    </div>
+    <MainContent
+      content={(
+        <section className={classes.section}>
+          <Course course={softwareAnalist} />
+          <Course course={webDeveloper} />
+        </section>
+      )}
+    />
   );
 }
-
-Academic.proptypes = {
-  lang: PropTypes.object.isRequired,
-};
 
 export default Academic;

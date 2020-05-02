@@ -1,0 +1,174 @@
+{
+  "title": "Academic",
+  "courses": [
+    {
+      "title": "Software Analist",
+      "status": "Completed",
+      "averageScore": "Average score",
+      "institutionLogo": {
+        "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.jpg",
+        "alt": "ORT University Logo"
+      },
+      "subjects": [
+        {
+          "name": "Final Proyect (thesis)",
+          "score": 85,
+          "techs": [
+            "Javascript",
+            "HTML",
+            "CSS",
+            "Non Relational Databases",
+            "Design Patterns",
+            "Architecture"
+          ]
+        },
+        {
+          "name": "GeneXus Workshop",
+          "score": 98,
+          "techs": [
+            "GeneXus"
+          ]
+        },
+        {
+          "name": "Applications Design and Development",
+          "score": 90,
+          "techs": [
+            "OOP",
+            "Java",
+            "UML"
+          ]
+        },
+        {
+          "name": "Algorithms & Data Structures 2",
+          "score": 99,
+          "techs": [
+            "OOP",
+            "Java",
+            "Trees",
+            "Graphs",
+            "Multi-structures"
+          ]
+        },
+        {
+          "name": "Software Engineering",
+          "score": 93,
+          "techs": [
+            "Software project management"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Web Developer",
+      "status": "Completed",
+      "averageScore": "Average score",
+      "institutionLogo": {
+        "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.jpg",
+        "alt": "ORT University Logo"
+      },
+      "subjects": [
+        {
+          "name": "Programming 1",
+          "score": 99,
+          "techs": [
+            "Javascript",
+            "jQuery",
+            "HTML",
+            "CSS"
+          ]
+        },
+        {
+          "name": "Programming 2",
+          "score": 98,
+          "techs": [
+            "Object-Oriented Programming",
+            "C#",
+            "ASP.NET"
+          ]
+        },
+        {
+          "name": "Programming 3",
+          "score": 96,
+          "techs": [
+            "Object-Oriented Programming",
+            "C#",
+            "ASP.NET",
+            "ADO.NET",
+            "Entity Framework",
+            "MVC"
+          ]
+        },
+        {
+          "name": "Algorithms & Data Structures 1",
+          "score": 96,
+          "techs": [
+            "Object-Oriented Programming",
+            "Java",
+            "Lists",
+            "Stacks",
+            "Queues"
+          ]
+        },
+        {
+          "name": "Databases 1",
+          "score": 93,
+          "techs": [
+            "Relational databases design",
+            "SQL Server"
+          ]
+        },
+        {
+          "name": "Databases 2",
+          "score": 91,
+          "techs": [
+            "SQL Programming",
+            "SQL Server"
+          ]
+        },
+        {
+          "name": "Technologies Workshop",
+          "score": 100,
+          "techs": [
+            "Mobile",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "jQuery",
+            "jQuery Mobile",
+            "PhoneGap"
+          ]
+        },
+        {
+          "name": "Usability & Accessibility Workshop",
+          "score": 95,
+          "techs": [
+            "HTML",
+            "CSS",
+            "Bootstrap",
+            "Javascript",
+            "jQuery"
+          ]
+        },
+        {
+          "name": "Computing Introduction",
+          "score": 95,
+          "techs": [
+            "Hardware",
+            "Windows",
+            "Linux",
+            "Networking"
+          ]
+        },
+        {
+          "name": "Object-Oriented Programming Workshop",
+          "score": 89,
+          "techs": [
+            "Documentation and Diagrams",
+            "C#",
+            "ASP.NET"
+          ]
+        }
+      ]
+    }
+  ]
+}

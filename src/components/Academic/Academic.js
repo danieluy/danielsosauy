@@ -3,8 +3,9 @@ import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectAcademicLang } from '../../redux/selectors';
 // Components
-import MainContent from '../MainContent/MainContent';
+import MainContent, { Subtitle } from '../MainContent/MainContent';
 import Course from './Course';
+import HashLink from '../HashLink/HashLink';
 
 function Academic(props) {
   const classes = useStyles();
@@ -13,6 +14,7 @@ function Academic(props) {
   const {
     title,
     courses,
+    coursesTitle,
   } = lang;
   const [softwareAnalist, webDeveloper] = courses;
   document.title = `Daniel Sosa | ${title}`;
@@ -21,10 +23,15 @@ function Academic(props) {
     <MainContent
       content={(
         <section className={classes.section}>
-          <Course course={softwareAnalist} />
-          <Course course={webDeveloper} />
+          <Course articleId="software-analist" course={softwareAnalist} />
+          <Course articleId="web-developer" course={webDeveloper} />
         </section>
       )}
+      aside={[
+        <Subtitle>{coursesTitle}</Subtitle>,
+        <HashLink articleId="software-analist" title={softwareAnalist.title} />,
+        <HashLink articleId="web-developer" title={webDeveloper.title} />,
+      ]}
     />
   );
 }

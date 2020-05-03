@@ -10,13 +10,17 @@ import Subject from './Subject';
 import Typography from '@material-ui/core/Typography';
 
 function Course(props) {
-  const { course: {
-    title,
-    status,
-    averageScore,
-    institutionLogo,
-    subjects,
-  } } = props;
+  const {
+    course: {
+      title,
+      status,
+      averageScore,
+      institutionLogo,
+      subjects,
+
+    },
+    articleId,
+  } = props;
   const classes = useStyles();
   const lang = useSelector(selectAcademicLang);
 
@@ -26,7 +30,7 @@ function Course(props) {
   });
 
   return (
-    <article className={classes.courseRoot}>
+    <article className={classes.courseRoot} id={articleId}>
       <figure className={classes.institutionLogo} aria-hidden="true">
         <img src={institutionLogo.src} alt={institutionLogo.alt} className={classes.institutionLogoImage} />
       </figure>
@@ -73,6 +77,7 @@ Course.propTypes = {
       techs: PropTypes.arrayOf(PropTypes.string).isRequired,
     })).isRequired,
   }),
+  articleId: PropTypes.string.isRequired,
 };
 
 export default Course;

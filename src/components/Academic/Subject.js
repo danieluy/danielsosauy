@@ -1,36 +1,28 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
+import { useSelector } from 'react-redux';
+import { selectAcademicLang } from '../../redux/selectors';
 // Material UI
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
 function Subject({ subject }) {
   const classes = useStyles();
+  const lang = useSelector(selectAcademicLang);
 
   return (
-    <ListItem>
-      <ListItemAvatar>
-        <Avatar variant="square">
-          <Typography color="textPrimary">{subject.score}</Typography>
-        </Avatar>
-      </ListItemAvatar>
-      <ListItemText
-        primary={subject.name}
-        secondary={subject.techs.join(' | ')}
-        primaryTypographyProps={{
-          color: 'textPrimary',
-        }}
-        secondaryTypographyProps={{
-          color: 'textSecondary',
-          fontSize: 'textPrimary',
-        }}
-      />
-    </ListItem>
-    // <pre>{JSON.stringify(subject, null, 2)}</pre>
+    <Fragment key={subject.name}>
+      <Typography
+        component="h4"
+        color="textPrimary"
+        variant="h5"
+        className={classes.subjectTitle}
+      >
+        {subject.name}
+      </Typography>
+      <Typography color="textPrimary">{`${lang.score}: ${subject.score}`}</Typography>
+      <Typography color="textSecondary">{`${lang.keywords}: ${subject.techs.join(', ')}`}</Typography>
+    </Fragment>
   );
 }
 

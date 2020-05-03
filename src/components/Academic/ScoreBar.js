@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useRef, useState, useCallback, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
 import useProgress from './useProgress';

@@ -124,5 +124,11 @@ export default makeStyles(theme => {
       position: 'absolute',
       opacity: 0,
     },
+    subject: {
+      paddingLeft: '0 !important',
+    },
+    subjectTitle: {
+      marginTop: theme.spacing(2),
+    },
   };
 });

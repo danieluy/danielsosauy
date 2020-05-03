@@ -1,15 +1,15 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
+import { useSelector } from 'react-redux';
+import { selectAcademicLang } from '../../redux/selectors';
 // Components
 import ScoreBar from './ScoreBar';
 import Subject from './Subject';
 // Material UI
 import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
 
 function Course(props) {
-  const classes = useStyles();
   const { course: {
     title,
     status,
@@ -17,6 +17,8 @@ function Course(props) {
     institutionLogo,
     subjects,
   } } = props;
+  const classes = useStyles();
+  const lang = useSelector(selectAcademicLang);
 
   const avgScore = useMemo(() => {
     const total = subjects.reduce((total, subject) => total += subject.score, 0);
@@ -42,9 +44,15 @@ function Course(props) {
 
         <ScoreBar score={avgScore} aria-label={`${averageScore} ${avgScore}`} />
 
-        <List>
-          {subjects.map(subject => <Subject key={subject.name} subject={subject} />)}
-        </List>
+        <Typography
+          component="h3"
+          color="textPrimary"
+          variant="h4"
+          gutterBottom
+        >
+          {lang.subjects}
+        </Typography>
+        {subjects.map(subject => <Subject key={subject.name} subject={subject} />)}
       </div>
     </article>
   );

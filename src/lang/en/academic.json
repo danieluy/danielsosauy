@@ -1,5 +1,8 @@
 {
   "title": "Academic",
+  "subjects": "Subjects",
+  "score": "Score",
+  "keywords": "Keywords",
   "courses": [
     {
       "title": "Software Analist",
@@ -33,7 +36,7 @@
           "name": "Applications Design and Development",
           "score": 90,
           "techs": [
-            "OOP",
+            "Object-Oriented Programming",
             "Java",
             "UML"
           ]
@@ -42,7 +45,7 @@
           "name": "Algorithms & Data Structures 2",
           "score": 99,
           "techs": [
-            "OOP",
+            "Object-Oriented Programming",
             "Java",
             "Trees",
             "Graphs",

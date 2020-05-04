@@ -6,6 +6,7 @@ import useStyles from './styles';
 import MainContent, { Subtitle } from '../MainContent/MainContent';
 import Article from '../Article/Article';
 import ToggleThemeButton from '../ToggleThemeButton/ToggleThemeButton';
+import ToggleLangButton from '../ToggleLangButton/ToggleLangButton';
 import HashLink from '../HashLink/HashLink';
 
 function Home() {
@@ -38,6 +39,7 @@ function Home() {
         <HashLink articleId="tech" title={tech.title} />,
         <Subtitle>{lang.misc}</Subtitle>,
         <ToggleThemeButton color="textPrimary" />,
+        <ToggleLangButton color="textPrimary" />,
       ]}
     />
   );

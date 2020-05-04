@@ -39,13 +39,13 @@ function ToggleThemeButton(props) {
         }}
         {...rest}
       >
-        {`${themeName} ${lang.theme}`}
+        {themeName}
       </ButtonBase>
     );
   }
 
   return (
-    <button disabled>{`${themeName} ${lang.theme}`}</button>
+    <button disabled>{themeName}</button>
   );
 }
 

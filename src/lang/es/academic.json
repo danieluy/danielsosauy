@@ -1,83 +1,82 @@
 {
-  "title": "Academic",
-  "coursesTitle": "Courses",
-  "subjects": "Subjects",
-  "score": "Score",
-  "keywords": "Keywords",
+  "title": "Académico",
+  "coursesTitle": "Cursos",
+  "subjects": "Materias",
+  "score": "Puntaje",
+  "keywords": "Palabras clave",
   "courses": [
     {
-      "title": "Software Analist",
-      "institute": "ORT University, Uruguay",
-      "status": "Completed",
-      "averageScore": "Average score",
+      "title": "Analista Programador",
+      "institute": "Universidad ORT Uruguay",
+      "status": "Completado",
+      "averageScore": "Promedio",
       "institutionLogo": {
         "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.jpg",
-        "alt": "ORT University Logo"
+        "alt": "Logo Universidad ORT"
       },
       "subjects": [
         {
-          "name": "Final Proyect (thesis)",
+          "name": "Proyecto Integrador (tesis)",
           "score": 85,
           "techs": [
             "Javascript",
             "HTML",
             "CSS",
-            "Non Relational Databases",
-            "Design Patterns",
-            "Architecture"
+            "Bases de Datos No Relacionales",
+            "Patrones de Diseño",
+            "Arquitectura"
           ]
         },
         {
-          "name": "GeneXus Workshop",
+          "name": "Taller de GeneXus",
           "score": 98,
           "techs": [
             "GeneXus"
           ]
         },
         {
-          "name": "Applications Design and Development",
+          "name": "Diseño y Desarrollo de Aplicaciones",
           "score": 90,
           "techs": [
-            "Design Patterns",
-            "Architecture",
-            "Object-Oriented Programming",
+            "Patrones de Diseño",
+            "Arquitectura",
             "Programación Orientada a Objetos",
             "Java",
             "UML"
           ]
         },
         {
-          "name": "Algorithms & Data Structures 2",
+          "name": "Algoritmos y Estructuras de Datos 2",
           "score": 99,
           "techs": [
-            "Object-Oriented Programming",
+            "Programación Orientada a Objetos",
             "Java",
-            "Trees",
-            "Graphs",
-            "Multi-structures"
+            "Árboles",
+            "Grafos",
+            "Multiestructuras"
           ]
         },
         {
-          "name": "Software Engineering",
+          "name": "Ingeniría de software",
           "score": 93,
           "techs": [
-            "Software project management"
+            "Gestión de Proyectos de Software"
           ]
         }
       ]
     },
     {
-      "title": "Web Developer",
-      "institute": "ORT University, Uruguay",
-      "status": "Completed",
-      "averageScore": "Average score",
+      "title": "Programador Web",
+      "institute": "Universidad ORT Uruguay",
+      "status": "Completado",
+      "averageScore": "Promedio",
       "institutionLogo": {
         "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.jpg",
-        "alt": "ORT University Logo"
+        "alt": "Logo Universidad ORT"
       },
       "subjects": [
         {
-          "name": "Programming 1",
+          "name": "Programación 1",
           "score": 99,
           "techs": [
             "Javascript",
@@ -87,19 +86,19 @@
           ]
         },
         {
-          "name": "Programming 2",
+          "name": "Programación 2",
           "score": 98,
           "techs": [
-            "Object-Oriented Programming",
+            "Programación Orientada a Objetos",
             "C#",
             "ASP.NET"
           ]
         },
         {
-          "name": "Programming 3",
+          "name": "Programación 3",
           "score": 96,
           "techs": [
-            "Object-Oriented Programming",
+            "Programación Orientada a Objetos",
             "C#",
             "ASP.NET",
             "ADO.NET",
@@ -108,34 +107,34 @@
           ]
         },
         {
-          "name": "Algorithms & Data Structures 1",
+          "name": "Algoritmos y Estructuras de Datos 1",
           "score": 96,
           "techs": [
-            "Object-Oriented Programming",
+            "Programación Orientada a Objetos",
             "Java",
-            "Lists",
-            "Stacks",
-            "Queues"
+            "Listas",
+            "Colas",
+            "Pilas"
           ]
         },
         {
-          "name": "Databases 1",
+          "name": "Bases de Datos 1",
           "score": 93,
           "techs": [
-            "Relational databases design",
+            "Diseño de Bases de Datos Relacionales",
             "SQL Server"
           ]
         },
         {
-          "name": "Databases 2",
+          "name": "Bases de Datos 2",
           "score": 91,
           "techs": [
-            "SQL Programming",
+            "Programación SQL",
             "SQL Server"
           ]
         },
         {
-          "name": "Technologies Workshop",
+          "name": "Taller de Tecnologías",
           "score": 100,
           "techs": [
             "Mobile",
@@ -148,7 +147,7 @@
           ]
         },
         {
-          "name": "Usability & Accessibility Workshop",
+          "name": "Taller de Usabilidad y Accesibilidad",
           "score": 95,
           "techs": [
             "HTML",
@@ -159,7 +158,7 @@
           ]
         },
         {
-          "name": "Computing Introduction",
+          "name": "Introducción a la Computación",
           "score": 95,
           "techs": [
             "Hardware",
@@ -169,7 +168,7 @@
           ]
         },
         {
-          "name": "Object-Oriented Programming Workshop",
+          "name": "Taller de Objetos",
           "score": 89,
           "techs": [
             "Documentation and Diagrams",

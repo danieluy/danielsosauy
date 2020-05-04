@@ -13,6 +13,7 @@ function Course(props) {
   const {
     course: {
       title,
+      institute,
       status,
       averageScore,
       institutionLogo,
@@ -39,12 +40,13 @@ function Course(props) {
         <Typography
           component="h2"
           variant="h3"
-          color="textPrimary"
           tabIndex="0"
           className={classes.title}
         >
           {title}
         </Typography>
+
+        <Subtitle>{institute}</Subtitle>
 
         <ScoreBar score={avgScore} aria-label={`${averageScore} ${avgScore}`} />
 
@@ -60,11 +62,27 @@ function Course(props) {
       </div>
     </article>
   );
+
+  function Subtitle({ children }) {
+    if (children) {
+      return (
+        <Typography
+          component="p"
+          variant="subtitle1"
+          color="textPrimary"
+          tabIndex="0"
+        >
+          {children}
+        </Typography>
+      );
+    }
+  }
 }
 
 Course.propTypes = {
   course: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    institute: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     averageScore: PropTypes.string.isRequired,
     institutionLogo: PropTypes.shape({

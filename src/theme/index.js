@@ -52,7 +52,7 @@ export default (themeName = 'dark') => {
     typography: {
       fontFamily: '"Montserrat", sans-serif',
     },
-    asideWidth: 27,
+    asideWidth: 33,
     ...themeConfigs[themeName],
   });
 };

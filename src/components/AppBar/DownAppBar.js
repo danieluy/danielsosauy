@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
-import routes from './navigation-config';
 import { selectAppBarLang, selectStatus } from '../../redux/selectors';
+import getRoutes from './navigation-config';
 // Components
 import NavLink from '../NavLink/NavLink';
 // Material UI
@@ -17,6 +17,7 @@ function AppBar(props) {
   const status = useSelector(selectStatus);
   const theme = useTheme();
   const downSm = useMediaQuery(theme.breakpoints.down('sm'));
+  const routes = getRoutes(lang);
 
   if (!downSm || !status.styles) return null;
 

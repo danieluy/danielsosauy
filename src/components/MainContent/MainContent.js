@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
 import useWindowSize from '../../react-hooks/useWindowSize';
@@ -16,11 +16,21 @@ function MainContent(props) {
   const [, height] = useWindowSize();
   const classes = useStyles();
   const theme = useTheme();
-  const mainRef = React.useRef(null);
-  const contentRef = React.useRef(null);
+  const mainRef = useRef(null);
+  const contentRef = useRef(null);
+  const containerRef = useRef(null);
   const { hash } = useLocation();
 
-  React.useEffect(() => {
+  useEffect(() => {
+    containerRef.current.classList.add('animate-enter');
+    window.setTimeout(() => {
+      if (containerRef.current) {
+        containerRef.current.classList.remove('animate-enter');
+      }
+    }, 300);
+  }, []);
+
+  useEffect(() => {
     if (hash) {
       const article = document.querySelector(hash);
       if (article) {
@@ -29,14 +39,22 @@ function MainContent(props) {
     }
   }, [hash, mainRef.current]);
 
-  const handleAsideToggle = React.useCallback(open => {
+  const setContainerRef = useCallback(el => (containerRef.current = el), []);
+
+  const handleAsideToggle = useCallback(open => {
     contentRef.current.style.transform = open
       ? 'translateX(0)'
       : `translateX(-${theme.spacing(theme.asideWidth)}px)`;
   }, [contentRef.current]);
 
   return (
-    <PerfectScrollbar component="main" className={classes.main} style={{ height: height - theme.spacing(8) }} ref={mainRef}>
+    <PerfectScrollbar
+      component="main"
+      className={classes.main}
+      style={{ height: height - theme.spacing(8) }}
+      ref={mainRef}
+      containerRef={setContainerRef}
+    >
       <div className={aside ? classes.contentWithAside : classes.contentWithoutAside} ref={contentRef}>
         {content}
       </div>

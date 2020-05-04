@@ -9,6 +9,30 @@ body {
   font-weight: 400;
 }
 
+.animate-enter {
+  animation-name: slide-up;
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  90% {
+    opacity: .7;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @keyframes rotate180Clockwise {
   from {
     transform: rotate(0deg);

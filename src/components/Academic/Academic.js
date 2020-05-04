@@ -10,7 +10,6 @@ import HashLink from '../HashLink/HashLink';
 function Academic(props) {
   const classes = useStyles();
   const lang = useSelector(selectAcademicLang);
-  console.log('lang', lang);
   const {
     title,
     courses,

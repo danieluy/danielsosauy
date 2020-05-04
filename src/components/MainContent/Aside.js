@@ -46,9 +46,9 @@ function Aside(props) {
   }, [isUnderMd, asideOpen]);
 
   const deltaTranslateButton = React.useMemo(() => {
-    if (isUnderXs) return 23.5;
-    if (isUnderSm) return 25.5;
-    return 27.5;
+    if (isUnderXs) return theme.asideWidth - 2.5;
+    if (isUnderSm) return theme.asideWidth + 0.5;
+    return theme.asideWidth + 2.5;
   }, [isUnderSm, isUnderXs]);
 
   const closeAside = React.useCallback(() => {
@@ -61,7 +61,7 @@ function Aside(props) {
 
   const openAside = React.useCallback(() => {
     if (!status.styles) return;
-    asideRef.current.style.transform = `translateX(-${theme.spacing(25)}px)`;
+    asideRef.current.style.transform = `translateX(-${theme.spacing(theme.asideWidth)}px)`;
     meuButtonRef.current.style.transform = `translateX(-${theme.spacing(deltaTranslateButton)}px)`;
     meuButtonRef.current.children[0].style.animationName = 'rotate180Clockwise';
     window.setTimeout(() => {

@@ -31,7 +31,7 @@ export default makeStyles(theme => {
     },
     contentWithAside: {
       ...contextBase,
-      paddingRight: theme.spacing(27),
+      paddingRight: theme.spacing(theme.asideWidth + 2),
     },
     aside: {
       position: 'fixed',
@@ -42,13 +42,13 @@ export default makeStyles(theme => {
       display: 'flex',
       flexDirection: 'column',
       flexShrink: 0,
-      width: theme.spacing(25),
+      width: theme.spacing(theme.asideWidth),
       willChange: 'transform',
       transform: 'translateX(0)',
       transition: 'transform 300ms ease-out',
       color: theme.palette.text.primary,
       [theme.breakpoints.down('md')]: {
-        right: -1 * theme.spacing(25),
+        right: -1 * theme.spacing(theme.asideWidth),
         paddingRight: theme.spacing(2),
         paddingBottom: theme.spacing(2),
       },

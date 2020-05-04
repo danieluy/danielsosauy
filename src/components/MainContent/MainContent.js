@@ -32,7 +32,7 @@ function MainContent(props) {
   const handleAsideToggle = React.useCallback(open => {
     contentRef.current.style.transform = open
       ? 'translateX(0)'
-      : `translateX(-${theme.spacing(25)}px)`;
+      : `translateX(-${theme.spacing(theme.asideWidth)}px)`;
   }, [contentRef.current]);
 
   return (

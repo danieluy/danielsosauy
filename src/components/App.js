@@ -23,13 +23,13 @@ function App(props) {
 
 	return (
 		<Router basename={baseName}>
-			<Route component={TopAppBar} />
+			<TopAppBar />
 			<Route exact path="/" component={Home} />
 			<Route exact path="/work" component={Work} />
 			<Route exact path="/stuff" component={Stuff} />
 			<Route exact path="/academic" component={Academic} />
 			<Route exact path="/contact" component={Contact} />
-			<Route component={DownAppBar} />
+			<DownAppBar />
 		</Router>
 	);
 }

@@ -1,6 +1,7 @@
 import appBar from './app-bar.json';
 import home from './home.json';
 import academic from './academic.json';
+import stuff from './stuff.json';
 import styleToggle from './toggle-styles.json';
 import mainContent from './main-content.json';
 import toggleThemeButton from './toggle-theme-button.json';
@@ -10,6 +11,7 @@ export default {
   appBar,
   home,
   academic,
+  stuff,
   styleToggle,
   mainContent,
   toggleThemeButton,

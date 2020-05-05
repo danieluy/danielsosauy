@@ -12,7 +12,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Typography from '@material-ui/core/Typography';
 import HomeIcon from '@material-ui/icons/HomeOutlined';
 
-function AppBar(props) {
+function TopAppBar(props) {
   const classes = useStyles();
   const lang = useSelector(selectAppBarLang);
   const status = useSelector(selectStatus);
@@ -56,6 +56,6 @@ function AppBar(props) {
   }
 }
 
-AppBar.propTypes = {};
+TopAppBar.propTypes = {};
 
-export default AppBar;
+export default TopAppBar;

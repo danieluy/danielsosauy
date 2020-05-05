@@ -11,7 +11,7 @@ import useTheme from '@material-ui/styles/useTheme';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import HomeIcon from '@material-ui/icons/HomeOutlined';
 
-function AppBar(props) {
+function DownAppBar(props) {
   const classes = useStyles();
   const lang = useSelector(selectAppBarLang);
   const status = useSelector(selectStatus);
@@ -57,8 +57,6 @@ function AppBar(props) {
   }
 }
 
-AppBar.propTypes = {
-  location: PropTypes.object.isRequired,
-};
+DownAppBar.propTypes = {};
 
-export default AppBar;
+export default DownAppBar;

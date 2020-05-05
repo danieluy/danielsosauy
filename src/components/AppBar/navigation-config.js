@@ -5,7 +5,7 @@ import EmailIcon from '@material-ui/icons/EmailOutlined';
 
 const getRoutes = lang => [
   // { name: lang.work, pathname: '/work', icon: WorkIcon },
-  // { name: lang.stuff, pathname: '/stuff', icon: WidgetsIcon },
+  { name: lang.stuff, pathname: '/stuff', icon: WidgetsIcon },
   { name: lang.academic, pathname: '/academic', icon: SchoolIcon },
   // { name: lang.contact, pathname: '/contact', icon: EmailIcon },
 ];

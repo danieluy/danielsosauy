@@ -1,23 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment as section } from 'react';
 import useStyles from './styles';
-// Material UI
-import Typography from '@material-ui/core/Typography';
+import { useSelector } from 'react-redux';
+import { selectStuffLang } from '../../redux/selectors';
+// Components
+import MainContent, { Subtitle } from '../MainContent/MainContent';
+import { Typography } from '@material-ui/core';
 
 function Stuff(props) {
   const classes = useStyles();
-
-  document.title = 'Daniel Sosa | #Stuff';
+  const lang = useSelector(selectStuffLang);
+  const {
+    title,
+  } = lang;
+  document.title = `Daniel Sosa | ${title}`;
 
   return (
-    <div className={classes.root}>
-      <Typography variant="h1">Stuff</Typography>
-    </div>
+    <MainContent
+      content={(
+        <section className={classes.section}>
+          <Typography variant="h3" color="textPrimary">{title}</Typography>
+        </section>
+      )}
+    />
   );
 }
-
-Stuff.proptypes = {
-  lang: PropTypes.object.isRequired,
-};
 
 export default Stuff;

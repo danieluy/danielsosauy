@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack-dev-server --watch-poll --open --env.development",
     "build": "webpack --env.production",
-    "postbuild": "mv dist/index.html dist/404.html"
+    "postbuild": "cp dist/index.html dist/404.html"
   },
   "keywords": [],
   "author": "Daniel Sosa <daneilsosa.dev@gmail.com>",

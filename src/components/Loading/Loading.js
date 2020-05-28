@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// Components
-import MainContent from '../MainContent/MainContent';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -10,13 +8,9 @@ function Loading(props) {
   const { error, timedOut, retry, pastDelay } = props;
 
   return (
-    <MainContent
-      content={(
-        <section>
-          {renderSection()}
-        </section>
-      )}
-    />
+    <section>
+      {renderSection()}
+    </section>
   );
 
   function renderSection() {

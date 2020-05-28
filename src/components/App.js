@@ -4,32 +4,29 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import useStyles from './styles';
 import Loadable from 'react-loadable';
 // Components
-import TopAppBar from './AppBar/TopAppBar';
-import DownAppBar from './AppBar/DownAppBar';
 import Loading from './Loading/Loading';
+import Nav from './Layout/Nav';
+import Main from './Layout/Main';
+import Footer from './Layout/Footer';
 
 function App(props) {
 	// Necessary to update app theme color
 	useStyles();
 
-	// Loadable views
-	const Home = getLoadable('./Home/Home');
-	const Work = getLoadable('./Work/Work');
-	const Stuff = getLoadable('./Stuff/Stuff');
-	const Academic = getLoadable('./Academic/Academic');
-	const Contact = getLoadable('./Contact/Contact');
+	// Loadable Views
+	const Home = getLoadable('./Views/Home/Home');
 
 	const [baseName] = React.useState(getBaseName());
 
 	return (
 		<Router basename={baseName}>
-			<TopAppBar />
-			<Route exact path="/" component={Home} />
-			<Route exact path="/work" component={Work} />
-			<Route exact path="/stuff" component={Stuff} />
-			<Route exact path="/academic" component={Academic} />
-			<Route exact path="/contact" component={Contact} />
-			<DownAppBar />
+			<Nav />
+			<Main>
+				<Route exact path="/" component={Home} />
+				{/* <Route exact path="/stuff" component={Stuff} />
+				<Route exact path="/academic" component={Academic} /> */}
+			</Main>
+			<Footer />
 		</Router>
 	);
 }

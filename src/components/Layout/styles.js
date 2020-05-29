@@ -19,6 +19,9 @@ export default makeStyles(theme => {
       display: 'flex',
       justifyContent: 'center',
       zIndex: 0,
+      height: '100vh',
+      overflowY: 'auto',
+      overflowX: 'hidden',
     },
     footer: {
       position: 'fixed',
@@ -30,6 +33,8 @@ export default makeStyles(theme => {
       justifyContent: 'flex-end',
       alignItems: 'center',
       zIndex: 2,
+      paddingRight: theme.spacing(4),
+      background: 'linear-gradient(rgba(255,255,255,0.8), rgb(255,255,255))',
     },
   };
 });

@@ -1,24 +1,17 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
-import { useSelector } from 'react-redux';
-import { selectStatus } from '../../redux/selectors';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
 function Article(props) {
   const { articleId, title, banner, paragraphs } = props;
   const classes = useStyles();
-  const status = useSelector(selectStatus);
 
   return (
     <article className={classes.root} aria-label={title} id={articleId}>
 
-      {status.styles && (
-        <figure className={classes.banner} aria-hidden="true">
-          <img src={banner.src} alt={banner.alt} className={classes.bannerImage} />
-        </figure>
-      )}
+      <img src={banner.src} alt={banner.alt} className={classes.banner} />
 
       <div className={classes.body}>
         <Typography

@@ -4,7 +4,7 @@ import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectHomeLang } from '../../../redux/selectors';
 // Components
-import Article from '../../Article';
+import Article from '../../Article/Article';
 
 function Home() {
   const classes = useStyles();

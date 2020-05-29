@@ -9,6 +9,7 @@ import Header from './Layout/Header';
 import Main from './Layout/Main';
 import Footer from './Layout/Footer';
 import MainNav from './MainNav/MainNav';
+import Contact from './Contact/Contact';
 
 function App(props) {
 	// Necessary to update app theme color
@@ -29,7 +30,9 @@ function App(props) {
 				{/* <Route exact path="/stuff" component={Stuff} /> */}
 				{/* <Route exact path="/academic" component={Academic} /> */}
 			</Main>
-			<Footer />
+			<Footer>
+				<Contact />
+			</Footer>
 		</Router>
 	);
 }

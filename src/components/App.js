@@ -5,9 +5,10 @@ import useStyles from './styles';
 import Loadable from 'react-loadable';
 // Components
 import Loading from './Loading/Loading';
-import Nav from './Layout/Nav';
+import Header from './Layout/Header';
 import Main from './Layout/Main';
 import Footer from './Layout/Footer';
+import MainNav from './MainNav/MainNav';
 
 function App(props) {
 	// Necessary to update app theme color
@@ -20,11 +21,13 @@ function App(props) {
 
 	return (
 		<Router basename={baseName}>
-			<Nav />
+			<Header>
+				<MainNav />
+			</Header>
 			<Main>
 				<Route exact path="/" component={Home} />
-				{/* <Route exact path="/stuff" component={Stuff} />
-				<Route exact path="/academic" component={Academic} /> */}
+				{/* <Route exact path="/stuff" component={Stuff} /> */}
+				{/* <Route exact path="/academic" component={Academic} /> */}
 			</Main>
 			<Footer />
 		</Router>

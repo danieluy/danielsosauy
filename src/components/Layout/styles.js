@@ -2,14 +2,13 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 export default makeStyles(theme => {
   return {
-    nav: {
+    header: {
       position: 'fixed',
       left: 0,
       top: 0,
       bottom: 0,
       width: theme.spacing(25),
-      display: 'flex',
-      flexDirection: 'column',
+      zIndex: 1,
     },
     main: {
       position: 'fixed',
@@ -19,6 +18,7 @@ export default makeStyles(theme => {
       right: 0,
       display: 'flex',
       justifyContent: 'center',
+      zIndex: 0,
     },
     footer: {
       position: 'fixed',
@@ -29,6 +29,7 @@ export default makeStyles(theme => {
       display: 'flex',
       justifyContent: 'flex-end',
       alignItems: 'center',
+      zIndex: 2,
     },
   };
 });

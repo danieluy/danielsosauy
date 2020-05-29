@@ -30,6 +30,7 @@ function Contact() {
           target="blank"
           className={classes.link}
           aria-label={`${lang.sendEmail} danielsosa.uy@gmail.com`}
+          title={`${lang.sendEmail} danielsosa.uy@gmail.com`}
         >
           <EmailIcon className={classes.icon} aria-hidden />
           <Typography>danielsosa.uy@gmail.com</Typography>
@@ -41,6 +42,7 @@ function Contact() {
           target="blank"
           className={classes.link}
           aria-label={`${lang.call} 099 636 605 Uruguay`}
+          title={`${lang.call} 099 636 605 Uruguay`}
         >
           <PhoneIcon className={classes.icon} aria-hidden />
           <Typography>(+598) 99 636 065</Typography>

@@ -34,7 +34,7 @@ export default makeStyles(theme => {
       alignItems: 'center',
       zIndex: 2,
       paddingRight: theme.spacing(4),
-      background: 'linear-gradient(rgba(255,255,255,0.8), rgb(255,255,255))',
+      background: 'linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.8), rgb(255,255,255), rgb(255,255,255))',
     },
   };
 });

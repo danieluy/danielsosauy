@@ -46,7 +46,5 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.3"
   },
-  "dependencies": {
-    "react-perfect-scrollbar": "^1.5.8"
-  }
+  "dependencies": {}
 }

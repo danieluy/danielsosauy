@@ -32,7 +32,6 @@ function MainNav() {
           <MenuItem to="/#performance" label={articles.performance.title} />
           <MenuItem to="/#tech" label={articles.tech.title} />
         </Submenu>
-        <MenuItem to="/stuff" label={lang.stuff} />
         <MenuItem to="/academimc" label={lang.academic} />
       </ul>
     </nav>

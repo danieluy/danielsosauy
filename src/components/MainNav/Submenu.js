@@ -14,6 +14,11 @@ function Submenu(props) {
   const classes = useStyles();
   const [active, setActive] = useState(location.pathname === to);
   const [expanded, setExpanded] = useState(active);
+  const [height, setHeight] = useState(0);
+
+  const expandedHeight = useMemo(() => {
+    return children.length * theme.spacing(6);
+  }, []);
 
   useEffect(() => {
     const active = location.pathname === to;
@@ -21,17 +26,14 @@ function Submenu(props) {
     setExpanded(active);
   }, [location.pathname]);
 
+  useEffect(() => {
+    setHeight(expanded ? expandedHeight : 0);
+  }, [expanded]);
+
   const handleExpand = useCallback(evt => {
     evt.preventDefault();
     setExpanded(!expanded);
   });
-
-  const height = useMemo(() => {
-    if (children && expanded) {
-      return children.length * theme.spacing(6);
-    }
-    return 0;
-  }, [children, expanded]);
 
   return (
     <li role="none" className={classes.submenu}>

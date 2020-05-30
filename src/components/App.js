@@ -17,6 +17,7 @@ function App(props) {
 
 	// Loadable Views
 	const Home = getLoadable('./Views/Home/Home');
+	const Academic = getLoadable('./Views/Academic/Academic');
 
 	const [baseName] = React.useState(getBaseName());
 
@@ -27,8 +28,7 @@ function App(props) {
 			</Header>
 			<Main>
 				<Route exact path="/" component={Home} />
-				{/* <Route exact path="/stuff" component={Stuff} /> */}
-				{/* <Route exact path="/academic" component={Academic} /> */}
+				<Route exact path="/academic" component={Academic} />
 			</Main>
 			<Footer>
 				<Contact />

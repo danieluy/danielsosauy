@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo, useState } from 'react';
+import React, { useEffect } from 'react';
 import useStyles from './styles';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';

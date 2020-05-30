@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 import useStyles from './styles';
+import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectHomeLang } from '../../../redux/selectors';
 // Components
@@ -8,13 +8,26 @@ import Article from '../../Article/Article';
 
 function Home() {
   const classes = useStyles();
+  const { hash } = useLocation();
   const lang = useSelector(selectHomeLang);
   const {
     title,
     articles: { whatWhy, accessibility, design, performance, tech },
   } = lang;
 
-  document.title = `Daniel Sosa | ${title}`;
+  useEffect(() => {
+    document.title = `Daniel Sosa | ${title}`;
+
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        window.setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 500);
+      }
+    }
+  }, []);
+
 
   return (
     <section className={classes.section}>

@@ -1,24 +1,36 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import useStyles from './styles';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectNav } from '../../redux/selectors';
+import { selectNav, selectHomeLang } from '../../redux/selectors';
 // Components
 import MenuItem from './MenuItem';
 import Submenu from './Submenu';
 
 function MainNav() {
   const classes = useStyles();
+  const { hash } = useLocation();
   const lang = useSelector(selectNav);
-  console.log(lang);
+  const { articles } = useSelector(selectHomeLang);
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [hash]);
 
   return (
     <nav className={classes.root}>
       <ul role="menubar">
         <Submenu label={lang.home} to="/">
-          <MenuItem to="/#whatandwhy" label="What and Why?" />
-          <MenuItem to="/#accessibility" label="Accessibility" />
+          <MenuItem to="/#what-why" label={articles.whatWhy.title} />
+          <MenuItem to="/#accessibility" label={articles.accessibility.title} />
+          <MenuItem to="/#design" label={articles.design.title} />
+          <MenuItem to="/#performance" label={articles.performance.title} />
+          <MenuItem to="/#tech" label={articles.tech.title} />
         </Submenu>
         <MenuItem to="/stuff" label={lang.stuff} />
         <MenuItem to="/academimc" label={lang.academic} />
@@ -26,7 +38,5 @@ function MainNav() {
     </nav>
   );
 }
-
-MainNav.proptypes = {};
 
 export default MainNav;

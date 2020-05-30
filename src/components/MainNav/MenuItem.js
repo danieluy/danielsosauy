@@ -6,17 +6,21 @@ import { Link, useLocation } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 
 function MenuItem(props) {
-  const { label, to } = props;
+  const { label, to, leftPad } = props;
   const location = useLocation();
   const classes = useStyles();
 
+  const active = useMemo(() => {
+    return `${location.pathname}${location.hash}` === to;
+  }, [location]);
+
   return (
-    <li role="none" className={classes.withOutSubmenu}>
+    <li role="none" className={classes.withOutSubmenu} style={{ paddingLeft: leftPad }}>
       <Link
         to={to}
         role="menuitem"
         tabIndex="-1"
-        className={classes.menuItem}
+        className={`${classes.menuItem} ${active ? 'active' : ''}`}
       >
         <Typography component="span">{label}</Typography>
       </Link>
@@ -27,6 +31,11 @@ function MenuItem(props) {
 MenuItem.proptypes = {
   label: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
+  leftPad: PropTypes.number,
+};
+
+MenuItem.defaultProps = {
+  leftPad: 0,
 };
 
 export default MenuItem;

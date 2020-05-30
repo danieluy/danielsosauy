@@ -31,7 +31,6 @@ function StyleToggle(props) {
     document.body.style.backgroundColor = '#FFF';
     setStylesheets(list);
     dispatch(disableStyles());
-    console.log('Styles disabled');
   }
 
   function enable() {
@@ -39,7 +38,6 @@ function StyleToggle(props) {
     document.body.style.backgroundColor = theme.elevationColor[0];
     setStylesheets([]);
     dispatch(enableStyles());
-    console.log('Styles enabled');
   }
 
   function removeElement(el) {

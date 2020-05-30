@@ -2,6 +2,7 @@ import React, { useCallback, useState, useMemo, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types';
 import useStyles from './styles';
 import { useLocation } from 'react-router-dom';
+import MenuItem from './MenuItem';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 import useTheme from '@material-ui/core/styles/useTheme';
@@ -32,9 +33,6 @@ function Submenu(props) {
     return 0;
   }, [children, expanded]);
 
-  console.log('location.pathname', location.pathname);
-  console.log('active', active);
-
   return (
     <li role="none" className={classes.submenu}>
       <a
@@ -54,14 +52,28 @@ function Submenu(props) {
         className={classes.collapsible}
         style={{ height }}
       >
-        {children}
+        {children.map(El => {
+          const { leftPad, ...rest } = El.props;
+          return (
+            <El.type
+              key={El.props.to}
+              leftPad={leftPad + theme.spacing(2)}
+              {...rest}
+            />
+          );
+        })}
       </ul>
     </li>
   );
 }
 
 Submenu.proptypes = {
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.instanceOf(MenuItem),
+      PropTypes.instanceOf(Submenu),
+    ]),
+  ).isRequired,
   label: PropTypes.string,
 };
 

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
 import useProgress from '../../../react-hooks/useProgress';
@@ -9,7 +9,11 @@ function Score(props) {
   const { score } = props;
   const ariaLabel = props['aria-label'];
   const classes = useStyles();
-  const progress = useProgress(0, score, 3);
+  const [progress, setProgress] = useProgress(0, 3);
+
+  useEffect(() => {
+    setProgress(0, score);
+  }, []);
 
   return (
     <Fragment>

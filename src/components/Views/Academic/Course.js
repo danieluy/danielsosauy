@@ -7,11 +7,8 @@ import { selectAcademicLang } from '../../../redux/selectors';
 import Title from '../../Typography/Title';
 import Title2 from '../../Typography/Title2';
 import Subtitle from '../../Typography/Subtitle';
-import Paragraph from '../../Typography/Paragraph';
 import ScoreBar from './ScoreBar';
 import Subject from './Subject';
-// Material UI
-import Typography from '@material-ui/core/Typography';
 
 function Course(props) {
   const {
@@ -37,8 +34,8 @@ function Course(props) {
     <article className={classes.course} id={courseId}>
       <img src={institutionLogo.src} alt={institutionLogo.alt} className={classes.institutionLogoImage} />
       <Title tabIndex="0">{title}</Title>
-      <Subtitle>{institute}</Subtitle>
       <ScoreBar score={avgScore} aria-label={`${averageScore} ${avgScore}`} />
+      <Subtitle>{institute}</Subtitle>
       <Title2>{lang.subjects}</Title2>
       {subjects.map(subject => <Subject key={subject.name} subject={subject} />)}
     </article>

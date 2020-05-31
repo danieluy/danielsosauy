@@ -9,7 +9,7 @@ function Score(props) {
   const { score } = props;
   const ariaLabel = props['aria-label'];
   const classes = useStyles();
-  const [progress, setProgress] = useProgress(0, 3);
+  const [progress, setProgress] = useProgress(0);
 
   useEffect(() => {
     setProgress(0, score);

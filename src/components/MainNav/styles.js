@@ -32,6 +32,7 @@ export default makeStyles(theme => {
       },
     },
     expandIcon: {
+      pointerEvents: 'none',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',

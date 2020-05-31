@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import useStyles from './styles';
 import { useLocation } from 'react-router-dom';
 import MenuItem from './MenuItem';
+import useProgress from '../../react-hooks/useProgress';
 // Material UI
 import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMoreOutlined';
+import ExpandLessIcon from '@material-ui/icons/ExpandLessOutlined';
 import useTheme from '@material-ui/core/styles/useTheme';
 
 function Submenu(props) {
@@ -14,7 +17,7 @@ function Submenu(props) {
   const classes = useStyles();
   const [active, setActive] = useState(location.pathname === to);
   const [expanded, setExpanded] = useState(active);
-  const [height, setHeight] = useState(0);
+  const [height, setHeight] = useProgress(0, 20);
 
   const expandedHeight = useMemo(() => {
     return children.length * theme.spacing(6);
@@ -27,7 +30,12 @@ function Submenu(props) {
   }, [location.pathname]);
 
   useEffect(() => {
-    setHeight(expanded ? expandedHeight : 0);
+    if (expanded) {
+      setHeight(0, expandedHeight);
+    }
+    else {
+      setHeight(expandedHeight, 0);
+    }
   }, [expanded]);
 
   const handleExpand = useCallback(evt => {
@@ -37,6 +45,7 @@ function Submenu(props) {
 
   return (
     <li role="none" className={classes.submenu}>
+      <ExpandIcon />
       <a
         role="menuitem"
         aria-haspopup="true"
@@ -67,6 +76,21 @@ function Submenu(props) {
       </ul>
     </li>
   );
+
+  function ExpandIcon() {
+    if (expanded) {
+      return (
+        <span className={`${classes.expandIcon} ${active ? 'active' : ''}`} aria-hidden>
+          <ExpandLessIcon />
+        </span>
+      );
+    }
+    return (
+      <span className={`${classes.expandIcon} ${active ? 'active' : ''}`} aria-hidden>
+        <ExpandMoreIcon />
+      </span>
+    );
+  }
 }
 
 Submenu.proptypes = {

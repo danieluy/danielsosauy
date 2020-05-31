@@ -1,16 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 
-export default function useProgress(start, limit, speed = 1) {
-  const [progress, setProgress] = useState(start);
+export default function useProgress(initValue = 0, speed = 1) {
+  const [progress, setProgress] = useState(initValue);
 
-  useEffect(() => {
-    if (progress >= limit) {
+  const increaseToLimit = useCallback((_progress, limit) => {
+    if (_progress >= limit) {
       setProgress(limit);
     }
     else {
-      window.requestAnimationFrame(() => setProgress(progress + speed));
+      setProgress(_progress);
+      window.requestAnimationFrame(() => increaseToLimit(_progress + speed, limit));
     }
-  }, [progress]);
+  }, []);
 
-  return progress;
+  const decreaseToLimit = useCallback((_progress, limit) => {
+    if (_progress <= limit) {
+      setProgress(limit);
+    }
+    else {
+      setProgress(_progress);
+      window.requestAnimationFrame(() => decreaseToLimit(_progress - speed, limit));
+    }
+  }, []);
+
+  const run = useCallback((start, limit) => {
+    if (start < limit) {
+      increaseToLimit(start, limit);
+    }
+    if (start > limit) {
+      decreaseToLimit(start, limit);
+    }
+  }, []);
+
+  return [progress, run];
 }

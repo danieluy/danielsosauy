@@ -12,5 +12,8 @@ export default makeStyles(theme => {
       paddingBottom: theme.spacing(6),
       borderBottom: `2px dashed ${theme.palette.grey[300]}`,
     },
+    institutionLogoImage: {
+      width: '100%',
+    },
   };
 });

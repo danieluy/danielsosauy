@@ -3,7 +3,7 @@
   "coursesTitle": "Cursos",
   "subjects": "Materias",
   "score": "Puntaje",
-  "keywords": "Palabras clave",
+  "keywords": "Conceptos clave",
   "courses": [
     {
       "title": "Analista Programador",
@@ -11,7 +11,7 @@
       "status": "Completado",
       "averageScore": "Promedio",
       "institutionLogo": {
-        "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.jpg",
+        "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.png",
         "alt": "Logo Universidad ORT"
       },
       "subjects": [
@@ -71,7 +71,7 @@
       "status": "Completado",
       "averageScore": "Promedio",
       "institutionLogo": {
-        "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.jpg",
+        "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.png",
         "alt": "Logo Universidad ORT"
       },
       "subjects": [

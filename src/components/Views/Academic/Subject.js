@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectAcademicLang } from '../../../redux/selectors';
+// Components
+import Title3 from '../../Typography/Title3';
+import Paragraph from '../../Typography/Paragraph';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
@@ -12,16 +15,9 @@ function Subject({ subject }) {
 
   return (
     <Fragment key={subject.name}>
-      <Typography
-        component="h4"
-        color="textPrimary"
-        variant="h5"
-        className={classes.subjectTitle}
-      >
-        {subject.name}
-      </Typography>
-      <Typography color="textPrimary">{`${lang.score}: ${subject.score}`}</Typography>
-      <Typography color="textSecondary">{`${lang.keywords}: ${subject.techs.join(', ')}`}</Typography>
+      <Title3>{subject.name}</Title3>
+      <Paragraph>{`${lang.score}: ${subject.score}`}</Paragraph>
+      <Paragraph color="textSecondary">{`${lang.keywords}: ${subject.techs.join(', ')}`}</Paragraph>
     </Fragment>
   );
 }

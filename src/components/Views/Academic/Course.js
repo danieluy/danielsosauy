@@ -4,6 +4,10 @@ import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectAcademicLang } from '../../../redux/selectors';
 // Components
+import Title from '../../Typography/Title';
+import Title2 from '../../Typography/Title2';
+import Subtitle from '../../Typography/Subtitle';
+import Paragraph from '../../Typography/Paragraph';
 import ScoreBar from './ScoreBar';
 import Subject from './Subject';
 // Material UI
@@ -32,48 +36,13 @@ function Course(props) {
   return (
     <article className={classes.course} id={courseId}>
       <img src={institutionLogo.src} alt={institutionLogo.alt} className={classes.institutionLogoImage} />
-
-      <div className={classes.courseBody}>
-        <Typography
-          component="h2"
-          variant="h3"
-          tabIndex="0"
-          className={classes.title}
-        >
-          {title}
-        </Typography>
-
-        <Subtitle>{institute}</Subtitle>
-
-        <ScoreBar score={avgScore} aria-label={`${averageScore} ${avgScore}`} />
-
-        <Typography
-          component="h3"
-          color="textPrimary"
-          variant="h4"
-          gutterBottom
-        >
-          {lang.subjects}
-        </Typography>
-        {subjects.map(subject => <Subject key={subject.name} subject={subject} />)}
-      </div>
+      <Title tabIndex="0">{title}</Title>
+      <Subtitle>{institute}</Subtitle>
+      <ScoreBar score={avgScore} aria-label={`${averageScore} ${avgScore}`} />
+      <Title2>{lang.subjects}</Title2>
+      {subjects.map(subject => <Subject key={subject.name} subject={subject} />)}
     </article>
   );
-
-  function Subtitle({ children }) {
-    if (children) {
-      return (
-        <Typography
-          component="p"
-          variant="subtitle1"
-          color="textPrimary"
-          tabIndex="0"
-        >
-          {children}
-        </Typography>
-      );
-    }
-  }
 }
 
 Course.propTypes = {

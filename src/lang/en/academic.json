@@ -3,7 +3,7 @@
   "coursesTitle": "Courses",
   "subjects": "Subjects",
   "score": "Score",
-  "keywords": "Keywords",
+  "keywords": "Key concepts",
   "courses": [
     {
       "title": "Software Analist",
@@ -11,7 +11,7 @@
       "status": "Completed",
       "averageScore": "Average score",
       "institutionLogo": {
-        "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.jpg",
+        "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.png",
         "alt": "ORT University Logo"
       },
       "subjects": [
@@ -72,7 +72,7 @@
       "status": "Completed",
       "averageScore": "Average score",
       "institutionLogo": {
-        "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.jpg",
+        "src": "assets/img/academic/institution-logos/Universidad_ORT_Uruguay_-_Logo.png",
         "alt": "ORT University Logo"
       },
       "subjects": [

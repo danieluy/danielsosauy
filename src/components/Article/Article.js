@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
-// Material UI
-import Typography from '@material-ui/core/Typography';
+// Components
+import Title from '../Typography/Title';
+import Paragraph from '../Typography/Paragraph';
 
 function Article(props) {
   const { articleId, title, banner, paragraphs } = props;
@@ -10,21 +11,9 @@ function Article(props) {
 
   return (
     <article className={classes.root} aria-label={title} id={articleId}>
-
       <img src={banner.src} alt={banner.alt} className={classes.banner} />
-
-      <div className={classes.body}>
-        <Typography
-          component="h2"
-          variant="h3"
-          color="textPrimary"
-          tabIndex="0"
-          className={classes.title}
-        >
-          {title}
-        </Typography>
-        {paragraphs.map((paragraph, i) => renderParagraph(paragraph, i))}
-      </div>
+      <Title tabIndex="0">{title}</Title>
+      {paragraphs.map((paragraph, i) => renderParagraph(paragraph, i))}
     </article>
   );
 
@@ -32,15 +21,9 @@ function Article(props) {
     const markdownLinks = paragraph.match(/\[([^\]]*)\]\(([^)]+)\)/g);
     const textWithLinks = splitByLink(paragraph, markdownLinks, 0);
     return (
-      <Typography
-        key={key}
-        component="p"
-        className={classes.paragraph}
-        aria-label="#article body"
-        color="textPrimary"
-      >
+      <Paragraph key={key} aria-label="#article body">
         {textWithLinks}
-      </Typography>
+      </Paragraph>
     );
   }
 

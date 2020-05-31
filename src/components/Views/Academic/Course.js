@@ -30,7 +30,7 @@ function Course(props) {
   });
 
   return (
-    <article className={classes.courseRoot} id={courseId}>
+    <article className={classes.course} id={courseId}>
       <img src={institutionLogo.src} alt={institutionLogo.alt} className={classes.institutionLogoImage} />
 
       <div className={classes.courseBody}>

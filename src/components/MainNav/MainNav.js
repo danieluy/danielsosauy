@@ -13,7 +13,6 @@ function MainNav() {
   const lang = useSelector(selectNav);
   const { articles } = useSelector(selectHomeLang);
   const { courses } = useSelector(selectAcademicLang);
-  console.log('courses', courses);
 
   useEffect(() => {
     if (hash) {
@@ -35,8 +34,8 @@ function MainNav() {
           <MenuItem to="/#tech" label={articles.tech.title} />
         </Submenu>
         <Submenu label={lang.academic} to="/academic">
-          <MenuItem to="/academic#what-why" label={courses[0].title} />
-          <MenuItem to="/academic#accessibility" label={courses[1].title} />
+          <MenuItem to="/academic#software-analist" label={courses[0].title} />
+          <MenuItem to="/academic#web-developer" label={courses[1].title} />
         </Submenu>
       </ul>
     </nav>

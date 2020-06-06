@@ -9,6 +9,7 @@ import Title2 from '../../Typography/Title2';
 import Subtitle from '../../Typography/Subtitle';
 import ScoreBar from './ScoreBar';
 import Subject from './Subject';
+import Content from '../../Views/Partials/Content/Content';
 
 function Course(props) {
   const {
@@ -31,14 +32,14 @@ function Course(props) {
   });
 
   return (
-    <article className={classes.course} id={courseId}>
+    <Content component="article" id={courseId}>
       <img src={institutionLogo.src} alt={institutionLogo.alt} className={classes.institutionLogoImage} />
       <Title tabIndex="0">{title}</Title>
       <ScoreBar score={avgScore} aria-label={`${averageScore} ${avgScore}`} />
       <Subtitle>{institute}</Subtitle>
       <Title2>{lang.subjects}</Title2>
       {subjects.map(subject => <Subject key={subject.name} subject={subject} />)}
-    </article>
+    </Content>
   );
 }
 

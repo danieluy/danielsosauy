@@ -22,11 +22,11 @@ function MainNav() {
       lang: lang.home,
       activePath: '/',
       items: [
-        <MenuItem to="/#what-why" label={articles.whatWhy.title} />,
-        <MenuItem to="/#accessibility" label={articles.accessibility.title} />,
-        <MenuItem to="/#design" label={articles.design.title} />,
-        <MenuItem to="/#performance" label={articles.performance.title} />,
-        <MenuItem to="/#tech" label={articles.tech.title} />,
+        <MenuItem to="/#what-why" label={articles.whatWhy.title} key={articles.whatWhy.title} />,
+        <MenuItem to="/#accessibility" label={articles.accessibility.title} key={articles.accessibility.title} />,
+        <MenuItem to="/#design" label={articles.design.title} key={articles.design.title} />,
+        <MenuItem to="/#performance" label={articles.performance.title} key={articles.performance.title} />,
+        <MenuItem to="/#tech" label={articles.tech.title} key={articles.tech.title} />,
       ],
     },
     {
@@ -34,8 +34,8 @@ function MainNav() {
       lang: lang.academic,
       activePath: '/academic',
       items: [
-        <MenuItem to="/academic#software-analist" label={courses[0].title} />,
-        <MenuItem to="/academic#web-developer" label={courses[1].title} />,
+        <MenuItem to="/academic#software-analist" label={courses[0].title} key={courses[0].title} />,
+        <MenuItem to="/academic#web-developer" label={courses[1].title} key={courses[1].title} />,
       ],
     },
   ]);
@@ -72,6 +72,7 @@ function MainNav() {
       <ul role="menubar">
         {subMenus.map((subMenu, i) => (
           <Submenu
+            key={i}
             ref={subMenu.ref}
             label={subMenu.lang}
             activePath={subMenu.activePath}

@@ -4,17 +4,18 @@ import useStyles from './styles';
 // Components
 import Title from '../Typography/Title';
 import Paragraph from '../Typography/Paragraph';
+import Content from '../Views/Partials/Content/Content';
 
 function Article(props) {
   const { articleId, title, banner, paragraphs } = props;
   const classes = useStyles();
 
   return (
-    <article className={classes.root} aria-label={title} id={articleId}>
+    <Content component="article" aria-label={title} id={articleId}>
       <img src={banner.src} alt={banner.alt} className={classes.banner} />
       <Title tabIndex="0">{title}</Title>
       {paragraphs.map((paragraph, i) => renderParagraph(paragraph, i))}
-    </article>
+    </Content>
   );
 
   function renderParagraph(paragraph, key) {

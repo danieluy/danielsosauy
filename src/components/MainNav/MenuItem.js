@@ -5,8 +5,8 @@ import { Link, useLocation } from 'react-router-dom';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
-function MenuItem(props) {
-  const { label, to, leftPad } = props;
+const MenuItem = React.forwardRef((props, ref) => {
+  const { label, to, leftPad, onClick, onKeyDown } = props;
   const location = useLocation();
   const classes = useStyles();
 
@@ -21,17 +21,22 @@ function MenuItem(props) {
         role="menuitem"
         tabIndex="-1"
         className={`${classes.menuItem} ${active ? 'active' : ''}`}
+        ref={ref}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
       >
         <Typography component="span">{label}</Typography>
       </Link>
     </li>
   );
-}
+});
 
 MenuItem.proptypes = {
   label: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
   leftPad: PropTypes.number,
+  onClick: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
 };
 
 MenuItem.defaultProps = {

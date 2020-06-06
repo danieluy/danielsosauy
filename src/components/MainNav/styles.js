@@ -22,6 +22,7 @@ export default makeStyles(theme => {
       color: theme.palette.text.primary,
       '&.active': {
         color: theme.palette.primary.main,
+        textDecoration: 'underline',
       },
       '&:hover': {
         backgroundColor: theme.palette.grey[100],

@@ -15,7 +15,7 @@ const MenuItem = React.forwardRef((props, ref) => {
   }, [location]);
 
   return (
-    <li role="none" className={classes.withOutSubmenu} style={{ paddingLeft: leftPad }}>
+    <li role="none" style={{ paddingLeft: leftPad }}>
       <Link
         to={to}
         role="menuitem"

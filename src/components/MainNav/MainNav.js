@@ -1,15 +1,16 @@
-import React, { useEffect, useRef, useCallback, useMemo } from 'react';
-import useStyles from './styles';
+import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectNav, selectHomeLang, selectAcademicLang } from '../../redux/selectors';
-import { KEY_CODE } from '../../utils';
 // Components
 import MenuItem from './MenuItem';
 import Submenu from './Submenu';
+// Material UI
+import HomeIcon from '@material-ui/icons/HomeOutlined';
+import SchoolIcon from '@material-ui/icons/SchoolOutlined';
 
-function MainNav() {
-  const classes = useStyles();
+function MainNav({ headerOpen }) {
   const { hash } = useLocation();
   const lang = useSelector(selectNav);
   const { articles } = useSelector(selectHomeLang);
@@ -21,6 +22,7 @@ function MainNav() {
       ref: homeRef,
       lang: lang.home,
       activePath: '/',
+      icon: HomeIcon,
       items: [
         <MenuItem to="/#what-why" label={articles.whatWhy.title} key={articles.whatWhy.title} />,
         <MenuItem to="/#accessibility" label={articles.accessibility.title} key={articles.accessibility.title} />,
@@ -33,6 +35,7 @@ function MainNav() {
       ref: academicRef,
       lang: lang.academic,
       activePath: '/academic',
+      icon: SchoolIcon,
       items: [
         <MenuItem to="/academic#software-analist" label={courses[0].title} key={courses[0].title} />,
         <MenuItem to="/academic#web-developer" label={courses[1].title} key={courses[1].title} />,
@@ -68,16 +71,18 @@ function MainNav() {
   }, []);
 
   return (
-    <nav className={classes.root}>
+    <nav>
       <ul role="menubar">
         {subMenus.map((subMenu, i) => (
           <Submenu
             key={i}
             ref={subMenu.ref}
             label={subMenu.lang}
+            icon={subMenu.icon}
             activePath={subMenu.activePath}
             focusOnMenuNext={() => setFocusNext(i)}
             focusOnMenuPrev={() => setFocusPrev(i)}
+            headerOpen={headerOpen}
           >
             {subMenu.items}
           </Submenu>
@@ -86,5 +91,9 @@ function MainNav() {
     </nav>
   );
 }
+
+MainNav.propTypes = {
+  headerOpen: PropTypes.bool,
+};
 
 export default MainNav;

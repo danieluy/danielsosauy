@@ -12,7 +12,15 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLessOutlined';
 import useTheme from '@material-ui/core/styles/useTheme';
 
 const Submenu = React.forwardRef((props, ref) => {
-  const { children, label, activePath, focusOnMenuNext, focusOnMenuPrev } = props;
+  const {
+    children,
+    label,
+    activePath,
+    focusOnMenuNext,
+    focusOnMenuPrev,
+    icon: Icon,
+    headerOpen,
+  } = props;
   const theme = useTheme();
   const location = useLocation();
   const classes = useStyles();
@@ -28,7 +36,6 @@ const Submenu = React.forwardRef((props, ref) => {
   }, []);
 
   useEffect(() => {
-    console.log('refs', menuItemsRef.current.map(ref => ref.current));
     const active = location.pathname === activePath;
     setActive(active);
   }, [location.pathname]);
@@ -54,6 +61,7 @@ const Submenu = React.forwardRef((props, ref) => {
 
   const handleMenuItemClick = useCallback(() => {
     setExpanded(false);
+    document.activeElement.blur();
   });
 
   const handleArrowDown = useCallback(idx => {
@@ -144,8 +152,11 @@ const Submenu = React.forwardRef((props, ref) => {
         tabIndex="0"
         onClick={handleExpand}
         onKeyDown={handleMenuKeyDown}
-        className={`${classes.menuItem} ${active ? 'active' : ''}`}
+        className={`${classes.submenuLink} ${active ? 'active' : ''}`}
       >
+        <span className={classes.submenuIcon}>
+          <Icon aria-hidden />
+        </span>
         <Typography component="span">{label}</Typography>
       </a>
       <ul
@@ -160,7 +171,7 @@ const Submenu = React.forwardRef((props, ref) => {
             <El.type
               ref={menuItemsRef.current[i]}
               key={El.props.to}
-              leftPad={(leftPad || 0) + theme.spacing(2)}
+              leftPad={(leftPad || 0) + theme.spacing(6)}
               onClick={handleMenuItemClick}
               onKeyDown={handleMenuItemKeyDown(i)}
               {...rest}
@@ -172,15 +183,16 @@ const Submenu = React.forwardRef((props, ref) => {
   );
 
   function ExpandIcon() {
+    const className = `${classes.expandIcon} ${active ? 'active' : ''} ${!headerOpen ? 'hidden' : ''}`;
     if (expanded) {
       return (
-        <span className={`${classes.expandIcon} ${active ? 'active' : ''}`} aria-hidden>
+        <span className={className} aria-hidden>
           <ExpandLessIcon />
         </span>
       );
     }
     return (
-      <span className={`${classes.expandIcon} ${active ? 'active' : ''}`} aria-hidden>
+      <span className={className} aria-hidden>
         <ExpandMoreIcon />
       </span>
     );
@@ -193,6 +205,8 @@ Submenu.proptypes = {
   activePath: PropTypes.string,
   focusOnMenuNext: PropTypes.func.isRequired,
   focusOnMenuPrev: PropTypes.func.isRequired,
+  icon: PropTypes.element.isRequired,
+  headerOpen: PropTypes.bool.isRequired,
 };
 
 export default Submenu;

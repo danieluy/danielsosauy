@@ -33,7 +33,7 @@ function Contact() {
           title={`${lang.sendEmail} danielsosa.uy@gmail.com`}
         >
           <EmailIcon className={classes.icon} aria-hidden />
-          <Typography>danielsosa.uy@gmail.com</Typography>
+          <Typography className={classes.text}>danielsosa.uy@gmail.com</Typography>
         </a>
       </li>
       <li role="none" className={classes.li}>
@@ -45,7 +45,7 @@ function Contact() {
           title={`${lang.call} 099 636 605 Uruguay`}
         >
           <PhoneIcon className={classes.icon} aria-hidden />
-          <Typography>(+598) 99 636 065</Typography>
+          <Typography className={classes.text}>(+598) 99 636 065</Typography>
         </a>
       </li>
     </ul>

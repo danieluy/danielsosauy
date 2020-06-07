@@ -9,15 +9,11 @@ export default makeStyles(theme => {
       justifyContent: 'center',
       width: '100%',
     },
-    withOutSubmenu: {
-      width: '100%',
-    },
-    menuItem: {
+    submenuLink: {
       display: 'flex',
       alignItems: 'center',
       width: '100%',
       height: theme.spacing(6),
-      paddingLeft: theme.spacing(2),
       textDecoration: 'none',
       color: theme.palette.text.primary,
       '&.active': {
@@ -31,6 +27,14 @@ export default makeStyles(theme => {
         outline: 'none',
         backgroundColor: theme.palette.grey[100],
       },
+    },
+    submenuIcon: {
+      width: theme.spacing(6),
+      height: theme.spacing(6),
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: 0,
     },
     expandIcon: {
       pointerEvents: 'none',
@@ -46,9 +50,31 @@ export default makeStyles(theme => {
       '&.active': {
         color: theme.palette.primary.main,
       },
+      '&.hidden': {
+        display: 'none',
+      },
     },
     collapsible: {
       overflow: 'hidden',
+    },
+    menuItem: {
+      display: 'flex',
+      alignItems: 'center',
+      width: '100%',
+      height: theme.spacing(6),
+      textDecoration: 'none',
+      color: theme.palette.text.primary,
+      '&.active': {
+        color: theme.palette.primary.main,
+        textDecoration: 'underline',
+      },
+      '&:hover': {
+        backgroundColor: theme.palette.grey[100],
+      },
+      '&:focus': {
+        outline: 'none',
+        backgroundColor: theme.palette.grey[100],
+      },
     },
   };
 });

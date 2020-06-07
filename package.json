@@ -1,7 +1,7 @@
 {
   "name": "www.danielsosa.uy",
   "homepage": "https://danieluy.github.io",
-  "version": "3.8.0",
+  "version": "3.9.0",
   "description": "Accessible and open source personal website",
   "main": "index.js",
   "scripts": {

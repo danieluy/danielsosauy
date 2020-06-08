@@ -14,8 +14,9 @@ export default makeStyles(theme => {
       },
       [theme.breakpoints.down('xs')]: {
         width: '100%',
+        paddingLeft: theme.spacing(8),
         paddingRight: theme.spacing(2),
       },
     },
-  };
+  };/*  */
 });

@@ -41,13 +41,18 @@ const Submenu = React.forwardRef((props, ref) => {
   }, [location.pathname]);
 
   useEffect(() => {
-    if (expanded && height === 0) {
-      setHeight(0, expandedHeight);
+    if (!headerOpen) {
+      setHeight(0, 0);
     }
-    if (!expanded && height > 0) {
-      setHeight(expandedHeight, 0);
+    else {
+      if (expanded && height === 0) {
+        setHeight(0, expandedHeight);
+      }
+      if (!expanded && height > 0) {
+        setHeight(expandedHeight, 0);
+      }
     }
-  }, [expanded]);
+  }, [expanded, headerOpen]);
 
   const handleExpand = useCallback(evt => {
     evt.preventDefault();

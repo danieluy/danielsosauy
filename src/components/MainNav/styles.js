@@ -1,6 +1,26 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 
 export default makeStyles(theme => {
+  const active = {
+    color: theme.palette.primary.main,
+    outlineOffset: -1 * theme.spacing(.125),
+    outlineStyle: 'dashed',
+    outlineWidth: theme.spacing(.125),
+    backgroundColor: fade(theme.palette.primary.main, 0.025),
+  };
+
+  const focus = {
+    outlineOffset: -1 * theme.spacing(.125),
+    outlineStyle: 'dashed',
+    outlineWidth: theme.spacing(.125),
+    backgroundColor: theme.palette.grey[50],
+    [theme.breakpoints.down('sm')]: {
+      outline: 'none',
+      backgroundColor: 'initial',
+    },
+  };
+
   return {
     submenu: {
       position: 'relative',
@@ -17,15 +37,10 @@ export default makeStyles(theme => {
       textDecoration: 'none',
       color: theme.palette.text.primary,
       '&.active': {
-        color: theme.palette.primary.main,
-        textDecoration: 'underline',
-      },
-      '&:hover': {
-        backgroundColor: theme.palette.grey[100],
+        ...active,
       },
       '&:focus': {
-        outline: 'none',
-        backgroundColor: theme.palette.grey[100],
+        ...focus,
       },
     },
     submenuIcon: {
@@ -65,15 +80,10 @@ export default makeStyles(theme => {
       textDecoration: 'none',
       color: theme.palette.text.primary,
       '&.active': {
-        color: theme.palette.primary.main,
-        textDecoration: 'underline',
-      },
-      '&:hover': {
-        backgroundColor: theme.palette.grey[100],
+        ...active,
       },
       '&:focus': {
-        outline: 'none',
-        backgroundColor: theme.palette.grey[100],
+        ...focus,
       },
     },
   };

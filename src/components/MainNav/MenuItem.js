@@ -15,7 +15,7 @@ const MenuItem = React.forwardRef((props, ref) => {
   }, [location]);
 
   return (
-    <li role="none" style={{ paddingLeft: leftPad }}>
+    <li role="none">
       <Link
         to={to}
         role="menuitem"
@@ -24,6 +24,7 @@ const MenuItem = React.forwardRef((props, ref) => {
         ref={ref}
         onClick={onClick}
         onKeyDown={onKeyDown}
+        style={{ paddingLeft: leftPad }}
       >
         <Typography component="span">{label}</Typography>
       </Link>

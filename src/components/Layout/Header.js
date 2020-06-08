@@ -16,7 +16,7 @@ function Header({ children: Children }) {
 
   useEffect(() => {
     if (!downSm) setOpen(true);
-    return setOpen(focusWithin);
+    else setOpen(focusWithin);
   }, [downSm, focusWithin]);
 
   /**

@@ -51,9 +51,9 @@
       "title": "Desempeño",
       "paragraphs": [
         "Actualmente, este sitio no hace mucho para mejorar el rendimiento, más que nada se usan métodos pasivos como evitar recursos pesados y librerías innecesarias.",
-        "Para mejorar los tiempos de carga, estoy usando code splitting por rutas, de esta manera el sitio solo cargará el contenido de la vista seleccionada, junto con la navegación y el pie de página, lo que ayudará cargar la página haciendo que se sienta más rápida.",
-        "Probando con [Lighthouse](https://developers.google.com/web/tools/lighthouse) este sitio llega a 97/100 en rendimiento, lo que es suficiente para la mayoría de las aplicaciones, y considero que es más que suficiente para un sitio como este. Intentaré llegar a 100/100, lo que sé que es excesivo, pero como no estoy gastando el dinero de alguien más, y ni siquiera tengo una fecha límite, por lo que no hay razón para no hacerlo.",
-        "Tengo una especie de guía para continuar el trabajo sobre este tema que incluye: usar un service worker para almacenar en caché todos los recursos para que se soliciten lo menos posible (otros superpoderes habilitados por los service workers, como hacer la aplicación instalable, o recibir notificaciones, no tiene ningún caso de uso en este sitio, y por esto no plaeo usarlos), optimización de imágenes aprovechando [Squoosh.app](https://squoosh.app/), y proporcionar diferentes tamaños de imagen para diferentes tamaños de pantalla, y tal vez, transicionar a server-side rendering."
+        "Para mejorar los tiempos de carga, estoy usando code splitting por rutas, de esta manera el sitio solo cargará el contenido de la vista seleccionada, junto con la navegación y el pie de página, lo que aliviana la carga de la página haciendo que se sienta más rápida.",
+        "Probando con [Lighthouse](https://developers.google.com/web/tools/lighthouse) este sitio llega a 97/100 en rendimiento, lo que es suficiente para la mayoría de las aplicaciones, y considero que es más que suficiente para un sitio como este. Intentaré llegar a 100/100, lo que sé que es excesivo, pero como no estoy gastando el dinero de alguien más, y ni siquiera tengo una fecha límite, no veo razón para no hacerlo.",
+        "Tengo una especie de guía para continuar el trabajo sobre este tema que incluye: usar un service worker para almacenar en caché todos los recursos para que se soliciten lo menos posible (otros superpoderes habilitados por los service workers, como hacer la aplicación instalable, o recibir notificaciones, no tiene ningún caso de uso en este sitio, y por esto no planeo usarlos), optimización de imágenes aprovechando [Squoosh.app](https://squoosh.app/), y proporcionar diferentes tamaños de imagen para diferentes tamaños de pantalla, y tal vez, transicionar a server-side rendering."
       ],
       "banner": {
         "src": "assets/img/article-banners/undraw_working_out_6psf.svg",
@@ -63,18 +63,18 @@
     "tech": {
       "title": "Tecnología",
       "paragraphs": [
-        "Although tech was not the last thing I thought about, it is the last one to be mentioned because it should be out of the way.",
-        "These are the more relevant technologies involved with this site:",
-        "[HTML5](https://en.wikipedia.org/wiki/HTML5), page structuring and articulation of the other technologies involved.",
-        "[JavaScript](https://en.wikipedia.org/wiki/JavaScript), primarily used to build the user interface in the client side, also makes possible the interaction of the users with the page.",
-        "[CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), defines and applies the styles and animations that enrich the interaction of users with the site.",
-        "[React](https://facebook.github.io/react/), its a JavaScript library for building user interfaces. Through this library is that JavaScript build the user interface.",
-        "[Redux](https://redux.js.org/), its a predictable state container for JavaScript applications. Used to handle language state and general app info.",
-        "[Webpack](https://webpack.js.org/), bundling and minification of JavaScript and CSS files as well as other resources, to optimize the resource loading. In the case of this page it is used from the React scripts."
+        "Aunque la tecnología no fue lo último en lo que pensé, es la última en mencionarse porque no debe estar a la vista.",
+        "Dicho esto, estas son las tecnologías más relevantes usadas en esta página:",
+        "[HTML5](https://es.wikipedia.org/wiki/HTML5), estructuración de la página y articulación de las otras tecnologías involucradas.",
+        "[JavaScript](https://es.wikipedia.org/wiki/JavaScript), utilizado principalmente para construir la interfaz de usuario en el lado del cliente, también hace posible la interacción de los usuarios con la página.",
+        "[CSS](https://es.wikipedia.org/wiki/Hoja_de_estilos_en_cascada), define y aplica los estilos y animaciones que enriquecen la interacción de los usuarios con el sitio.",
+        "[React](https://es.reactjs.org/), librería JavaScript usada para construír la interfaz de usuario.",
+        "[Redux](https://redux.js.org/), librería JavaScript usada para manejar el estado del idioma y la información general de la aplicación.",
+        "[Webpack](https://webpack.js.org/), empaqueta y minifica los archivos JavaScript, así como otros recursos para optimizar la carga de recursos."
       ],
       "banner": {
         "src": "assets/img/article-banners/undraw_static_assets_rpm6.svg",
-        "alt": "Ilustración decorativa: fecnología"
+        "alt": "Ilustración decorativa: tecnología"
       }
     }
   }

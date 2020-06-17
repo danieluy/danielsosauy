@@ -64,13 +64,13 @@
       "title": "Tech",
       "paragraphs": [
         "Although tech was not the last thing I thought about, it is the last one to be mentioned because it should be out of the way.",
-        "These are the more relevant technologies involved with this site:",
+        "That said, these are the more relevant technologies involved with this site:",
         "[HTML5](https://en.wikipedia.org/wiki/HTML5), page structuring and articulation of the other technologies involved.",
         "[JavaScript](https://en.wikipedia.org/wiki/JavaScript), primarily used to build the user interface in the client side, also makes possible the interaction of the users with the page.",
         "[CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), defines and applies the styles and animations that enrich the interaction of users with the site.",
-        "[React](https://facebook.github.io/react/), its a JavaScript library for building user interfaces. Through this library is that JavaScript build the user interface.",
-        "[Redux](https://redux.js.org/), its a predictable state container for JavaScript applications. Used to handle language state and general app info.",
-        "[Webpack](https://webpack.js.org/), bundling and minification of JavaScript and CSS files as well as other resources, to optimize the resource loading. In the case of this page it is used from the React scripts."
+        "[React](https://facebook.github.io/react/), JavaScript library used to build the user interface.",
+        "[Redux](https://redux.js.org/), JavaScript library used to handle language state and general app info.",
+        "[Webpack](https://webpack.js.org/), bundling and minification of JavaScript as well as other resources to optimize the resources loading."
       ],
       "banner": {
         "src": "assets/img/article-banners/undraw_static_assets_rpm6.svg",

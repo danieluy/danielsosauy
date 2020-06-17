@@ -50,10 +50,10 @@
     "performance": {
       "title": "Performance",
       "paragraphs": [
-        "Currently this site doesn’t do much to improve performance, it mostly implements passive methods like avoiding heavy assets and unnecessary libraries.",
+        "Currently this site doesn't do much to improve performance, it mostly implements passive methods like avoiding heavy assets and unnecessary libraries.",
         "To improve loading times I’m using code splitting by routes, this way the site will only load the content of the selected view, along with the navigation and footer, helping the load performance and making the site feel faster.",
         "Testing with [Lighthouse](https://developers.google.com/web/tools/lighthouse) this site reaches 97/100 on performance which is enough for most apps, and I consider it to be more than enough for a site like this. I will attempt to reach 100/100, which I know is overkill, but since I’m not spending someone’s money, and don’t even have a deadline, there’s no reason no to do it.",
-        "I have a sort of roadmap to continue the work on this subject that includes: using a service worker to cache all assets so they will be requested as little as possible, (other superpowers enabled by service workers, like making an installable app or receiving notifications, have no use case in this site so they won’t be used), optimization of images taking advantage of [Squoosh.app](https://squoosh.app/), while also providing different image sizes for different screen sizes, and maybe, transition to server side rendering."
+        "I have a sort of roadmap to continue the work on this subject that includes: using a service worker to cache all assets so they will be requested as little as possible, (other superpowers enabled by service workers, like making an installable app or receiving notifications, have no use case in this site so they won’t be used), optimization of images taking advantage of [Squoosh.app](https://squoosh.app/), while also providing different image sizes for different screen sizes, and maybe, transition to server-side rendering."
       ],
       "banner": {
         "src": "assets/img/article-banners/undraw_working_out_6psf.svg",

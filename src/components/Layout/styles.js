@@ -24,7 +24,6 @@ export default makeStyles(theme => {
       display: 'flex',
       justifyContent: 'center',
       zIndex: 0,
-      height: '100vh',
       overflowY: 'auto',
       overflowX: 'hidden',
     },

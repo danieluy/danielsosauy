@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import { Provider, useSelector, useDispatch } from 'react-redux';
 import App from './components/App';
 import store from './redux/store';
 import getTheme from './theme';
 import './index.css';
-import { useSelector, useDispatch } from 'react-redux';
 import { selectTheme } from './redux/selectors';
 import { setAppTheme } from './redux/actions';
 // Material UI

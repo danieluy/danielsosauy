@@ -1,13 +1,12 @@
 {
   "name": "www.danielsosa.uy",
   "homepage": "https://danieluy.github.io",
-  "version": "3.11.0",
+  "version": "3.13.0",
   "description": "Accessible and open source personal website",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --watch-poll --open --env.development",
-    "build": "webpack --env.production",
-    "postbuild": "cp dist/index.html dist/404.html"
+    "build": "webpack --env.production"
   },
   "keywords": [],
   "author": "Daniel Sosa <daneilsosa.dev@gmail.com>",
@@ -46,5 +45,9 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3"
+  }
 }

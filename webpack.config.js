@@ -5,6 +5,9 @@ const CopyPlugin = require('copy-webpack-plugin');
 const pkg = require('./package.json');
 
 module.exports = env => {
+	const outputPath = env.development
+		? path.join(__dirname, 'dist')
+		: path.join(__dirname, 'public');
 	const config = {
 		devServer: {
 			port: process.env.PORT || 3000,
@@ -16,7 +19,7 @@ module.exports = env => {
 		},
 		output: {
 			filename: '[name].js',
-			path: path.join(__dirname, 'dist'),
+			path: outputPath,
 		},
 		mode: env.development ? 'development' : 'production',
 		module: {

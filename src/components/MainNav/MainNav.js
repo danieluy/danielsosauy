@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
+import useStyles from './styles';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectNav, selectHomeLang, selectAcademicLang } from '../../redux/selectors';
@@ -11,6 +12,7 @@ import HomeIcon from '@material-ui/icons/HomeOutlined';
 import SchoolIcon from '@material-ui/icons/SchoolOutlined';
 
 function MainNav({ headerOpen }) {
+  const classes = useStyles();
   const { hash } = useLocation();
   const lang = useSelector(selectNav);
   const { articles } = useSelector(selectHomeLang);

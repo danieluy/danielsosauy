@@ -39,7 +39,7 @@
         "Luego tenemos el menú de navegación que se ubica en una esquina con mínima presencia, algo de color para indicar el estado activo junto con un borde por [razones de accesibilidad](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html), y un comportamiento que le permite colapsarse a sus elementos de nivel superior (no era mi idea original, pero resultó ser mejor).",
         "Y tercero, hay un pie de página de contacto e información, que se superpone sobre el contenido mientras se fusiona con el fondo. Esa fue mi manera de decir \"Este soy yo, siéntete libre de contactarme\", sin que se pierda el mensaje y sin opacar el contenido.",
         "Gran parte de la interfaz de esta página son las increíbles ilustraciones utilizadas para acompañar estas palabras, y me gustaría agradecer a [unDraw](https://undraw.co/) por hacer este contenido libre y disponible para todos.",
-        "Mencionaré que el diseño es totalmente responsivo, pero no voy a entrar en detalles porque, honestamente, esto debería darse por hecho hoy end día.",
+        "Mencionaré que el diseño es totalmente responsivo, pero no voy a entrar en detalles porque, honestamente, esto debería darse por hecho hoy en día.",
         "Finalmente, y para ser claros, no estoy tratando de venderte este diseño, solo estoy siendo explícito sobre la intención y la toma de decisiones, para que sepas que no solo tomé el diseño de alguién más, y como una guía para mí mismo para futuras intervenciones."
       ],
       "banner": {

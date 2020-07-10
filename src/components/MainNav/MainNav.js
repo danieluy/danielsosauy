@@ -10,6 +10,7 @@ import Submenu from './Submenu';
 // Material UI
 import HomeIcon from '@material-ui/icons/HomeOutlined';
 import SchoolIcon from '@material-ui/icons/SchoolOutlined';
+import SendIcon from '@material-ui/icons/SendOutlined';
 
 function MainNav({ headerOpen }) {
   const classes = useStyles();
@@ -19,7 +20,9 @@ function MainNav({ headerOpen }) {
   const { courses } = useSelector(selectAcademicLang);
   const homeRef = useRef();
   const academicRef = useRef();
-  const subMenus = useMemo(() => [
+  const contactRef = useRef();
+
+  const menuItems = useMemo(() => [
     {
       ref: homeRef,
       lang: lang.home,
@@ -43,6 +46,13 @@ function MainNav({ headerOpen }) {
         <MenuItem to="/academic#web-developer" label={courses[1].title} key={courses[1].title} />,
       ],
     },
+    {
+      ref: contactRef,
+      lang: lang.contact,
+      to: '/contact',
+      activePath: '/contact',
+      icon: SendIcon,
+    },
   ]);
 
   useEffect(() => {
@@ -55,38 +65,39 @@ function MainNav({ headerOpen }) {
   }, [hash]);
 
   const setFocusNext = useCallback(idx => {
-    const lastIdx = subMenus.length - 1;
+    const lastIdx = menuItems.length - 1;
     let nextIdx = idx + 1;
     if (nextIdx > lastIdx) {
       nextIdx = 0;
     }
-    subMenus[nextIdx].ref.current.focus();
+    menuItems[nextIdx].ref.current.focus();
   }, []);
 
   const setFocusPrev = useCallback(idx => {
-    const lastIdx = subMenus.length - 1;
+    const lastIdx = menuItems.length - 1;
     let nextIdx = idx - 1;
     if (nextIdx < 0) {
       nextIdx = lastIdx;
     }
-    subMenus[nextIdx].ref.current.focus();
+    menuItems[nextIdx].ref.current.focus();
   }, []);
 
   return (
     <nav>
       <ul role="menubar">
-        {subMenus.map((subMenu, i) => (
+        {menuItems.map((item, i) => (
           <Submenu
             key={i}
-            ref={subMenu.ref}
-            label={subMenu.lang}
-            icon={subMenu.icon}
-            activePath={subMenu.activePath}
+            ref={item.ref}
+            to={item.to}
+            label={item.lang}
+            icon={item.icon}
+            activePath={item.activePath}
             focusOnMenuNext={() => setFocusNext(i)}
             focusOnMenuPrev={() => setFocusPrev(i)}
             headerOpen={headerOpen}
           >
-            {subMenu.items}
+            {item.items}
           </Submenu>
         ))}
       </ul>

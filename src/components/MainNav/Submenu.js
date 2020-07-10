@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useMemo, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import MenuItem from './MenuItem';
 import useProgress from '../../react-hooks/useProgress';
 import { KEY_CODE } from '../../utils';
@@ -20,6 +20,7 @@ const Submenu = React.forwardRef((props, ref) => {
     focusOnMenuPrev,
     icon: Icon,
     headerOpen,
+    to,
   } = props;
   const theme = useTheme();
   const location = useLocation();
@@ -29,10 +30,10 @@ const Submenu = React.forwardRef((props, ref) => {
   const [height, setHeight] = useProgress(0, 20);
 
   // Ref to hold multiple refs
-  const menuItemsRef = useRef(children.map(() => React.createRef()));
+  const menuItemsRef = useRef(children ? children.map(() => React.createRef()) : null);
 
   const expandedHeight = useMemo(() => {
-    return children.length * theme.spacing(6);
+    return children ? children.length * theme.spacing(6) : 0;
   }, []);
 
   useEffect(() => {
@@ -145,45 +146,64 @@ const Submenu = React.forwardRef((props, ref) => {
     }
   }, []);
 
+  if (children) {
+    return (
+      <li role="none" className={classes.submenu}>
+        <ExpandIcon />
+        <a
+          ref={ref}
+          role="menuitem"
+          aria-haspopup="true"
+          aria-expanded={expanded}
+          href="#"
+          tabIndex="0"
+          onClick={handleExpand}
+          onKeyDown={handleMenuKeyDown}
+          className={`${classes.submenuLink} ${active ? 'active' : ''}`}
+        >
+          <span className={classes.submenuIcon} aria-hidden>
+            <Icon />
+          </span>
+          <Typography component="span">{label}</Typography>
+        </a>
+        <ul
+          role="menu"
+          aria-label={label}
+          className={classes.collapsible}
+          style={{ height }}
+        >
+          {children.map((El, i) => {
+            const { leftPad, ...rest } = El.props;
+            return (
+              <El.type
+                ref={menuItemsRef.current[i]}
+                key={El.props.to}
+                leftPad={(leftPad || 0) + theme.spacing(6)}
+                onClick={handleMenuItemClick}
+                onKeyDown={handleMenuItemKeyDown(i)}
+                {...rest}
+              />
+            );
+          })}
+        </ul>
+      </li>
+    );
+  }
   return (
     <li role="none" className={classes.submenu}>
-      <ExpandIcon />
-      <a
+      <Link
         ref={ref}
         role="menuitem"
-        aria-haspopup="true"
-        aria-expanded={expanded}
-        href="#"
+        to={to}
         tabIndex="0"
-        onClick={handleExpand}
         onKeyDown={handleMenuKeyDown}
         className={`${classes.submenuLink} ${active ? 'active' : ''}`}
       >
-        <span className={classes.submenuIcon}>
-          <Icon aria-hidden />
+        <span className={classes.submenuIcon} aria-hidden>
+          <Icon />
         </span>
         <Typography component="span">{label}</Typography>
-      </a>
-      <ul
-        role="menu"
-        aria-label={label}
-        className={classes.collapsible}
-        style={{ height }}
-      >
-        {children.map((El, i) => {
-          const { leftPad, ...rest } = El.props;
-          return (
-            <El.type
-              ref={menuItemsRef.current[i]}
-              key={El.props.to}
-              leftPad={(leftPad || 0) + theme.spacing(6)}
-              onClick={handleMenuItemClick}
-              onKeyDown={handleMenuItemKeyDown(i)}
-              {...rest}
-            />
-          );
-        })}
-      </ul>
+      </Link>
     </li>
   );
 
@@ -212,6 +232,7 @@ Submenu.proptypes = {
   focusOnMenuPrev: PropTypes.func.isRequired,
   icon: PropTypes.element.isRequired,
   headerOpen: PropTypes.bool.isRequired,
+  to: PropTypes.string,
 };
 
 export default Submenu;

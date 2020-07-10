@@ -6,7 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 
 const MenuItem = React.forwardRef((props, ref) => {
-  const { label, to, leftPad, onClick, onKeyDown } = props;
+  const { label, to, leftPad, onClick, onKeyDown, icon: Icon, ...rest } = props;
   const location = useLocation();
   const classes = useStyles();
 
@@ -25,7 +25,13 @@ const MenuItem = React.forwardRef((props, ref) => {
         onClick={onClick}
         onKeyDown={onKeyDown}
         style={{ paddingLeft: leftPad }}
+        {...rest}
       >
+        {!!Icon && (
+          <span className={classes.submenuIcon} aria-hidden>
+            <Icon />
+          </span>
+        )}
         <Typography component="span">{label}</Typography>
       </Link>
     </li>
@@ -38,6 +44,7 @@ MenuItem.proptypes = {
   leftPad: PropTypes.number,
   onClick: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,
+  icon: PropTypes.element,
 };
 
 MenuItem.defaultProps = {

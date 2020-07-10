@@ -1,9 +1,9 @@
 import React, { useEffect, useCallback } from 'react';
 import useStyles from './styles';
-import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectContactLang } from '../../../redux/selectors';
-import useForm, { TYPE } from '../../../react-hooks/useForm';
+import useForm from '../../../react-hooks/useForm';
+import { sendEmail } from '../../../services';
 // Components
 import Title from '../../Typography/Title';
 import Content from '../Partials/Content/Content';
@@ -13,7 +13,6 @@ import Button from '../../Inputs/Button';
 
 function ContactForm() {
   const classes = useStyles();
-  const { hash } = useLocation();
   const lang = useSelector(selectContactLang);
   const {
     title,
@@ -50,7 +49,9 @@ function ContactForm() {
   const handleSubmit = useCallback(evt => {
     evt.preventDefault();
     if (validate()) {
-      console.log('handleSubmit', { name, email, message });
+      sendEmail(name, email, message)
+        .then(json => console.log(json))
+        .catch(error => console.error(error));
     }
   }, [validate]);
 

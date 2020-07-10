@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import useStyles from './styles';
 
 function Content(props) {
-  const { children, component, ...rest } = props;
+  const { children, component, className, ...rest } = props;
   const classes = useStyles();
 
   return React.createElement(
     component,
-    { ...rest, className: classes.root },
+    {
+      ...rest,
+      className: `${classes.root} ${className}`,
+    },
     children,
   );
 }

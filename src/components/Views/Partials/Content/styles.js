@@ -18,5 +18,5 @@ export default makeStyles(theme => {
         paddingRight: theme.spacing(2),
       },
     },
-  };/*  */
+  };
 });

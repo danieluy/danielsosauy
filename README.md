@@ -14,3 +14,11 @@ $ npm start
 # To run Webpack pro
 $ npm run build
 ```
+
+## Deploy
+Add `.env` file with keys:
+```bash
+SERVER_PORT=...
+API_URL=http://localhost:5000
+SENDGRID_API_KEY='...'
+```

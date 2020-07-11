@@ -1,10 +1,9 @@
-import React, { useMemo, useRef, useCallback } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
 
 function InputTextArea({ error, errorText, fullWidth, label, id, leftPadding, ...rest }) {
   const classes = useStyles();
-  const ref = useRef();
 
   const style = useMemo(() => {
     if (fullWidth) {
@@ -18,24 +17,12 @@ function InputTextArea({ error, errorText, fullWidth, label, id, leftPadding, ..
     return errorText || error.message;
   }, [error, errorText]);
 
-  if (ref.current) {
-    console.log('ref.current.childNode', ref.current.childNode);
-    const textNode = ref.current.firstChild;
-    if (textNode) {
-      const range = document.createRange();
-      range.selectNodeContents(textNode);
-      const rects = range.getClientRects();
-      console.log(rects);
-    }
-  }
-
   const labelStyle = useMemo(() => (leftPadding ? { minWidth: leftPadding } : {}), [leftPadding]);
 
   return (
     <label htmlFor={id} aria-label={label} className={`${classes.inputTextLabel} ${errorMessage ? 'error' : ''}`}>
       <span aria-hidden className={classes.label} style={labelStyle}>{label}</span>
       <textarea
-        ref={ref}
         id={id}
         className={classes.inputText}
         style={style}

@@ -3,17 +3,11 @@ const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const pkg = require('./package.json');
+require('dotenv').config();
 
 module.exports = env => {
-	const outputPath = env.development
-		? path.join(__dirname, 'dist')
-		: path.join(__dirname, 'public');
+	const outputPath = path.join(__dirname, 'public');
 	const config = {
-		devServer: {
-			port: process.env.PORT || 3000,
-			historyApiFallback: true,
-			host: '0.0.0.0',
-		},
 		entry: {
 			index: path.join(__dirname, 'src', 'index.js'),
 		},
@@ -69,6 +63,7 @@ module.exports = env => {
 		'process.env.APP_NAME': JSON.stringify(pkg.name),
 		'process.env.APP_DESCRIPTION': JSON.stringify(pkg.description),
 		'process.env.APP_VERSION': JSON.stringify(pkg.version),
+		...mergeDotEnv(process.env),
 	};
 
 	if (env.development) {
@@ -90,4 +85,14 @@ module.exports = env => {
 	config.plugins.push(new webpack.DefinePlugin(toDefine));
 
 	return config;
+
 };
+
+function mergeDotEnv(processEnv) {
+	console.log('processEnv.API_URL', processEnv.API_URL);
+	return Object.keys(processEnv)
+		.reduce((env, key) => {
+			env[`process.env.${key}`] = JSON.stringify(processEnv[key]);
+			return env;
+		}, {});
+}

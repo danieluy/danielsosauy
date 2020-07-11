@@ -1,11 +1,12 @@
 {
   "name": "www.danielsosa.uy",
   "homepage": "https://danieluy.github.io",
-  "version": "3.13.0",
+  "version": "3.14.0",
   "description": "Accessible and open source personal website",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --watch-poll --open --env.development",
+    "start": "webpack --watch --env.development",
+    "server": "nodemon server",
     "build": "webpack --env.production"
   },
   "keywords": [],
@@ -29,7 +30,9 @@
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
+    "dotenv": "^8.2.0",
     "eslint-plugin-react": "^7.16.0",
+    "nodemon": "^2.0.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-loadable": "^5.5.0",

@@ -3,6 +3,14 @@ In this repository I'm developing the third version my personal website, making 
 
 ## Development
 ```bash
-# run
+# To run server 
+$ npm run server
+# To run Webpack dev
 $ npm start
+```
+
+## Development
+```bash
+# To run Webpack pro
+$ npm run build
 ```

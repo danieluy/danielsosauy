@@ -5,5 +5,7 @@
   "name": "Nombre",
   "email": "Correo electrónico",
   "message": "Mensaje",
-  "send": "Enviar"
+  "send": "Enviar",
+  "unhandledErrorMessage": "Ocurrió un error y el mensaje no pudo enviarse. Si lo desea puede intentarlo más tarde, o puede usar las opciones en el pie de página. Lamento el inconveniente y agredezco que intente ponerse en contacto conmigo.",
+  "badRequestErrorMessage": "Parece que falta algo en el formulario. Por favor complete todos los campos e intente de nuevo, gracias."
 }

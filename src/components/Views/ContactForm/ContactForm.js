@@ -1,45 +1,32 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectContactLang } from '../../../redux/selectors';
 import useForm from '../../../react-hooks/useForm';
 import { sendEmail } from '../../../services';
+import formTemplate from './template';
 // Components
 import Title from '../../Typography/Title';
 import Content from '../Partials/Content/Content';
 import InputText from '../../Inputs/InputText';
 import InputTextArea from '../../Inputs/InputTextArea';
 import Button from '../../Inputs/Button';
+const STATUS = {
+  IDLE: 'IDLE',
+  SENDING: 'SENDING',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+};
 
 function ContactForm() {
-  const classes = useStyles();
   const lang = useSelector(selectContactLang);
+  const [status, setStatus] = useState(STATUS.IDLE);
+  const [errorMessage, setErrorMessage] = useState(lang.unhandledErrorMessage);
+  const classes = useStyles();
   const {
     title,
   } = lang;
-  const [values, errors, onChange, validate] = useForm({
-    name: {
-      type: String,
-      required: true,
-      default: 'Daniel Sosa',
-    },
-    email: {
-      type: String,
-      required: true,
-      validator: value => {
-        if (value.match(/.+@.+\..+/)) {
-          return null;
-        }
-        return new Error('#Invalid email');
-      },
-      default: 'danielsosa.uy@gmail.com',
-    },
-    message: {
-      type: String,
-      required: true,
-      default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a leo augue. Morbi pretium, risus vitae lacinia condimentum, tortor urna tempus tortor.',
-    },
-  });
+  const [values, errors, onChange, validate] = useForm(formTemplate);
   const { name, email, message } = values;
 
   useEffect(() => {
@@ -49,9 +36,18 @@ function ContactForm() {
   const handleSubmit = useCallback(evt => {
     evt.preventDefault();
     if (validate()) {
+      setStatus(STATUS.SENDING);
       sendEmail(name, email, message)
-        .then(json => console.log(json))
-        .catch(error => console.error(error));
+        .then(() => setStatus(STATUS.SUCCESS))
+        .catch(error => {
+          if (error.message === 'Bad Request') {
+            setErrorMessage(lang.badRequestErrorMessage);
+          }
+          else {
+            setErrorMessage(lang.unhandledErrorMessage);
+          }
+          setStatus(STATUS.ERROR);
+        });
     }
   }, [validate]);
 
@@ -60,6 +56,8 @@ function ContactForm() {
       <Content component="article" aria-label={title} id="contact-form">
         <img src="assets/img/contact-form/undraw_contact_us_15o2.svg" alt="#contact ilustration" className={classes.banner} />
         <Title tabIndex="0">{title}</Title>
+        <p>{status}</p>
+        {status === STATUS.ERROR && <p>{errorMessage}</p>}
         <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
           <InputText
             id="input-name"

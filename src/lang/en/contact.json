@@ -5,5 +5,7 @@
   "name": "Name",
   "email": "Email",
   "message": "Message",
-  "send": "Send"
+  "send": "Send",
+  "unhandledErrorMessage": "Something went wrong and the message couldn't be sent. If you wish you can try again later, or use the options on the page's footer. Sorry for the inconvenience and thank you for trying to reach me.",
+  "badRequestErrorMessage": "It appears that there's something missing in the form. Please complete all the fields and try again, thank you."
 }

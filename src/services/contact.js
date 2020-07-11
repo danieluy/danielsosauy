@@ -6,5 +6,9 @@ export const sendEmail = async (name, email, message) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, message }),
   });
-  return response.json();
+  console.log(response);
+  if (response.ok) {
+    return response.json();
+  }
+  throw new Error(response.statusText);
 };

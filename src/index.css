@@ -11,8 +11,16 @@ body {
 
 .animate-enter {
   animation-name: slide-up;
-  animation-duration: 300ms;
+  animation-duration: 100ms;
   animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+.animate-leave {
+  animation-name: slide-down;
+  animation-duration: 100ms;
+  animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-direction: normal;
 }
@@ -30,6 +38,22 @@ body {
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  90% {
+    opacity: .7;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
   }
 }
 

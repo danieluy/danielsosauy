@@ -15,6 +15,7 @@ export default makeStyles(theme => {
       outlineStyle: 'dashed',
       outlineWidth: theme.spacing(.125),
       transition: 'transform 200ms ease-out',
+      cursor: 'text',
       '&:hover': {
         backgroundColor: theme.palette.grey[50],
       },
@@ -41,7 +42,7 @@ export default makeStyles(theme => {
         outline: 'none',
       },
     },
-    errorMessage: {
+    helperText: {
       position: 'absolute',
       right: 0,
       bottom: -1 * theme.spacing(2),

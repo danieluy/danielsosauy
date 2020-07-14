@@ -1,3 +1,10 @@
+export const STATUS = {
+  IDLE: 'IDLE',
+  WORKING: 'WORKING',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+};
+
 export const KEY_CODE = {
   TAB: 9,
   ENTER: 13,

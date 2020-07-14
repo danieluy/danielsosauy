@@ -4,7 +4,7 @@ import useStyles from './styles';
 import { useLocation, Link } from 'react-router-dom';
 import MenuItem from './MenuItem';
 import useProgress from '../../react-hooks/useProgress';
-import { KEY_CODE } from '../../utils';
+import { KEY_CODE } from '../../utils/contants';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMoreOutlined';

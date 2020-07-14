@@ -89,7 +89,6 @@ module.exports = env => {
 };
 
 function mergeDotEnv(processEnv) {
-	console.log('processEnv.API_URL', processEnv.API_URL);
 	return Object.keys(processEnv)
 		.reduce((env, key) => {
 			env[`process.env.${key}`] = JSON.stringify(processEnv[key]);

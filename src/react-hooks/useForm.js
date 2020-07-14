@@ -1,9 +1,10 @@
 import { useState, useCallback, useMemo } from 'react';
 
-function useForm(schema) {
+function useForm(schema, _options) {
   const [values, setValues] = useState(getDefautlValues(schema));
   const [errors, setErrors] = useState(getDefautlErrors(schema));
   const validators = useMemo(() => getValidators(schema), [schema]);
+  const options = { ..._options };
 
   const defaultValues = useMemo(() => getDefautlValues(schema), [schema]);
 
@@ -12,7 +13,7 @@ function useForm(schema) {
     const value = evt.target.value;
     setErrors({
       ...errors,
-      [name]: validators[name](value),
+      [name]: options.validateOnSubmit ? validators[name](value, values) : null,
     });
     setValues({
       ...values,
@@ -32,7 +33,7 @@ function useForm(schema) {
       ...errors,
       ..._errors,
     });
-    return !foundErrors;
+    return { valid: !foundErrors, errors: _errors };
   }, [errors, setErrors, values, validators]);
 
   const reset = useCallback(() => {

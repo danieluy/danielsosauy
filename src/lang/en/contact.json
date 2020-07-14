@@ -7,5 +7,11 @@
   "message": "Message",
   "send": "Send",
   "unhandledErrorMessage": "Something went wrong and the message couldn't be sent. If you wish you can try again later, or use the options on the page's footer. Sorry for the inconvenience and thank you for trying to reach me.",
-  "badRequestErrorMessage": "It appears that there's something missing in the form. Please complete all the fields and try again, thank you."
+  "badRequestErrorMessage": "It appears that there's something missing in the form. Please complete all the fields and try again, thank you.",
+  "successMessage": "Message sent. I'll get back to you as soon as I can. Thank you.",
+  "contactIllustrationAlt": "Contact illustration",
+  "successIllustrationAlt": "Success illustration",
+  "errorIllustrationAlt": "Failure illustration",
+  "discardMessageInstruction": "Press Escape to dismiss this message.",
+  "requiredField": "Required field"
 }

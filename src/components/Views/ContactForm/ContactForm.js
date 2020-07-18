@@ -90,19 +90,24 @@ function ContactForm() {
     <section className={classes.section}>
       <Content component="article" aria-label={title} id="contact-form" style={{ minHeight: window.innerHeight }}>
         <img src="assets/img/contact-form/undraw_contact_us_15o2.svg" alt={lang.contactIllustrationAlt} className={classes.banner} />
-        <ul aria-hidden>
-          <h3>ToDo</h3>
-          <li>Make popup responsive</li>
-          <li>Recaptcha</li>
-          <li>Update home with what was done here</li>
-          <ul>
-            <li>Made to comply with <a href="https://www.w3.org/WAI/tutorials/forms/">https://www.w3.org/WAI/tutorials/forms/</a></li>
-            <li>Status alert</li>
-            <li>...</li>
-          </ul>
-        </ul>
+        {/**
+         * #####       ####
+         *   #    ###  #   #  ###
+         *   #   #   # #   # #   #
+         *   #   #   # #   # #   #
+         *   #    ###  ####   ###
+         *
+         * ToDo: 
+         * - Add Recaptcha
+         * - Update home with what was done here
+         *  - Made to comply with https://www.w3.org/WAI/tutorials/forms/
+         *  - Status alert.
+         *    - Decided to include a message with instructions on how to dismiss the message.
+         *  - User Notifications.
+         *    - Prefered to highlight the first only making explicit where the focus is because sometimes it failed
+         */}
         <Title tabIndex="0">{title}</Title>
-        <Paragraph>#The following three form fields must be completed.</Paragraph>
+        <Paragraph>{lang.subtitle}</Paragraph>
         <ErrorsAlert open={openErrorAlerts} errors={errors} />
         <form
           className={classes.form}

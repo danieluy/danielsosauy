@@ -23,7 +23,7 @@ function ErrorsAlert({ open, errors }) {
   }
 
   return (
-    <div role="alert">
+    <div role="alert" className={classes.alertBox}>
       <Paragraph error>{alertMessage}</Paragraph>
       <Paragraph error>{lang.tookYouToField}</Paragraph>
     </div>

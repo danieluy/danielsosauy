@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import useStyles from './styles';
 
-function Button({ children, fullWidth, ...rest }) {
+function Button({ children, fullWidth, className, ...rest }) {
   const classes = useStyles();
   const style = useMemo(() => {
     if (fullWidth) {
@@ -13,7 +13,7 @@ function Button({ children, fullWidth, ...rest }) {
 
   return (
     <button
-      className={classes.button}
+      className={`${classes.button} ${className}`}
       style={style}
       {...rest}
     >

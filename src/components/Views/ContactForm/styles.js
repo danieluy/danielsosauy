@@ -29,14 +29,26 @@ export default makeStyles(theme => {
       borderColor: theme.palette.primary.main,
       padding: theme.spacing(2),
       color: theme.palette.primary.main,
+      boxShadow: `0 ${theme.spacing()}px ${theme.spacing(2)}px -${theme.spacing()}px rgba(0, 0, 0, 0.5)`,
       '&.error': {
         borderColor: theme.palette.error.main,
         color: theme.palette.error.main,
+      },
+      [theme.breakpoints.down('sm')]: {
+        maxWidth: 'unset',
+        left: theme.spacing(8),
+      },
+      [theme.breakpoints.down('xs')]: {
+        flexDirection: 'column',
       },
     },
     messagePopupImage: {
       width: theme.spacing(20),
       marginRight: theme.spacing(2),
+      [theme.breakpoints.down('xs')]: {
+        width: '100%',
+        paddingBottom: theme.spacing(2),
+      },
     },
     messageMainText: {
       ...theme.typography.h5,
@@ -48,6 +60,20 @@ export default makeStyles(theme => {
       '&>span': {
         displa: 'block',
       },
+    },
+    closeButton: {
+      display: 'flex',
+      alignItems: 'center',
+      padding: `${theme.spacing(.5)}px !important`,
+      [theme.breakpoints.down('xs')]: {
+        alignSelf: 'flex-end',
+        marginTop: theme.spacing(),
+      },
+    },
+    alertBox: {
+      padding: theme.spacing(2),
+      background: theme.palette.grey[100],
+      marginTop: theme.spacing(2),
     },
   };
 });

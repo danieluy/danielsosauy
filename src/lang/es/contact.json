@@ -1,5 +1,6 @@
 {
   "title": "Contacto",
+  "subtitle": "Los siguientes tres campos deben ser completados.",
   "sendEmail": "Enviar correo electrónico a",
   "call": "Llamar al número",
   "name": "Nombre",
@@ -12,10 +13,11 @@
   "contactIllustrationAlt": "Illustración contacto",
   "successIllustrationAlt": "Illustración operación exitosa",
   "errorIllustrationAlt": "Illustración error en operación",
-  "discardMessageInstruction": "Presione Escape para descartar este mensaje.",
+  "discardMessageInstruction": "Puede presionar Escape para descartar este mensaje.",
   "requiredField": "Campo requerido",
   "nameIsRequired": "El campo nombre es requerido.",
   "emailIsRequired": "El campo correo electrónico es requerido. Debe ingresar un correo electrónico válido.",
   "messageIsRequired": "El campo mensaje es requerido.",
-  "tookYouToField": "Te devolvimos a ese campo, por favor corrige el error."
+  "tookYouToField": "Le devolvimos a ese campo, por favor corrija el error.",
+  "dismissMessage": "Descartar mensaje"
 }

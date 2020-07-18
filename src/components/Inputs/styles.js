@@ -52,7 +52,7 @@ export default makeStyles(theme => {
       position: 'relative',
       ...theme.typography.button,
       color: theme.palette.text.primary,
-      padding: `${theme.spacing(2)}px ${theme.spacing(2)}px`,
+      padding: theme.spacing(2),
       borderStyle: 'none',
       backgroundColor: 'transparent',
       outlineOffset: -1 * theme.spacing(.125),

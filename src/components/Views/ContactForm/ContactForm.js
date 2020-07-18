@@ -14,12 +14,14 @@ import InputText from '../../Inputs/InputText';
 import InputTextArea from '../../Inputs/InputTextArea';
 import Button from '../../Inputs/Button';
 import StatusPopup from './StatusPopup';
+import ErrorsAlert from './ErrorsAlert';
 
 function ContactForm() {
   const lang = useSelector(selectContactLang);
   const [status, setStatus] = useState(STATUS.IDLE);
-  const [errorMessage, setErrorMessage] = useState(lang.unhandledErrorMessage);
-  const [reactToErros, setReactOnErrors] = useState(false);
+  const [openErrorAlerts, setOpenErrorAlerts] = useState(false);
+  const [statusErrorMessage, setStatusErrorMessage] = useState(lang.unhandledErrorMessage);
+  const [reactToErros, setReactToErrors] = useState(false);
   const ref = useRef();
   const classes = useStyles();
   const {
@@ -34,17 +36,8 @@ function ContactForm() {
 
   useEffect(() => {
     if (reactToErros) {
-      /**
-       * #####       ####
-       *   #    ###  #   #  ###
-       *   #   #   # #   # #   #
-       *   #   #   # #   # #   #
-       *   #    ###  ####   ###
-       *
-       * ToDo: Add snippet with role="alert" on top of form
-       */
       // Set focus on first form input with error
-      const formInput = Array.from(ref.current.children)
+      const formInputWithError = Array.from(ref.current.children)
         .map(el => el.children[1])
         .find(el => {
           if (el) {
@@ -52,14 +45,20 @@ function ContactForm() {
           }
           return false;
         });
-      if (formInput) {
+      if (formInputWithError) {
+        setOpenErrorAlerts(true);
         setTimeout(() => {
-          formInput.focus();
+          formInputWithError.focus();
         }, 0);
       }
-      setReactOnErrors(false);
+      setReactToErrors(false);
     }
   }, [errors, ref.current]);
+
+  const handleChange = useCallback(evt => {
+    setOpenErrorAlerts(false);
+    onChange(evt);
+  }, [onChange]);
 
   const handleSubmit = useCallback(evt => {
     evt.preventDefault();
@@ -74,16 +73,16 @@ function ContactForm() {
         })
         .catch(error => {
           if (error.message === 'Bad Request') {
-            setErrorMessage(lang.badRequestErrorMessage);
+            setStatusErrorMessage(lang.badRequestErrorMessage);
           }
           else {
-            setErrorMessage(lang.unhandledErrorMessage);
+            setStatusErrorMessage(lang.unhandledErrorMessage);
           }
           setStatus(STATUS.ERROR);
         });
     }
     else {
-      setReactOnErrors(true);
+      setReactToErrors(true);
     }
   }, [validate]);
 
@@ -93,10 +92,6 @@ function ContactForm() {
         <img src="assets/img/contact-form/undraw_contact_us_15o2.svg" alt={lang.contactIllustrationAlt} className={classes.banner} />
         <ul aria-hidden>
           <h3>ToDo</h3>
-          <li>Check form accessibility</li>
-          <ul>
-            <li>Error notifications</li>
-          </ul>
           <li>Make popup responsive</li>
           <li>Recaptcha</li>
           <li>Update home with what was done here</li>
@@ -108,6 +103,7 @@ function ContactForm() {
         </ul>
         <Title tabIndex="0">{title}</Title>
         <Paragraph>#The following three form fields must be completed.</Paragraph>
+        <ErrorsAlert open={openErrorAlerts} errors={errors} />
         <form
           className={classes.form}
           noValidate
@@ -120,7 +116,7 @@ function ContactForm() {
             label={lang.name}
             value={name || ''}
             name="name"
-            onChange={onChange}
+            onChange={handleChange}
             error={errors.name}
             autoComplete="off"
             leftPadding={72}
@@ -133,7 +129,7 @@ function ContactForm() {
             label={lang.email}
             value={email || ''}
             name="email"
-            onChange={onChange}
+            onChange={handleChange}
             error={errors.email}
             autoComplete="off"
             leftPadding={72}
@@ -145,7 +141,7 @@ function ContactForm() {
             label={lang.message}
             value={message || ''}
             name="message"
-            onChange={onChange}
+            onChange={handleChange}
             error={errors.message}
             rows="3"
             leftPadding={72}
@@ -158,7 +154,7 @@ function ContactForm() {
         </form>
         <StatusPopup
           status={status}
-          errorMessage={errorMessage}
+          errorMessage={statusErrorMessage}
           lang={lang}
         />
       </Content>

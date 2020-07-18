@@ -27,6 +27,9 @@ export default makeStyles(theme => {
     paragraph: {
       outline: 'none',
       fontSize: theme.spacing(2),
+      '&.error': {
+        color: theme.palette.error.main,
+      },
     },
   };
 

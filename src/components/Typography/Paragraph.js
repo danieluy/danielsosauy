@@ -5,18 +5,23 @@ import useStyles from './styles';
 import Typography from '@material-ui/core/Typography';
 
 function Paragraph(props) {
-  const { children, ...rest } = props;
+  const { children, error, ...rest } = props;
   const classes = useStyles();
 
   return (
-    <Typography component="p" className={classes.paragraph} {...rest}>
+    <Typography component="p" className={`${classes.paragraph} ${error ? 'error' : ''}`} {...rest}>
       {children}
     </Typography>
   );
 }
 
 Paragraph.proptypes = {
+  error: PropTypes.bool,
   children: PropTypes.string.isRequired,
+};
+
+Paragraph.defaultProps = {
+  error: false,
 };
 
 export default Paragraph;

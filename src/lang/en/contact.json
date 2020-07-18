@@ -13,5 +13,9 @@
   "successIllustrationAlt": "Success illustration",
   "errorIllustrationAlt": "Failure illustration",
   "discardMessageInstruction": "Press Escape to dismiss this message.",
-  "requiredField": "Required field"
+  "requiredField": "Required field",
+  "nameIsRequired": "Name field is required.",
+  "emailIsRequired": "Email field is required. Must enter a valir email address.",
+  "messageIsRequired": "Message field is required.",
+  "tookYouToField": "You been taken back to that field, please fix the error."
 }

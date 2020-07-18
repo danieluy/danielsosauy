@@ -13,5 +13,9 @@
   "successIllustrationAlt": "Illustración operación exitosa",
   "errorIllustrationAlt": "Illustración error en operación",
   "discardMessageInstruction": "Presione Escape para descartar este mensaje.",
-  "requiredField": "Campo requerido"
+  "requiredField": "Campo requerido",
+  "nameIsRequired": "El campo nombre es requerido.",
+  "emailIsRequired": "El campo correo electrónico es requerido. Debe ingresar un correo electrónico válido.",
+  "messageIsRequired": "El campo mensaje es requerido.",
+  "tookYouToField": "Te devolvimos a ese campo, por favor corrige el error."
 }

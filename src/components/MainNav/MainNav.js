@@ -46,13 +46,13 @@ function MainNav({ headerOpen }) {
         <MenuItem to="/academic#web-developer" label={courses[1].title} key={courses[1].title} />,
       ],
     },
-    {
-      ref: contactRef,
-      lang: lang.contact,
-      to: '/contact',
-      activePath: '/contact',
-      icon: SendIcon,
-    },
+    // {
+    //   ref: contactRef,
+    //   lang: lang.contact,
+    //   to: '/contact',
+    //   activePath: '/contact',
+    //   icon: SendIcon,
+    // },
   ]);
 
   useEffect(() => {

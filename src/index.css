@@ -9,6 +9,10 @@ body {
   font-weight: 400;
 }
 
+.grecaptcha-badge {
+  display: none;
+}
+
 .animate-enter {
   animation-name: slide-up;
   animation-duration: 100ms;

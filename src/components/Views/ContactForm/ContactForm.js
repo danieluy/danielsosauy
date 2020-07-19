@@ -3,7 +3,7 @@ import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectContactLang } from '../../../redux/selectors';
 import useForm from '../../../react-hooks/useForm';
-import { sendEmail } from '../../../services';
+import { sendEmail, verifyCaptcha } from '../../../services';
 import formTemplate from './template';
 import { STATUS } from '../../../utils/contants';
 // Components
@@ -65,11 +65,11 @@ function ContactForm() {
     const { valid } = validate();
     if (valid) {
       setStatus(STATUS.WORKING);
-      sendEmail(name, email, message)
+      verifyCaptcha()
+        .then(rcToken => sendEmail(name, email, message, rcToken))
         .then(() => {
-          setTimeout(() => {
-            setStatus(STATUS.SUCCESS);
-          }, 1000);
+          // Delay to allow screen readers to catch up
+          setTimeout(() => setStatus(STATUS.SUCCESS), 1000);
         })
         .catch(error => {
           if (error.message === 'Bad Request') {

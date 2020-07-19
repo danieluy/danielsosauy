@@ -18,7 +18,10 @@ $ npm run build
 ## Deploy
 Add `.env` file with keys:
 ```bash
+NODE_ENV=[development, production]
 SERVER_PORT=...
 API_URL=http://localhost:5000
 SENDGRID_API_KEY='...'
+RE_CAPTCHA_SITE_KEY=...
+RE_CAPTCHA_SECRET_KEY=...
 ```

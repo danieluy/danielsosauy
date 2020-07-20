@@ -1,4 +1,7 @@
-require('dotenv').config();
+const path = require('path');
+const dotenv = require('dotenv');
+const DOT_ENV_PATH = path.join(__dirname, '.env');
+dotenv.config({ path: DOT_ENV_PATH });
 const express = require('express');
 const app = express();
 const compression = require('compression');
@@ -7,7 +10,8 @@ const server = require('http').Server(app);
 const homeRouter = require('./routers/home');
 const apiRouter = require('./routers/api');
 const bodyParser = require('body-parser');
-const morgan = require('morgan')
+const morgan = require('morgan');
+
 const PORT = process.env.SERVER_PORT || 3000;
 
 if (process.env.NODE_ENV === 'development') {

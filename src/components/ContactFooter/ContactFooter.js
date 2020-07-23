@@ -10,7 +10,7 @@ import CopirightIcon from '@material-ui/icons/CopyrightOutlined';
 import EmailIcon from '@material-ui/icons/EmailOutlined';
 import PhoneIcon from '@material-ui/icons/PhoneOutlined';
 
-function Contact() {
+function ContactFooter() {
   const classes = useStyles();
   const lang = useSelector(selectContactLang);
 
@@ -52,4 +52,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactFooter;

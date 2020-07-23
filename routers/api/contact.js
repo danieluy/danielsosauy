@@ -25,7 +25,9 @@ router.post('/email', async (req, res) => {
       <p>Message: <strong>${message}</strong></p>
       `,
     };
-    await sgMail.send(msg);
+    if (process.env.NODE_ENV !== 'development') {
+      await sgMail.send(msg);
+    }
     res.status(200).send({ message: 'Message sent.' });
   }
   catch (error) {

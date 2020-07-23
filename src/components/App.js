@@ -9,7 +9,7 @@ import Header from './Layout/Header';
 import Main from './Layout/Main';
 import Footer from './Layout/Footer';
 import MainNav from './MainNav/MainNav';
-import Contact from './Contact/Contact';
+import ContactFooter from './ContactFooter/ContactFooter';
 
 function App(props) {
 	// Necessary to update app theme color
@@ -18,7 +18,7 @@ function App(props) {
 	// Loadable Views
 	const Home = getLoadable('./Views/Home/Home');
 	const Academic = getLoadable('./Views/Academic/Academic');
-	const ContactForm = getLoadable('./Views/ContactForm/ContactForm');
+	const Contact = getLoadable('./Views/Contact/Contact');
 
 	const [baseName] = React.useState(getBaseName());
 
@@ -30,10 +30,10 @@ function App(props) {
 			<Main>
 				<Route exact path="/" component={Home} />
 				<Route exact path="/academic" component={Academic} />
-				<Route exact path="/contact" component={ContactForm} />
+				<Route exact path="/contact" component={Contact} />
 			</Main>
 			<Footer>
-				<Contact />
+				<ContactFooter />
 			</Footer>
 		</Router>
 	);

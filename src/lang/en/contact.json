@@ -1,6 +1,5 @@
 {
   "title": "Contact",
-  "subtitle": "The following three form fields must be completed.",
   "sendEmail": "Send email to",
   "call": "Call",
   "name": "Name",
@@ -19,5 +18,6 @@
   "emailIsRequired": "Email field is required. Must enter a valir email address.",
   "messageIsRequired": "Message field is required.",
   "tookYouToField": "You been taken back to that field, please fix the error.",
+  "formInstructions": "The following three form fields must be completed.",
   "dismissMessage": "Dismiss message"
 }

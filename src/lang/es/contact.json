@@ -1,6 +1,5 @@
 {
   "title": "Contacto",
-  "subtitle": "Los siguientes tres campos deben ser completados.",
   "sendEmail": "Enviar correo electrónico a",
   "call": "Llamar al número",
   "name": "Nombre",
@@ -19,5 +18,6 @@
   "emailIsRequired": "El campo correo electrónico es requerido. Debe ingresar un correo electrónico válido.",
   "messageIsRequired": "El campo mensaje es requerido.",
   "tookYouToField": "Le devolvimos a ese campo, por favor corrija el error.",
+  "formInstructions": "Los siguientes tres campos deben ser completados.",
   "dismissMessage": "Descartar mensaje"
 }

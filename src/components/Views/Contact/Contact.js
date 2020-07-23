@@ -16,7 +16,7 @@ import Button from '../../Inputs/Button';
 import StatusPopup from './StatusPopup';
 import ErrorsAlert from './ErrorsAlert';
 
-function ContactForm() {
+function Contact() {
   const lang = useSelector(selectContactLang);
   const [status, setStatus] = useState(STATUS.IDLE);
   const [openErrorAlerts, setOpenErrorAlerts] = useState(false);
@@ -90,24 +90,8 @@ function ContactForm() {
     <section className={classes.section}>
       <Content component="article" aria-label={title} id="contact-form" style={{ minHeight: window.innerHeight }}>
         <img src="assets/img/contact-form/undraw_contact_us_15o2.svg" alt={lang.contactIllustrationAlt} className={classes.banner} />
-        {/**
-         * #####       ####
-         *   #    ###  #   #  ###
-         *   #   #   # #   # #   #
-         *   #   #   # #   # #   #
-         *   #    ###  ####   ###
-         *
-         * ToDo: 
-         * - Add Recaptcha
-         * - Update home with what was done here
-         *  - Made to comply with https://www.w3.org/WAI/tutorials/forms/
-         *  - Status alert.
-         *    - Decided to include a message with instructions on how to dismiss the message.
-         *  - User Notifications.
-         *    - Prefered to highlight the first only making explicit where the focus is because sometimes it failed
-         */}
         <Title tabIndex="0">{title}</Title>
-        <Paragraph>{lang.subtitle}</Paragraph>
+        <Paragraph>{lang.formInstructions}</Paragraph>
         <ErrorsAlert open={openErrorAlerts} errors={errors} />
         <form
           className={classes.form}
@@ -167,4 +151,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export default Contact;

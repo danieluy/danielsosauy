@@ -15,6 +15,7 @@ function StatusPopup({ status, lang, errorMessage }) {
   useEffect(() => {
     const handleKeyDown = evt => {
       if (evt.key === 'Escape') {
+        // eslint-disable-next-line no-use-before-define
         handleClose();
       }
     };

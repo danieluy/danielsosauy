@@ -4,15 +4,17 @@ In this repository I'm developing the third version my personal website, making 
 ## Development
 ```bash
 # To run server 
-$ npm run server
+npm run server
+# or on VSC F5
+
 # To run Webpack dev
-$ npm start
+npm start
 ```
 
 ## Development
 ```bash
 # To run Webpack pro
-$ npm run build
+npm run build
 ```
 
 ## Deploy

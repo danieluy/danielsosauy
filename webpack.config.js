@@ -9,15 +9,32 @@ module.exports = env => {
 	const outputPath = path.join(__dirname, 'public');
 	const config = {
 		entry: {
-			index: path.join(__dirname, 'src', 'index.js'),
+			index: path.join(__dirname, 'src', 'index.tsx'),
 		},
 		output: {
 			filename: '[name].js',
 			path: outputPath,
 		},
 		mode: env.development ? 'development' : 'production',
+		resolve: {
+			extensions: ['.ts', '.tsx'],
+		},
 		module: {
 			rules: [
+				{
+					test: /\.ts(x?)$/,
+					exclude: /node_modules/,
+					use: [
+						{
+							loader: 'ts-loader',
+						},
+					],
+				},
+				{
+					enforce: 'pre',
+					test: /\.js$/,
+					loader: 'source-map-loader',
+				},
 				{
 					test: /\.js$/,
 					include: [
@@ -50,6 +67,10 @@ module.exports = env => {
 					use: ['style-loader', 'css-loader'],
 				},
 			],
+		},
+		externals: {
+			'react': 'React',
+			'react-dom': 'ReactDOM',
 		},
 		plugins: [
 			new CopyPlugin([

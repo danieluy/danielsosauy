@@ -1,7 +1,10 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 
-function FullLogo({ className }) {
+interface Props {
+  className?: string,
+}
+
+function FullLogo({ className = '' }: Props) {
   return (
     <svg width="254" height="48" viewBox="0 0 254 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <g clipPath="url(#clip0)">
@@ -24,13 +27,5 @@ function FullLogo({ className }) {
     </svg>
   );
 }
-
-FullLogo.propTypes = {
-  className: PropTypes.string,
-};
-
-FullLogo.defaultProps = {
-  className: '',
-};
 
 export default FullLogo;

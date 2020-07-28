@@ -7,7 +7,7 @@ export default {
   email: {
     type: String,
     required: true,
-    validator: value => {
+    validator: (value: string) => {
       if (value.match(/.+@.+\..+/)) {
         return null;
       }

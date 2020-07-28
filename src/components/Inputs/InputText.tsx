@@ -6,14 +6,15 @@ interface Props {
   label: string,
   fullWidth: boolean,
   errorText?: string,
-  error: Error,
+  error: Error | null,
   leftPadding: number,
   helperText?: string,
   required: boolean,
+  value: string,
 }
 
 function InputText(props: Props) {
-  const { error, errorText, fullWidth, label, id, leftPadding, helperText, required = false, ...rest } = props;
+  const { error, errorText, fullWidth, label, id, leftPadding, helperText, required = false, value, ...rest } = props;
   const classes = useStyles();
   const style = useMemo(() => {
     if (fullWidth) {
@@ -49,6 +50,7 @@ function InputText(props: Props) {
         aria-labelledby={`${labelId} ${helperText ? descriptionId : ''}`}
         required={required}
         aria-required={required}
+        value={value}
         {...rest}
       />
       {!errorMessage && !!helperText && <span tabIndex={-1} id={descriptionId} className={classes.helperText}>{helperText}</span>}

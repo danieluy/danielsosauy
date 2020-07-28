@@ -1,11 +1,15 @@
 import React, { Fragment, useEffect } from 'react';
-import * as PropTypes from 'prop-types';
 import useStyles from './styles';
 import useProgress from '../../../react-hooks/useProgress';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
-function Score(props) {
+interface Props {
+  score: number,
+  'aria-label'?: string,
+}
+
+function Score(props: Props) {
   const { score } = props;
   const ariaLabel = props['aria-label'];
   const classes = useStyles();
@@ -17,7 +21,7 @@ function Score(props) {
 
   return (
     <Fragment>
-      <div className={classes.scoreRoot} role="heading" aria-level="3" aria-label={ariaLabel} tabIndex="0">
+      <div className={classes.scoreRoot} role="heading" aria-level={3} aria-label={ariaLabel} tabIndex={0}>
         <div className={classes.progressBar}>
           <span style={{ width: `${progress}%` }} className={classes.scoreValue}>
             <Typography component="p" variant="h4" color="textPrimary" className={classes.scoreTextValue}>
@@ -32,9 +36,5 @@ function Score(props) {
     </Fragment>
   );
 }
-
-Score.propTypes = {
-  score: PropTypes.number.isRequired,
-};
 
 export default Score;

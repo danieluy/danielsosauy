@@ -1,8 +1,6 @@
 import React, { useCallback, useState, useMemo, useEffect, useRef } from 'react';
-import * as PropTypes from 'prop-types';
 import useStyles from './styles';
 import { useLocation, Link } from 'react-router-dom';
-import MenuItem from './MenuItem';
 import useProgress from '../../react-hooks/useProgress';
 import { KEY_CODE } from '../../utils/contants';
 // Material UI
@@ -11,7 +9,20 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMoreOutlined';
 import ExpandLessIcon from '@material-ui/icons/ExpandLessOutlined';
 import useTheme from '@material-ui/core/styles/useTheme';
 
-const Submenu = React.forwardRef((props, ref) => {
+interface Props {
+  children: JSX.Element[],
+  label?: string,
+  activePath?: string,
+  focusOnMenuNext: Function,
+  focusOnMenuPrev: Function,
+  icon?: (pops: any) => JSX.Element,
+  headerOpen: boolean,
+  to?: string,
+}
+
+declare type RefCallback = (instance: HTMLAnchorElement | null) => void;
+
+const Submenu = React.forwardRef((props: Props, ref: RefCallback) => {
   const {
     children,
     label,
@@ -60,37 +71,45 @@ const Submenu = React.forwardRef((props, ref) => {
     const _expanded = !expanded;
     setExpanded(_expanded);
     if (_expanded) {
-      const first = menuItemsRef.current[0].current;
-      first.focus();
+      if (menuItemsRef.current) {
+        const first = menuItemsRef.current[0].current;
+        (first as HTMLElement).focus();
+      }
     }
-  });
+  }, []);
 
   const handleMenuItemClick = useCallback(() => {
     setExpanded(false);
-    document.activeElement.blur();
-  });
+    if (document.activeElement) {
+      (document.activeElement as HTMLElement).blur();
+    }
+  }, []);
 
   const handleArrowDown = useCallback(idx => {
     const menuItems = menuItemsRef.current;
-    const lastIdx = menuItems.length - 1;
-    let nextIdx = idx + 1;
-    if (nextIdx > lastIdx) {
-      nextIdx = 0;
+    if (menuItems) {
+      const lastIdx = menuItems.length - 1;
+      let nextIdx = idx + 1;
+      if (nextIdx > lastIdx) {
+        nextIdx = 0;
+      }
+      (menuItems[nextIdx].current as HTMLElement).focus();
     }
-    menuItems[nextIdx].current.focus();
-  });
+  }, []);
 
   const handleArrowUp = useCallback(idx => {
     const menuItems = menuItemsRef.current;
-    const lastIdx = menuItems.length - 1;
-    let nextIdx = idx - 1;
-    if (nextIdx < 0) {
-      nextIdx = lastIdx;
+    if (menuItems) {
+      const lastIdx = menuItems.length - 1;
+      let nextIdx = idx - 1;
+      if (nextIdx < 0) {
+        nextIdx = lastIdx;
+      }
+      (menuItems[nextIdx].current as HTMLElement).focus();
     }
-    menuItems[nextIdx].current.focus();
-  });
+  }, []);
 
-  const handleMenuItemKeyDown = useCallback(idx => evt => {
+  const handleMenuItemKeyDown = useCallback(idx => (evt: any) => {
     switch (evt.keyCode) {
       case KEY_CODE.ARROW_DOWN: {
         handleArrowDown(idx);
@@ -114,20 +133,24 @@ const Submenu = React.forwardRef((props, ref) => {
         break;
       }
     }
-  });
+  }, []);
 
   const handleMenuKeyDown = useCallback(evt => {
     switch (evt.keyCode) {
       case KEY_CODE.ARROW_DOWN: {
         setExpanded(true);
-        const first = menuItemsRef.current[0].current;
-        first.focus();
+        if (menuItemsRef && menuItemsRef.current) {
+          const first = menuItemsRef.current[0].current;
+          (first as HTMLElement).focus();
+        }
         break;
       }
       case KEY_CODE.ARROW_UP: {
         setExpanded(true);
-        const last = menuItemsRef.current[menuItemsRef.current.length - 1].current;
-        last.focus();
+        if (menuItemsRef && menuItemsRef.current) {
+          const last = menuItemsRef.current[menuItemsRef.current.length - 1].current;
+          (last as HTMLElement).focus();
+        }
         break;
       }
       case KEY_CODE.ARROW_RIGHT: {
@@ -156,14 +179,12 @@ const Submenu = React.forwardRef((props, ref) => {
           aria-haspopup="true"
           aria-expanded={expanded}
           href="#"
-          tabIndex="0"
+          tabIndex={0}
           onClick={handleExpand}
           onKeyDown={handleMenuKeyDown}
           className={`${classes.submenuLink} ${active ? 'active' : ''}`}
         >
-          <span className={classes.submenuIcon} aria-hidden>
-            <Icon />
-          </span>
+          {renderIcon()}
           <Typography component="span">{label}</Typography>
         </a>
         <ul
@@ -173,39 +194,44 @@ const Submenu = React.forwardRef((props, ref) => {
           style={{ height }}
         >
           {children.map((El, i) => {
-            const { leftPad, ...rest } = El.props;
-            return (
-              <El.type
-                ref={menuItemsRef.current[i]}
-                key={El.props.to}
-                leftPad={(leftPad || 0) + theme.spacing(6)}
-                onClick={handleMenuItemClick}
-                onKeyDown={handleMenuItemKeyDown(i)}
-                {...rest}
-              />
-            );
+            if (menuItemsRef.current) {
+              const { leftPad, ...rest } = El.props;
+              return (
+                <El.type
+                  ref={menuItemsRef.current[i]}
+                  key={El.props.to}
+                  leftPad={(leftPad || 0) + theme.spacing(6)}
+                  onClick={handleMenuItemClick}
+                  onKeyDown={handleMenuItemKeyDown(i)}
+                  {...rest}
+                />
+              );
+            }
           })}
         </ul>
       </li>
     );
   }
-  return (
-    <li role="none" className={classes.submenu}>
-      <Link
-        ref={ref}
-        role="menuitem"
-        to={to}
-        tabIndex="0"
-        onKeyDown={handleMenuKeyDown}
-        className={`${classes.submenuLink} ${active ? 'active' : ''}`}
-      >
-        <span className={classes.submenuIcon} aria-hidden>
-          <Icon />
-        </span>
-        <Typography component="span">{label}</Typography>
-      </Link>
-    </li>
-  );
+
+  if (to) {
+    return (
+      <li role="none" className={classes.submenu}>
+        <Link
+          ref={ref}
+          role="menuitem"
+          to={to}
+          tabIndex={0}
+          onKeyDown={handleMenuKeyDown}
+          className={`${classes.submenuLink} ${active ? 'active' : ''}`}
+        >
+          {renderIcon()}
+          <Typography component="span">{label}</Typography>
+        </Link>
+      </li>
+    );
+  }
+
+  return null;
 
   function ExpandIcon() {
     const className = `${classes.expandIcon} ${active ? 'active' : ''} ${!headerOpen ? 'hidden' : ''}`;
@@ -222,17 +248,17 @@ const Submenu = React.forwardRef((props, ref) => {
       </span>
     );
   }
-});
 
-Submenu.proptypes = {
-  children: PropTypes.arrayOf(PropTypes.instanceOf(MenuItem)).isRequired,
-  label: PropTypes.string,
-  activePath: PropTypes.string,
-  focusOnMenuNext: PropTypes.func.isRequired,
-  focusOnMenuPrev: PropTypes.func.isRequired,
-  icon: PropTypes.element.isRequired,
-  headerOpen: PropTypes.bool.isRequired,
-  to: PropTypes.string,
-};
+  function renderIcon() {
+    if (Icon) {
+      return (
+        <span className={classes.submenuIcon} aria-hidden>
+          <Icon />
+        </span>
+      );
+    }
+    return null;
+  }
+});
 
 export default Submenu;

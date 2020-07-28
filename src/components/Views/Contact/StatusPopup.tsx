@@ -8,12 +8,18 @@ import Button from '../../Inputs/Button';
 // Material UI
 import CloseIcon from '@material-ui/icons/CloseRounded';
 
-function StatusPopup({ status, lang, errorMessage }) {
+interface Props {
+  status: STATUS,
+  errorMessage: string,
+  lang: any,
+}
+
+function StatusPopup({ status, lang, errorMessage }: Props) {
   const classes = useStyles();
-  const ref = useRef();
+  const ref = useRef(null);
 
   useEffect(() => {
-    const handleKeyDown = evt => {
+    const handleKeyDown = (evt: KeyboardEvent) => {
       if (evt.key === 'Escape') {
         // eslint-disable-next-line no-use-before-define
         handleClose();
@@ -26,8 +32,11 @@ function StatusPopup({ status, lang, errorMessage }) {
   }, []);
 
   const handleClose = useCallback(() => {
-    ref.current.classList.remove('animate-enter');
-    ref.current.classList.add('animate-leave');
+    const current = ref.current as unknown as HTMLElement;
+    if (current) {
+      current.classList.remove('animate-enter');
+      current.classList.add('animate-leave');
+    }
   }, [ref.current]);
 
   if (status === STATUS.SUCCESS) {
@@ -46,8 +55,8 @@ function StatusPopup({ status, lang, errorMessage }) {
             {lang.discardMessageInstruction}
           </span>
         </Paragraph>
-        <Button aria-label={lang.dismissMessage} className={classes.closeButton}>
-          <CloseIcon aria-hidden onClick={handleClose} />
+        <Button aria-hidden onClick={handleClose} className={classes.closeButton}>
+          <CloseIcon />
         </Button>
       </div >
     );
@@ -69,19 +78,13 @@ function StatusPopup({ status, lang, errorMessage }) {
             {lang.discardMessageInstruction}
           </span>
         </Paragraph>
-        <Button aria-label={lang.dismissMessage} className={classes.closeButton}>
-          <CloseIcon aria-hidden onClick={handleClose} />
+        <Button aria-hidden onClick={handleClose} className={classes.closeButton}>
+          <CloseIcon />
         </Button>
       </div >
     );
   }
   return null;
 }
-
-StatusPopup.propTypes = {
-  status: PropTypes.oneOf(Object.values(STATUS)).isRequired,
-  errorMessage: PropTypes.string.isRequired,
-  lang: PropTypes.object.isRequired,
-};
 
 export default StatusPopup;

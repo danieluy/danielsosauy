@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react';
-import * as PropTypes from 'prop-types';
-import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectAcademicLang } from '../../../redux/selectors';
+import { ISubject } from './Course';
 // Components
 import Title3 from '../../Typography/Title3';
 import Paragraph from '../../Typography/Paragraph';
-// Material UI
-import Typography from '@material-ui/core/Typography';
 
-function Subject({ subject }) {
-  const classes = useStyles();
+interface Props {
+  subject: ISubject,
+}
+
+function Subject({ subject }: Props) {
   const lang = useSelector(selectAcademicLang);
 
   return (
@@ -21,13 +21,5 @@ function Subject({ subject }) {
     </Fragment>
   );
 }
-
-Subject.propTypes = {
-  score: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    score: PropTypes.number.isRequired,
-    techs: PropTypes.arrayOf(PropTypes.string).isRequired,
-  }),
-};
 
 export default Subject;

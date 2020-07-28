@@ -1,7 +1,10 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 
-function FullLogo({ className }) {
+interface Props {
+  className?: string,
+}
+
+function FullLogo({ className = '' }: Props) {
   return (
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <path d="M27.4286 37.7143L27.4286 41.1429C27.4286 44.9299 30.4986 48 34.2857 48H41.1429C44.93 48 48 44.93 48 41.1429V34.2857C48 30.4986 44.93 27.4286 41.1429 27.4286L34.2857 27.4286V20.5714H41.1429V24L48 24L48 20.5714C48 16.7843 44.9299 13.7143 41.1429 13.7143H34.2857C30.4986 13.7143 27.4286 16.7843 27.4286 20.5714V27.4286C27.4286 31.2157 30.4986 34.2857 34.2857 34.2857L41.1429 34.2857V41.1429H34.2857V37.7143H27.4286Z" fill="currentColor" />
@@ -9,13 +12,5 @@ function FullLogo({ className }) {
     </svg>
   );
 }
-
-FullLogo.propTypes = {
-  className: PropTypes.string,
-};
-
-FullLogo.defaultProps = {
-  className: '',
-};
 
 export default FullLogo;

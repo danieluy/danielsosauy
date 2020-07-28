@@ -1,10 +1,13 @@
 import React, { Fragment } from 'react';
-import * as PropTypes from 'prop-types';
 import useStyles from './styles';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
-function Title3(props) {
+
+interface Props {
+  children: string,
+}
+function Title3(props: Props) {
   const { children, ...rest } = props;
   const classes = useStyles();
 
@@ -14,9 +17,5 @@ function Title3(props) {
     </Typography>
   );
 }
-
-Title3.proptypes = {
-  children: PropTypes.string.isRequired,
-};
 
 export default Title3;

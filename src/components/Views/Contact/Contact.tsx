@@ -1,8 +1,8 @@
-import React, { useEffect, useCallback, useState, useRef } from 'react';
+import React, { useEffect, useCallback, useState, useRef, RefObject } from 'react';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectContactLang } from '../../../redux/selectors';
-import useForm from '../../../react-hooks/useForm';
+import useForm, { IFormSchema } from '../../../react-hooks/useForm';
 import { sendEmail, verifyCaptcha } from '../../../services';
 import formTemplate from './template';
 import { STATUS } from '../../../utils/contants';
@@ -27,7 +27,7 @@ function Contact() {
   const {
     title,
   } = lang;
-  const [values, errors, onChange, validate] = useForm(formTemplate);
+  const [values, errors, onChange, validate] = useForm(formTemplate as IFormSchema);
   const { name, email, message } = values;
 
   useEffect(() => {
@@ -37,21 +37,24 @@ function Contact() {
   useEffect(() => {
     if (reactToErros) {
       // Set focus on first form input with error
-      const formInputWithError = Array.from(ref.current.children)
-        .map(el => el.children[1])
-        .find(el => {
-          if (el) {
-            return !!errors[el.name];
-          }
-          return false;
-        });
-      if (formInputWithError) {
-        setOpenErrorAlerts(true);
-        setTimeout(() => {
-          formInputWithError.focus();
-        }, 0);
+      const current = ref.current;
+      if (current) {
+        const formInputWithError = Array.from((current as HTMLElement).children)
+          .map((el: HTMLElement) => el.children[1])
+          .find((el: HTMLInputElement) => {
+            if (el) {
+              return Boolean(errors[(el as HTMLInputElement).name]);
+            }
+            return false;
+          });
+        if (formInputWithError) {
+          setOpenErrorAlerts(true);
+          setTimeout(() => {
+            (formInputWithError as HTMLElement).focus();
+          }, 0);
+        }
+        setReactToErrors(false);
       }
-      setReactToErrors(false);
     }
   }, [errors, ref.current]);
 
@@ -66,7 +69,7 @@ function Contact() {
     if (valid) {
       setStatus(STATUS.WORKING);
       verifyCaptcha()
-        .then(rcToken => sendEmail(name, email, message, rcToken))
+        .then(rcToken => sendEmail(name as string, email as string, message as string, rcToken as string))
         .then(() => {
           // Delay to allow screen readers to catch up
           setTimeout(() => setStatus(STATUS.SUCCESS), 1000);
@@ -90,7 +93,7 @@ function Contact() {
     <section className={classes.section}>
       <Content component="article" aria-label={title} id="contact-form" style={{ minHeight: window.innerHeight }}>
         <img src="assets/img/contact-form/undraw_contact_us_15o2.svg" alt={lang.contactIllustrationAlt} className={classes.banner} />
-        <Title tabIndex="0">{title}</Title>
+        <Title tabIndex={0}>{title}</Title>
         <Paragraph>{lang.formInstructions}</Paragraph>
         <ErrorsAlert open={openErrorAlerts} errors={errors} />
         <form
@@ -103,7 +106,7 @@ function Contact() {
           <InputText
             id="input-name"
             label={lang.name}
-            value={name || ''}
+            value={name as string || ''}
             name="name"
             onChange={handleChange}
             error={errors.name}

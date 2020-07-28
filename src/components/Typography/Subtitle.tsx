@@ -1,10 +1,13 @@
-import React, { Fragment } from 'react';
-import * as PropTypes from 'prop-types';
+import React from 'react';
 import useStyles from './styles';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
-function Subtitle(props) {
+interface Props {
+  children: string,
+}
+
+function Subtitle(props: Props) {
   const { children, ...rest } = props;
   const classes = useStyles();
 
@@ -14,9 +17,5 @@ function Subtitle(props) {
     </Typography>
   );
 }
-
-Subtitle.proptypes = {
-  children: PropTypes.string.isRequired,
-};
 
 export default Subtitle;

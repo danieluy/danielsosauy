@@ -1,27 +1,28 @@
-import React, { Fragment } from 'react';
-import * as PropTypes from 'prop-types';
+import React from 'react';
 import useStyles from './styles';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
-function Paragraph(props) {
-  const { children, error, ...rest } = props;
+interface Props {
+  error?: boolean,
+  children: string | Array<string | JSX.Element>,
+  color?: "error" | "inherit" | "initial" | "primary" | "secondary" | "textPrimary" | "textSecondary" | undefined
+}
+
+function Paragraph(props: Props) {
+  const { children, error, color, ...rest } = props;
   const classes = useStyles();
 
   return (
-    <Typography component="p" className={`${classes.paragraph} ${error ? 'error' : ''}`} {...rest}>
+    <Typography
+      component="p"
+      className={`${classes.paragraph} ${error ? 'error' : ''}`}
+      color={color}
+      {...rest}
+    >
       {children}
     </Typography>
   );
 }
-
-Paragraph.proptypes = {
-  error: PropTypes.bool,
-  children: PropTypes.string.isRequired,
-};
-
-Paragraph.defaultProps = {
-  error: false,
-};
 
 export default Paragraph;

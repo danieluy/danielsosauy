@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 interface Props {
   error?: Error,
   timedOut: boolean,
-  retry: Function,
+  retry: () => void,
   pastDelay: boolean,
 }
 

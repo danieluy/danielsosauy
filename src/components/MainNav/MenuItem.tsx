@@ -1,16 +1,26 @@
-import React, { Fragment, useCallback, useState, useMemo } from 'react';
-import * as PropTypes from 'prop-types';
+import React, { useMemo } from 'react';
 import useStyles from './styles';
 import { Link, useLocation } from 'react-router-dom';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
-const MenuItem = React.forwardRef((props, ref) => {
-  const { label, to, leftPad, onClick, onKeyDown, icon: Icon, ...rest } = props;
+interface Props {
+  label: string,
+  to: string,
+  leftPad?: number,
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void,
+  onKeyDown?: (event: React.KeyboardEvent<HTMLAnchorElement>) => void,
+  icon?: JSX.Element,
+}
+
+declare type RefCallback = (instance: HTMLAnchorElement | null) => void;
+
+const MenuItem = React.forwardRef((props: Props, ref: RefCallback) => {
+  const { label, to, leftPad = 0, onClick, onKeyDown, icon: Icon, ...rest } = props;
   const location = useLocation();
   const classes = useStyles();
 
-  const active = useMemo(() => {
+  const active = useMemo<boolean>(() => {
     return `${location.pathname}${location.hash}` === to;
   }, [location]);
 
@@ -19,7 +29,7 @@ const MenuItem = React.forwardRef((props, ref) => {
       <Link
         to={to}
         role="menuitem"
-        tabIndex="-1"
+        tabIndex={-1}
         className={`${classes.menuItem} ${active ? 'active' : ''}`}
         ref={ref}
         onClick={onClick}
@@ -27,28 +37,22 @@ const MenuItem = React.forwardRef((props, ref) => {
         style={{ paddingLeft: leftPad }}
         {...rest}
       >
-        {!!Icon && (
-          <span className={classes.submenuIcon} aria-hidden>
-            <Icon />
-          </span>
-        )}
+        {renderIcon()}
         <Typography component="span">{label}</Typography>
       </Link>
     </li>
   );
+
+  function renderIcon() {
+    if (Icon) {
+      return (
+        <span className={classes.submenuIcon} aria-hidden>
+          <Icon.type />
+        </span>
+      );
+    }
+    return null;
+  }
 });
-
-MenuItem.proptypes = {
-  label: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
-  leftPad: PropTypes.number,
-  onClick: PropTypes.func.isRequired,
-  onKeyDown: PropTypes.func.isRequired,
-  icon: PropTypes.element,
-};
-
-MenuItem.defaultProps = {
-  leftPad: 0,
-};
 
 export default MenuItem;

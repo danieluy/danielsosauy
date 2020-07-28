@@ -6,14 +6,13 @@ import { selectAcademicLang } from '../../../redux/selectors';
 // Components
 import Course from './Course';
 
-function Academic(props) {
+function Academic() {
   const classes = useStyles();
   const { hash } = useLocation();
   const lang = useSelector(selectAcademicLang);
   const {
     title,
     courses,
-    coursesTitle,
   } = lang;
   const [softwareAnalist, webDeveloper] = courses;
 

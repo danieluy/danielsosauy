@@ -3,7 +3,7 @@ import useStyles from './styles';
 import useWindowSize from '../../react-hooks/useWindowSize';
 
 interface Props {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 }
 
 function Main({ children }: Props) {

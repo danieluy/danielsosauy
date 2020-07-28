@@ -3,12 +3,13 @@ import * as PropTypes from 'prop-types';
 import useStyles from './styles';
 
 interface Props {
-  children: string,
-  fullWidth: boolean,
+  children: string | JSX.Element,
+  fullWidth?: boolean,
   className?: string,
+  onClick: (event: React.MouseEvent) => void,
 }
 
-function Button({ children, fullWidth, className, ...rest }: Props) {
+function Button({ children, fullWidth, className, onClick, ...rest }: Props) {
   const classes = useStyles();
   const style = useMemo(() => {
     if (fullWidth) {
@@ -21,6 +22,7 @@ function Button({ children, fullWidth, className, ...rest }: Props) {
     <button
       className={`${classes.button} ${className}`}
       style={style}
+      onClick={onClick}
       {...rest}
     >
       {children}

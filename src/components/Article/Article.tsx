@@ -24,7 +24,7 @@ function Article(props: Props) {
   return (
     <Content component="article" aria-label={title} id={articleId}>
       <img src={banner.src} alt={banner.alt} className={classes.banner} />
-      <Title tabIndex="0">{title}</Title>
+      <Title tabIndex={0}>{title}</Title>
       {paragraphs.map((paragraph, i) => renderParagraph(paragraph, i))}
     </Content>
   );

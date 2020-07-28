@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 
-export default function useProgress(initValue = 0, speed = 1) {
+export default function useProgress(initValue = 0, speed = 1)
+  : [number, (start: number, limit: number) => void] {
   const [progress, setProgress] = useState(initValue);
 
   const increaseToLimit = useCallback((_progress, limit) => {

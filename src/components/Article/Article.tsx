@@ -52,12 +52,13 @@ function Paragraphs({ paragraphs }: ParagraphsProps) {
   );
 }
 
-function splitByLink(fullText: string, links: RegExpMatchArray, idx: number): Array<string | JSX.Element> {
+function splitByLink(fullText: string, links: RegExpMatchArray, idx: number)
+  : Array<string | JSX.Element> {
   if (!links) {
     return [fullText];
   }
   const link = links[idx];
-  const realLink = <ParagraphLink link={link} />;
+  const realLink = <ParagraphLink key={link} link={link} />;
   const [a, b] = fullText.split(link);
   if (idx < links.length - 1) {
     const splitB = b ? splitByLink(b, links, idx + 1) : [];

@@ -8,7 +8,7 @@ import './index.css';
 import { selectTheme } from './redux/selectors';
 import { setAppTheme } from './redux/actions';
 // Material UI
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import { MuiThemeProvider, Theme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 console.groupCollapsed('App info');
@@ -25,7 +25,7 @@ ReactDOM.render(
 );
 
 function AppWithTheme() {
-	const [theme, setTheme] = React.useState();
+	const [theme, setTheme] = React.useState<Theme>();
 	const dispatch = useDispatch();
 	const prefersLightMode = useMediaQuery('@media (prefers-color-scheme: light)');
 	const preferedMode = prefersLightMode ? 'light' : 'dark';
@@ -33,7 +33,7 @@ function AppWithTheme() {
 
 	React.useEffect(() => {
 		const themeMode = userSelectedMode || preferedMode;
-		const selectedTheme = getTheme(themeMode);
+		const selectedTheme = getTheme();
 		dispatch(setAppTheme(themeMode));
 		setTheme(selectedTheme);
 	}, [userSelectedMode, preferedMode]);

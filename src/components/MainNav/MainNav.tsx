@@ -107,16 +107,12 @@ function MainNav({ headerOpen = false }: Props) {
             focusOnMenuPrev={() => setFocusPrev(i)}
             headerOpen={headerOpen}
           >
-            {test(item)}
+            {item.items ? item.items : undefined}
           </Submenu>
         ))}
       </ul>
     </nav>
   );
-
-  function test(item: IMenuItem): JSX.Element[] | [] {
-    return item.items || [];
-  }
 }
 
 export default MainNav;

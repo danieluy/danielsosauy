@@ -1,6 +1,6 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, Theme } from '@material-ui/core/styles';
 
-export default () => {
+export default (): Theme => {
   return createMuiTheme({
     typography: {
       fontFamily: '"Roboto Condensed", sans-serif',

@@ -10,7 +10,7 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLessOutlined';
 import useTheme from '@material-ui/core/styles/useTheme';
 
 interface Props {
-  children: JSX.Element[],
+  children?: JSX.Element[],
   label?: string,
   activePath?: string,
   focusOnMenuNext: Function,

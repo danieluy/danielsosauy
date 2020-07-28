@@ -14,4 +14,4 @@ export const TOGGLE_APP_THEME = 'TOGGLE_APP_THEME';
 export const toggleAppTheme = () => ({ type: TOGGLE_APP_THEME });
 
 export const SET_APP_THEME = 'SET_APP_THEME';
-export const setAppTheme = (mode: any) => ({ type: SET_APP_THEME, payload: mode });
+export const setAppTheme = (mode: string) => ({ type: SET_APP_THEME, payload: mode });

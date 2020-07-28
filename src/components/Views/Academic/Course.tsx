@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, Fragment } from 'react';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectAcademicLang } from '../../../redux/selectors';
@@ -61,9 +61,21 @@ function Course(props: Props) {
       <ScoreBar score={avgScore} aria-label={`${averageScore} ${avgScore}`} />
       <Subtitle>{institute}</Subtitle>
       <Title2>{lang.subjects}</Title2>
-      {subjects.map(subject => <Subject key={subject.name} subject={subject} />)}
+      <Subjects subjects={subjects} />
     </Content>
   );
 }
 
 export default Course;
+
+interface SubjectsProps {
+  subjects: ISubject[],
+}
+
+function Subjects({ subjects }: SubjectsProps) {
+  return (
+    <Fragment>
+      {subjects.map(subject => <Subject key={subject.name} subject={subject} />)}
+    </Fragment>
+  );
+}

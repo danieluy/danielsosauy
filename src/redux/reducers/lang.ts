@@ -1,5 +1,5 @@
 import { TOGGLE_APP_LANG } from '../actions';
-import LANG, { getDefaultLang } from '../../lang';
+import { LANG, getDefaultLang } from '../../lang';
 
 const initialState = () => {
   try {
@@ -22,7 +22,7 @@ const initialState = () => {
   }
 };
 
-export default (state = initialState(), action) => {
+export default (state = initialState(), action: any) => {
   switch (action.type) {
     case TOGGLE_APP_LANG:
       try {

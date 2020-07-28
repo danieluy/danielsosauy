@@ -1,19 +1,14 @@
 import React, { useMemo } from 'react';
 import useStyles from './styles';
+import { InputProps } from './InputText';
 
-interface Props {
-  id: string,
-  label: string,
-  fullWidth: boolean,
-  errorText?: string,
-  error: Error,
-  leftPadding: number,
-  helperText?: string,
-  required: boolean,
+interface Props extends InputProps {
+  rows?: number,
+  onChange: ((event: React.ChangeEvent<HTMLElement>) => void),
 }
 
 function InputTextArea(props: Props) {
-  const { error, errorText, fullWidth, label, id, leftPadding, helperText, required = false, ...rest } = props;
+  const { error, errorText, fullWidth, label, id, leftPadding, helperText, required = false, rows, onChange, ...rest } = props;
   const classes = useStyles();
 
   const style = useMemo(() => {
@@ -49,6 +44,8 @@ function InputTextArea(props: Props) {
         aria-labelledby={`${labelId} ${helperText ? descriptionId : ''}`}
         required={required}
         aria-required={required}
+        rows={rows}
+        onChange={onChange}
         {...rest}
       />
       {!errorMessage && !!helperText && <span tabIndex={-1} id={descriptionId} className={classes.helperText}>{helperText}</span>}

@@ -10,7 +10,7 @@ const initialState = {
   },
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
   switch (action.type) {
     case SET_APP_INFO: {
       return {

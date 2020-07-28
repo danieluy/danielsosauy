@@ -1,28 +1,28 @@
 import React, { Fragment } from 'react';
-import * as PropTypes from 'prop-types';
 import useStyles from './styles';
 
-function Content(props) {
-  const { children, component, className, ...rest } = props;
+interface Props {
+  id: string,
+  children: JSX.Element | JSX.Element[],
+  component?: string,
+  className?: string,
+  style?: any,
+}
+
+function Content(props: Props) {
+  const { children, component = 'div', className = '', id, style, ...rest } = props;
   const classes = useStyles();
 
   return React.createElement(
     component,
     {
+      id,
+      style,
       ...rest,
       className: `${classes.root} ${className}`,
     },
     children,
   );
 }
-
-Content.proptypes = {
-  children: PropTypes.element.isRequired,
-  component: PropTypes.string,
-};
-
-Content.defaultProps = {
-  component: 'div',
-};
 
 export default Content;

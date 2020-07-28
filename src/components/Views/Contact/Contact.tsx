@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState, useRef, RefObject } from 'react';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectContactLang } from '../../../redux/selectors';
@@ -22,7 +22,7 @@ function Contact() {
   const [openErrorAlerts, setOpenErrorAlerts] = useState(false);
   const [statusErrorMessage, setStatusErrorMessage] = useState(lang.unhandledErrorMessage);
   const [reactToErros, setReactToErrors] = useState(false);
-  const ref = useRef();
+  const ref = React.createRef<HTMLFormElement>();
   const classes = useStyles();
   const {
     title,
@@ -58,7 +58,7 @@ function Contact() {
     }
   }, [errors, ref.current]);
 
-  const handleChange = useCallback(evt => {
+  const handleChange = useCallback((evt: React.ChangeEvent<HTMLInputElement>): void => {
     setOpenErrorAlerts(false);
     onChange(evt);
   }, [onChange]);
@@ -119,7 +119,7 @@ function Contact() {
           <InputText
             id="input-email"
             label={lang.email}
-            value={email || ''}
+            value={(email as string) || ''}
             name="email"
             onChange={handleChange}
             error={errors.email}
@@ -131,11 +131,11 @@ function Contact() {
           <InputTextArea
             id="input-message"
             label={lang.message}
-            value={message || ''}
+            value={(message as string) || ''}
             name="message"
             onChange={handleChange}
             error={errors.message}
-            rows="3"
+            rows={3}
             leftPadding={72}
             required
             fullWidth

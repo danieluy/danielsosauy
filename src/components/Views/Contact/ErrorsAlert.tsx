@@ -1,17 +1,20 @@
 import React, { useRef, useEffect, useCallback, useMemo } from 'react';
-import * as PropTypes from 'prop-types';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
 import { selectContactLang } from '../../../redux/selectors';
 // Components
 import Paragraph from '../../Typography/Paragraph';
 
-function ErrorsAlert({ open, errors }) {
+interface Props {
+  open: boolean,
+  errors: any,
+}
+
+function ErrorsAlert({ open = false, errors }: Props) {
   const lang = useSelector(selectContactLang);
   const classes = useStyles();
 
   const alertMessage = useMemo(() => {
-    console.log('errors', errors);
     if (errors.name) return lang.nameIsRequired;
     if (errors.email) return lang.emailIsRequired;
     if (errors.message) return lang.messageIsRequired;
@@ -29,14 +32,5 @@ function ErrorsAlert({ open, errors }) {
     </div>
   );
 }
-
-ErrorsAlert.propTypes = {
-  open: PropTypes.bool,
-  errors: PropTypes.object.isRequired,
-};
-
-ErrorsAlert.defaultProps = {
-  open: false,
-};
 
 export default ErrorsAlert;

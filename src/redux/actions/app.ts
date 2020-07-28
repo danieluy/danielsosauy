@@ -1,5 +1,5 @@
 export const SET_APP_INFO = 'SET_APP_INFO';
-export const setAppInfo = info => ({
+export const setAppInfo = (info: any) => ({
   type: SET_APP_INFO,
   payload: info,
 });
@@ -14,4 +14,4 @@ export const TOGGLE_APP_THEME = 'TOGGLE_APP_THEME';
 export const toggleAppTheme = () => ({ type: TOGGLE_APP_THEME });
 
 export const SET_APP_THEME = 'SET_APP_THEME';
-export const setAppTheme = mode => ({ type: SET_APP_THEME, payload: mode });
+export const setAppTheme = (mode: any) => ({ type: SET_APP_THEME, payload: mode });

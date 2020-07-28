@@ -6,10 +6,11 @@ interface Props {
   children: string | JSX.Element,
   fullWidth?: boolean,
   className?: string,
+  type?: "button" | "reset" | "submit",
   onClick: (event: React.MouseEvent) => void,
 }
 
-function Button({ children, fullWidth, className, onClick, ...rest }: Props) {
+function Button({ children, fullWidth, className, type = 'button', onClick, ...rest }: Props) {
   const classes = useStyles();
   const style = useMemo(() => {
     if (fullWidth) {
@@ -23,6 +24,7 @@ function Button({ children, fullWidth, className, onClick, ...rest }: Props) {
       className={`${classes.button} ${className}`}
       style={style}
       onClick={onClick}
+      type={type}
       {...rest}
     >
       {children}

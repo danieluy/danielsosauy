@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import useStyles from './styles';
 
-interface Props {
+export interface InputProps {
   id: string,
   label: string,
   fullWidth: boolean,
@@ -11,10 +11,29 @@ interface Props {
   helperText?: string,
   required: boolean,
   value: string,
+  name: string,
+  onChange: ((event: React.ChangeEvent<HTMLInputElement>) => void),
+  autoComplete?: string,
+  autoFocus?: boolean,
 }
 
-function InputText(props: Props) {
-  const { error, errorText, fullWidth, label, id, leftPadding, helperText, required = false, value, ...rest } = props;
+function InputText(props: InputProps) {
+  const {
+    error,
+    errorText,
+    fullWidth,
+    label,
+    id,
+    leftPadding,
+    helperText,
+    required = false,
+    value,
+    name,
+    onChange,
+    autoComplete,
+    autoFocus,
+    ...rest
+  } = props;
   const classes = useStyles();
   const style = useMemo(() => {
     if (fullWidth) {
@@ -51,6 +70,10 @@ function InputText(props: Props) {
         required={required}
         aria-required={required}
         value={value}
+        name={name}
+        onChange={onChange}
+        autoComplete={autoComplete}
+        autoFocus={autoFocus}
         {...rest}
       />
       {!errorMessage && !!helperText && <span tabIndex={-1} id={descriptionId} className={classes.helperText}>{helperText}</span>}

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import useStyles from './styles';
 import useWindowSize from '../../react-hooks/useWindowSize';
 

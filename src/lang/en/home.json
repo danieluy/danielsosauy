@@ -74,7 +74,8 @@
         "[CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), defines and applies the styles and animations that enrich the interaction of users with the site.",
         "[React](https://facebook.github.io/react/), JavaScript library used to build the user interface.",
         "[Redux](https://redux.js.org/), JavaScript library used to handle language state and general app info.",
-        "[Webpack](https://webpack.js.org/), bundling and minification of JavaScript as well as other resources to optimize the resources loading."
+        "[Webpack](https://webpack.js.org/), bundling and minification of JavaScript as well as other resources to optimize the resources loading.",
+        "[TypeScript](https://www.typescriptlang.org/), type checking and transpiling of JavaScript code."
       ],
       "banner": {
         "src": "assets/img/article-banners/undraw_static_assets_rpm6.svg",

@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "./public/",
+    "outDir": "public",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
     "jsx": "react",
+    "moduleResolution": "node",
     "lib": [
-      "es6",
+      "es2017",
       "dom"
     ],
     "noImplicitThis": true,

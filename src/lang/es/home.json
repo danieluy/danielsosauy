@@ -74,7 +74,8 @@
         "[CSS](https://es.wikipedia.org/wiki/Hoja_de_estilos_en_cascada), define y aplica los estilos y animaciones que enriquecen la interacción de los usuarios con el sitio.",
         "[React](https://es.reactjs.org/), librería JavaScript usada para construir la interfaz de usuario.",
         "[Redux](https://redux.js.org/), librería JavaScript usada para manejar el estado del idioma y la información general de la aplicación.",
-        "[Webpack](https://webpack.js.org/), empaqueta y minifica los archivos JavaScript, así como otros recursos para optimizar la carga de recursos."
+        "[Webpack](https://webpack.js.org/), empaqueta y minifica los archivos JavaScript, así como otros recursos para optimizar la carga de recursos.",
+        "[TypeScript](https://www.typescriptlang.org/), verificación de tipado y transpilación de código JavaScript."
       ],
       "banner": {
         "src": "assets/img/article-banners/undraw_static_assets_rpm6.svg",

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectHomeLang } from '../../../redux/selectors';
 // Components
 import Article from '../../Article/Article';
+import Markdown from '../../Markdown/Markdown';
 
 function Home() {
   const classes = useStyles();
@@ -31,6 +32,7 @@ function Home() {
 
   return (
     <section className={classes.section}>
+      <Markdown />
       <Article articleId="what-why" title={whatWhy.title} banner={whatWhy.banner} paragraphs={whatWhy.paragraphs} />
       <Article articleId="accessibility" title={accessibility.title} banner={accessibility.banner} paragraphs={accessibility.paragraphs} />
       <Article articleId="design" title={design.title} banner={design.banner} paragraphs={design.paragraphs} />

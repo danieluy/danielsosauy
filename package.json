@@ -44,14 +44,16 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.2.1",
+    "@types/markdown-it": "^10.0.1",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "helmet": "^3.23.3",
+    "markdown-it": "^11.0.0",
     "morgan": "^1.10.0",
     "request": "^2.88.2"
   }

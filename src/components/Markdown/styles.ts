@@ -4,11 +4,11 @@ import { createStyles, Theme } from '@material-ui/core';
 export default makeStyles((theme: Theme) => {
   return createStyles({
     root: {
-      maxWidth: 600,
-      margin: '0 auto',
-      padding: theme.spacing(6),
       '& p': {
         ...theme.typography.body1,
+      },
+      '& p+p': {
+        marginTop: theme.spacing(),
       },
       '& a': {
         color: theme.palette.text.primary,
